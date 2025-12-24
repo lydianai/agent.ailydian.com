@@ -23,6 +23,10 @@
       "destination": "/api/index.py"
     },
     {
+      "source": "/pages/(.*)",
+      "destination": "/pages/$1"
+    },
+    {
       "source": "/static/js/(.*)",
       "destination": "/static/js/$1"
     },
@@ -32,11 +36,11 @@
     },
     {
       "source": "/(.*)\\.html",
-      "destination": "/templates/$1.html"
+      "destination": "/pages/$1.html"
     },
     {
       "source": "/",
-      "destination": "/templates/index.html"
+      "destination": "/pages/index.html"
     }
   ],
   "headers": [
