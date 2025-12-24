@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/emergency.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Lydian AI</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="emergency.html">
+                    <i class="fas fa-ambulance"></i>
+                    <span>Emergency</span>
+                </a>
+            </li>
+            <li>
+                <a href="diagnosis.html">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>Diagnosis</span>
+                </a>
+            </li>
+            <li>
+                <a href="treatment.html">
+                    <i class="fas fa-notes-medical"></i>
+                    <span>Treatment</span>
+                </a>
+            </li>
+            <li>
+                <a href="pharmacy.html">
+                    <i class="fas fa-pills"></i>
+                    <span>Pharmacy</span>
+                </a>
+            </li>
+            <li>
+                <a href="patients.html">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" class="user-profile">
+                <i class="fas fa-user-circle"></i>
+                <span>Dr. Admin</span>
+            </a>
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-ambulance"></i> Emergency Department</h1>
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Emergency Stats -->
+        <section class="emergency-stats">
+            <div class="stat-card stat-card-danger">
+                <div class="stat-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Critical (ESI 1)</h3>
+                    <p class="stat-number">2</p>
+                    <span class="stat-badge critical">Immediate</span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-warning">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Emergent (ESI 2)</h3>
+                    <p class="stat-number">8</p>
+                    <span class="stat-badge high">10 min</span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-info">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Urgent (ESI 3)</h3>
+                    <p class="stat-number">15</p>
+                    <span class="stat-badge medium">30 min</span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-success">
+                <div class="stat-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Non-Urgent (ESI 4-5)</h3>
+                    <p class="stat-number">12</p>
+                    <span class="stat-badge low">60 min</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Triage Assessment Form -->
+        <section class="triage-section">
+            <div class="triage-form-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-clipboard-list"></i> ESI Triage Assessment</h2>
+                    <button class="btn-primary" id="clearForm">
+                        <i class="fas fa-redo"></i> Clear Form
+                    </button>
+                </div>
+
+                <form id="triageForm" class="triage-form">
+                    <!-- Patient Info -->
+                    <div class="form-section">
+                        <h3>Patient Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="patientId">Patient ID</label>
+                                <input type="text" id="patientId" name="patientId" placeholder="P-XXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="arrivalTime">Arrival Time</label>
+                                <input type="datetime-local" id="arrivalTime" name="arrivalTime" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="arrivalMode">Arrival Mode</label>
+                                <select id="arrivalMode" name="arrivalMode" required>
+                                    <option value="">Select...</option>
+                                    <option value="ambulance">Ambulance</option>
+                                    <option value="walk-in">Walk-in</option>
+                                    <option value="helicopter">Helicopter</option>
+                                    <option value="police">Police</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chief Complaint -->
+                    <div class="form-section">
+                        <h3>Chief Complaint</h3>
+                        <div class="form-group">
+                            <label for="chiefComplaint">Primary Complaint</label>
+                            <textarea id="chiefComplaint" name="chiefComplaint" rows="3" placeholder="Describe the patient's main complaint..." required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Vital Signs -->
+                    <div class="form-section">
+                        <h3>Vital Signs</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bloodPressureSystolic">BP Systolic (mmHg)</label>
+                                <input type="number" id="bloodPressureSystolic" name="bloodPressureSystolic" placeholder="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bloodPressureDiastolic">BP Diastolic (mmHg)</label>
+                                <input type="number" id="bloodPressureDiastolic" name="bloodPressureDiastolic" placeholder="80" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="heartRate">Heart Rate (bpm)</label>
+                                <input type="number" id="heartRate" name="heartRate" placeholder="70" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="respiratoryRate">Respiratory Rate (bpm)</label>
+                                <input type="number" id="respiratoryRate" name="respiratoryRate" placeholder="16" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="temperature">Temperature (°C)</label>
+                                <input type="number" step="0.1" id="temperature" name="temperature" placeholder="37.0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="oxygenSaturation">O2 Saturation (%)</label>
+                                <input type="number" id="oxygenSaturation" name="oxygenSaturation" placeholder="98" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="glasgowComaScale">Glasgow Coma Scale</label>
+                                <input type="number" id="glasgowComaScale" name="glasgowComaScale" placeholder="15" min="3" max="15" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="painScale">Pain Scale (0-10)</label>
+                                <input type="number" id="painScale" name="painScale" placeholder="0" min="0" max="10" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Symptoms -->
+                    <div class="form-section">
+                        <h3>Symptoms</h3>
+                        <div class="symptoms-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="chest_pain">
+                                <span>Chest Pain</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="difficulty_breathing">
+                                <span>Difficulty Breathing</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="altered_consciousness">
+                                <span>Altered Consciousness</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="severe_bleeding">
+                                <span>Severe Bleeding</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="seizure">
+                                <span>Seizure</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="severe_pain">
+                                <span>Severe Pain</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="stroke_symptoms">
+                                <span>Stroke Symptoms</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="symptoms" value="trauma">
+                                <span>Trauma</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Medical History -->
+                    <div class="form-section">
+                        <h3>Medical History (Optional)</h3>
+                        <div class="form-group">
+                            <textarea id="medicalHistory" name="medicalHistory" rows="3" placeholder="Previous conditions, medications, allergies..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-stethoscope"></i> Perform Triage Assessment
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Triage Result -->
+            <div class="triage-result-container" id="triageResult" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-clipboard-check"></i> Triage Result</h2>
+                    <button class="btn-secondary" id="newTriage">
+                        <i class="fas fa-plus"></i> New Triage
+                    </button>
+                </div>
+
+                <div class="result-content">
+                    <!-- ESI Level Badge -->
+                    <div class="esi-badge-container">
+                        <div class="esi-badge" id="esiBadge">
+                            <div class="esi-level">ESI <span id="esiLevel">-</span></div>
+                            <div class="esi-label" id="esiLabel">-</div>
+                        </div>
+                    </div>
+
+                    <!-- Priority & Timing -->
+                    <div class="result-grid">
+                        <div class="result-card">
+                            <h4><i class="fas fa-exclamation-circle"></i> Priority</h4>
+                            <p id="priorityText">-</p>
+                        </div>
+                        <div class="result-card">
+                            <h4><i class="fas fa-clock"></i> Target Time</h4>
+                            <p id="targetTime">-</p>
+                        </div>
+                        <div class="result-card">
+                            <h4><i class="fas fa-check-circle"></i> Confidence</h4>
+                            <p id="confidenceScore">-</p>
+                        </div>
+                    </div>
+
+                    <!-- ABCDE Assessment -->
+                    <div class="abcde-container">
+                        <h3>ABCDE Assessment</h3>
+                        <div class="abcde-grid">
+                            <div class="abcde-item">
+                                <div class="abcde-letter">A</div>
+                                <div class="abcde-content">
+                                    <strong>Airway</strong>
+                                    <p id="airwayStatus">-</p>
+                                </div>
+                            </div>
+                            <div class="abcde-item">
+                                <div class="abcde-letter">B</div>
+                                <div class="abcde-content">
+                                    <strong>Breathing</strong>
+                                    <p id="breathingStatus">-</p>
+                                </div>
+                            </div>
+                            <div class="abcde-item">
+                                <div class="abcde-letter">C</div>
+                                <div class="abcde-content">
+                                    <strong>Circulation</strong>
+                                    <p id="circulationStatus">-</p>
+                                </div>
+                            </div>
+                            <div class="abcde-item">
+                                <div class="abcde-letter">D</div>
+                                <div class="abcde-content">
+                                    <strong>Disability</strong>
+                                    <p id="disabilityStatus">-</p>
+                                </div>
+                            </div>
+                            <div class="abcde-item">
+                                <div class="abcde-letter">E</div>
+                                <div class="abcde-content">
+                                    <strong>Exposure</strong>
+                                    <p id="exposureStatus">-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Immediate Actions -->
+                    <div class="actions-container">
+                        <h3><i class="fas fa-bolt"></i> Immediate Actions</h3>
+                        <ul id="immediateActions" class="action-list"></ul>
+                    </div>
+
+                    <!-- Recommended Protocols -->
+                    <div class="protocols-container">
+                        <h3><i class="fas fa-book-medical"></i> Activated Protocols</h3>
+                        <div id="activatedProtocols" class="protocol-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Emergency Cases -->
+        <section class="active-cases">
+            <h2><i class="fas fa-users-medical"></i> Active Emergency Cases</h2>
+            <div class="cases-grid">
+                <div class="case-card esi-1">
+                    <div class="case-header">
+                        <span class="case-id">P-1001</span>
+                        <span class="esi-badge-small">ESI 1</span>
+                    </div>
+                    <div class="case-complaint">Cardiac Arrest</div>
+                    <div class="case-vitals">
+                        <span><i class="fas fa-heartbeat"></i> 0 bpm</span>
+                        <span><i class="fas fa-lungs"></i> Apneic</span>
+                    </div>
+                    <div class="case-time">
+                        <i class="fas fa-clock"></i> 2 min ago
+                    </div>
+                    <div class="case-actions">
+                        <button class="btn-action-critical"><i class="fas fa-play"></i> ACLS Protocol</button>
+                    </div>
+                </div>
+
+                <div class="case-card esi-2">
+                    <div class="case-header">
+                        <span class="case-id">P-0987</span>
+                        <span class="esi-badge-small">ESI 2</span>
+                    </div>
+                    <div class="case-complaint">STEMI - Chest Pain</div>
+                    <div class="case-vitals">
+                        <span><i class="fas fa-heartbeat"></i> 110 bpm</span>
+                        <span><i class="fas fa-tint"></i> 145/92 mmHg</span>
+                    </div>
+                    <div class="case-time">
+                        <i class="fas fa-clock"></i> 8 min ago
+                    </div>
+                    <div class="case-actions">
+                        <button class="btn-action-high"><i class="fas fa-ambulance"></i> Cath Lab Alert</button>
+                    </div>
+                </div>
+
+                <div class="case-card esi-2">
+                    <div class="case-header">
+                        <span class="case-id">P-0892</span>
+                        <span class="esi-badge-small">ESI 2</span>
+                    </div>
+                    <div class="case-complaint">Stroke Alert</div>
+                    <div class="case-vitals">
+                        <span><i class="fas fa-brain"></i> GCS 12</span>
+                        <span><i class="fas fa-clock"></i> Last seen 45 min</span>
+                    </div>
+                    <div class="case-time">
+                        <i class="fas fa-clock"></i> 12 min ago
+                    </div>
+                    <div class="case-actions">
+                        <button class="btn-action-high"><i class="fas fa-x-ray"></i> CT Ordered</button>
+                    </div>
+                </div>
+
+                <div class="case-card esi-3">
+                    <div class="case-header">
+                        <span class="case-id">P-1023</span>
+                        <span class="esi-badge-small">ESI 3</span>
+                    </div>
+                    <div class="case-complaint">Abdominal Pain</div>
+                    <div class="case-vitals">
+                        <span><i class="fas fa-heartbeat"></i> 88 bpm</span>
+                        <span><i class="fas fa-thermometer"></i> 38.2°C</span>
+                    </div>
+                    <div class="case-time">
+                        <i class="fas fa-clock"></i> 25 min ago
+                    </div>
+                    <div class="case-actions">
+                        <button class="btn-action-medium"><i class="fas fa-vials"></i> Labs Pending</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Performing AI Triage Assessment...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/js/dashboard.js"></script>
+    <script src="../static/js/emergency.js"></script>
+</body>
+</html>

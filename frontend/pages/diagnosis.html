@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/diagnosis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Lydian AI</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="emergency.html">
+                    <i class="fas fa-ambulance"></i>
+                    <span>Emergency</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="diagnosis.html">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>Diagnosis</span>
+                </a>
+            </li>
+            <li>
+                <a href="treatment.html">
+                    <i class="fas fa-notes-medical"></i>
+                    <span>Treatment</span>
+                </a>
+            </li>
+            <li>
+                <a href="pharmacy.html">
+                    <i class="fas fa-pills"></i>
+                    <span>Pharmacy</span>
+                </a>
+            </li>
+            <li>
+                <a href="patients.html">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" class="user-profile">
+                <i class="fas fa-user-circle"></i>
+                <span>Dr. Admin</span>
+            </a>
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-stethoscope"></i> AI Diagnosis Assistant</h1>
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">2</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Diagnosis Stats -->
+        <section class="diagnosis-stats">
+            <div class="stat-card stat-card-primary">
+                <div class="stat-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>AI Diagnoses Today</h3>
+                    <p class="stat-number">87</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 15.3%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-success">
+                <div class="stat-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Accuracy Rate</h3>
+                    <p class="stat-number">96.8%</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 2.1%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-info">
+                <div class="stat-icon">
+                    <i class="fas fa-x-ray"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Images Analyzed</h3>
+                    <p class="stat-number">234</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 18.7%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-warning">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Avg Processing Time</h3>
+                    <p class="stat-number">3.2s</p>
+                    <span class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> 12%
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagnosis Form -->
+        <section class="diagnosis-section">
+            <div class="diagnosis-form-container">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-medical"></i> New Diagnostic Analysis</h2>
+                    <button class="btn-primary" id="clearDiagnosisForm">
+                        <i class="fas fa-redo"></i> Clear
+                    </button>
+                </div>
+
+                <form id="diagnosisForm" class="diagnosis-form">
+                    <!-- Patient Information -->
+                    <div class="form-section">
+                        <h3>Patient Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="patientId">Patient ID *</label>
+                                <input type="text" id="patientId" name="patientId" placeholder="P-XXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">Age</label>
+                                <input type="number" id="patientAge" name="patientAge" placeholder="35">
+                            </div>
+                            <div class="form-group">
+                                <label for="patientGender">Gender</label>
+                                <select id="patientGender" name="patientGender">
+                                    <option value="">Select...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Data -->
+                    <div class="form-section">
+                        <h3>Clinical Presentation</h3>
+                        <div class="form-group">
+                            <label for="clinicalSymptoms">Presenting Symptoms *</label>
+                            <textarea id="clinicalSymptoms" name="clinicalSymptoms" rows="3" placeholder="Describe patient symptoms, duration, severity..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalHistory">Medical History</label>
+                            <textarea id="medicalHistory" name="medicalHistory" rows="2" placeholder="Previous conditions, surgeries, medications..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Medical Imaging -->
+                    <div class="form-section">
+                        <h3>Medical Imaging</h3>
+                        <div class="imaging-upload-container">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Upload Medical Images</h4>
+                                <p>Drag & drop files here or click to browse</p>
+                                <p class="upload-info">Supported: X-Ray, CT, MRI, Ultrasound (JPG, PNG, DICOM)</p>
+                                <input type="file" id="imageUpload" accept="image/*,.dcm" multiple hidden>
+                                <button type="button" class="btn-upload" id="browseBtn">
+                                    <i class="fas fa-folder-open"></i> Browse Files
+                                </button>
+                            </div>
+                            <div class="uploaded-images" id="uploadedImages"></div>
+                        </div>
+
+                        <div class="form-grid" style="margin-top: 20px;">
+                            <div class="form-group">
+                                <label for="imagingType">Imaging Type</label>
+                                <select id="imagingType" name="imagingType">
+                                    <option value="">Select modality...</option>
+                                    <option value="x_ray">X-Ray</option>
+                                    <option value="ct">CT Scan</option>
+                                    <option value="mri">MRI</option>
+                                    <option value="ultrasound">Ultrasound</option>
+                                    <option value="pet">PET Scan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bodyRegion">Body Region</label>
+                                <select id="bodyRegion" name="bodyRegion">
+                                    <option value="">Select region...</option>
+                                    <option value="head">Head/Brain</option>
+                                    <option value="chest">Chest</option>
+                                    <option value="abdomen">Abdomen</option>
+                                    <option value="pelvis">Pelvis</option>
+                                    <option value="spine">Spine</option>
+                                    <option value="extremities">Extremities</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="imagingDate">Imaging Date</label>
+                                <input type="date" id="imagingDate" name="imagingDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Laboratory Results -->
+                    <div class="form-section">
+                        <h3>Laboratory Results (Optional)</h3>
+                        <div class="lab-results-grid">
+                            <div class="form-group">
+                                <label for="wbc">WBC (4.5-11.0 K/μL)</label>
+                                <input type="number" step="0.1" id="wbc" name="wbc" placeholder="7.5">
+                            </div>
+                            <div class="form-group">
+                                <label for="hemoglobin">Hemoglobin (12-16 g/dL)</label>
+                                <input type="number" step="0.1" id="hemoglobin" name="hemoglobin" placeholder="14.0">
+                            </div>
+                            <div class="form-group">
+                                <label for="platelets">Platelets (150-400 K/μL)</label>
+                                <input type="number" id="platelets" name="platelets" placeholder="250">
+                            </div>
+                            <div class="form-group">
+                                <label for="glucose">Glucose (70-100 mg/dL)</label>
+                                <input type="number" id="glucose" name="glucose" placeholder="90">
+                            </div>
+                            <div class="form-group">
+                                <label for="creatinine">Creatinine (0.6-1.2 mg/dL)</label>
+                                <input type="number" step="0.1" id="creatinine" name="creatinine" placeholder="1.0">
+                            </div>
+                            <div class="form-group">
+                                <label for="troponin">Troponin (ng/mL)</label>
+                                <input type="number" step="0.01" id="troponin" name="troponin" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-brain"></i> Analyze with AI
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Diagnosis Result -->
+            <div class="diagnosis-result-container" id="diagnosisResult" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-clipboard-check"></i> AI Diagnosis Report</h2>
+                    <div class="result-actions">
+                        <button class="btn-secondary" id="exportPDF">
+                            <i class="fas fa-file-pdf"></i> Export PDF
+                        </button>
+                        <button class="btn-primary" id="newDiagnosis">
+                            <i class="fas fa-plus"></i> New Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result-content">
+                    <!-- Confidence Score -->
+                    <div class="confidence-container">
+                        <div class="confidence-badge">
+                            <div class="confidence-label">Confidence Score</div>
+                            <div class="confidence-value" id="confidenceValue">--</div>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Primary Diagnosis -->
+                    <div class="primary-diagnosis">
+                        <h3><i class="fas fa-star"></i> Primary Diagnosis</h3>
+                        <div class="diagnosis-card primary">
+                            <div class="diagnosis-header">
+                                <h4 id="primaryDiagnosisName">-</h4>
+                                <span class="icd-code" id="primaryICD">-</span>
+                            </div>
+                            <p class="diagnosis-description" id="primaryDescription">-</p>
+                            <div class="diagnosis-meta">
+                                <span class="severity" id="primarySeverity">-</span>
+                                <span class="confidence" id="primaryConfidence">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Differential Diagnosis -->
+                    <div class="differential-diagnosis">
+                        <h3><i class="fas fa-list"></i> Differential Diagnosis</h3>
+                        <div id="differentialList" class="differential-list"></div>
+                    </div>
+
+                    <!-- Imaging Analysis -->
+                    <div class="imaging-analysis" id="imagingAnalysis" style="display: none;">
+                        <h3><i class="fas fa-x-ray"></i> Imaging Findings</h3>
+                        <div class="imaging-grid">
+                            <div class="imaging-preview" id="analyzedImagePreview"></div>
+                            <div class="imaging-findings" id="imagingFindings"></div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Reasoning -->
+                    <div class="clinical-reasoning">
+                        <h3><i class="fas fa-brain"></i> Clinical Reasoning</h3>
+                        <div class="reasoning-content" id="reasoningContent">
+                            <p>-</p>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="recommendations">
+                        <h3><i class="fas fa-notes-medical"></i> Recommendations</h3>
+                        <div class="recommendations-grid">
+                            <div class="recommendation-card">
+                                <h4><i class="fas fa-vial"></i> Additional Tests</h4>
+                                <ul id="recommendedTests"></ul>
+                            </div>
+                            <div class="recommendation-card">
+                                <h4><i class="fas fa-user-md"></i> Specialist Referral</h4>
+                                <ul id="specialistReferrals"></ul>
+                            </div>
+                            <div class="recommendation-card">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Follow-up</h4>
+                                <ul id="followupActions"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Stratification -->
+                    <div class="risk-stratification">
+                        <h3><i class="fas fa-chart-line"></i> Risk Stratification</h3>
+                        <div class="risk-grid">
+                            <div class="risk-item">
+                                <span class="risk-label">Mortality Risk</span>
+                                <span class="risk-value" id="mortalityRisk">-</span>
+                            </div>
+                            <div class="risk-item">
+                                <span class="risk-label">Complication Risk</span>
+                                <span class="risk-value" id="complicationRisk">-</span>
+                            </div>
+                            <div class="risk-item">
+                                <span class="risk-label">Urgency Level</span>
+                                <span class="risk-value" id="urgencyLevel">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Diagnoses -->
+        <section class="recent-diagnoses">
+            <h2><i class="fas fa-history"></i> Recent AI Diagnoses</h2>
+            <div class="diagnoses-table-container">
+                <table class="diagnoses-table">
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Diagnosis</th>
+                            <th>ICD-10</th>
+                            <th>Confidence</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>P-1023</strong></td>
+                            <td>Community-Acquired Pneumonia</td>
+                            <td><span class="icd-badge">J18.9</span></td>
+                            <td><span class="confidence-badge high">94.3%</span></td>
+                            <td>2024-01-15 14:32</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>P-0987</strong></td>
+                            <td>Acute Myocardial Infarction</td>
+                            <td><span class="icd-badge">I21.9</span></td>
+                            <td><span class="confidence-badge high">97.8%</span></td>
+                            <td>2024-01-15 13:18</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>P-0892</strong></td>
+                            <td>Ischemic Stroke</td>
+                            <td><span class="icd-badge">I63.9</span></td>
+                            <td><span class="confidence-badge high">96.2%</span></td>
+                            <td>2024-01-15 12:45</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>P-0765</strong></td>
+                            <td>Acute Appendicitis</td>
+                            <td><span class="icd-badge">K35.80</span></td>
+                            <td><span class="confidence-badge medium">88.5%</span></td>
+                            <td>2024-01-15 11:22</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-download"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Analyzing with AI... Please wait</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/js/dashboard.js"></script>
+    <script src="../static/js/diagnosis.js"></script>
+</body>
+</html>
