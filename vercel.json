@@ -1,4 +1,6 @@
 {
+  "buildCommand": "echo 'No build needed'",
+  "outputDirectory": "frontend",
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -22,19 +24,19 @@
     },
     {
       "source": "/static/js/(.*)",
-      "destination": "/frontend/static/js/$1"
+      "destination": "/static/js/$1"
     },
     {
       "source": "/static/css/(.*)",
-      "destination": "/frontend/static/css/$1"
+      "destination": "/static/css/$1"
     },
     {
       "source": "/(.*)\\.html",
-      "destination": "/frontend/templates/$1.html"
+      "destination": "/templates/$1.html"
     },
     {
       "source": "/",
-      "destination": "/frontend/templates/index.html"
+      "destination": "/templates/index.html"
     }
   ],
   "headers": [
