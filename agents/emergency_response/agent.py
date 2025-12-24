@@ -12,6 +12,11 @@ from enum import Enum
 
 from agents.base_agent import BaseAgent, AgentCapability
 from core.logging import get_logger
+from core.monitoring.metrics import (
+    track_agent_performance,
+    track_emergency_triage,
+    track_protocol_activation,
+)
 
 logger = get_logger(__name__)
 
@@ -679,6 +684,7 @@ class EmergencyResponseAgent(BaseAgent):
     # PUBLIC API
     # ========================================================================
 
+    @track_agent_performance("Emergency Response Agent")
     async def triage_patient(
         self,
         chief_complaint: str,
@@ -714,11 +720,21 @@ class EmergencyResponseAgent(BaseAgent):
         reasoning = await self.reason(perception)
         action_plan = await self.act(reasoning)
 
+        # Track metrics
+        triage_level_str = reasoning["triage_level"].value
+        emergency_type_str = reasoning["emergency_type"].value if reasoning["emergency_type"] else "unknown"
+
+        track_emergency_triage(triage_level_str, emergency_type_str)
+
+        # Track protocol activations
+        for protocol in action_plan["protocols_activated"]:
+            track_protocol_activation(protocol["protocol"])
+
         # Combine results
         return {
-            "triage_level": reasoning["triage_level"].value,
+            "triage_level": triage_level_str,
             "priority": action_plan["priority"],
-            "emergency_type": reasoning["emergency_type"].value if reasoning["emergency_type"] else None,
+            "emergency_type": emergency_type_str,
             "action_plan": action_plan,
             "abcde_assessment": reasoning["abcde_assessment"],
             "red_flags": perception["red_flags"],
