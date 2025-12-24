@@ -292,11 +292,32 @@
 
         .hero-text h1 {
             font-family: 'Orbitron', monospace;
-            font-size: 72px;
+            font-size: 82px;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 30px;
-            letter-spacing: -2px;
+            letter-spacing: -3px;
+            background: linear-gradient(135deg, #ff0033 0%, #ff3366 25%, #ff6699 50%, #ff0033 75%, #ff3366 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: premiumGradientFlow 4s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(255, 0, 51, 0.3);
+            filter: drop-shadow(0 4px 20px rgba(255, 0, 51, 0.4));
+            position: relative;
+            display: inline-block;
+        }
+
+        @keyframes premiumGradientFlow {
+            0%, 100% {
+                background-position: 0% 50%;
+                filter: drop-shadow(0 4px 20px rgba(255, 0, 51, 0.4)) brightness(1);
+            }
+            50% {
+                background-position: 100% 50%;
+                filter: drop-shadow(0 4px 30px rgba(255, 0, 51, 0.6)) brightness(1.2);
+            }
         }
 
         .lydian-brand {
@@ -763,10 +784,20 @@
 
         @media (max-width: 768px) {
             .logo-brand { font-size: 24px; }
-            .hero-text h1 { font-size: 48px; }
+            .hero-text h1 {
+                font-size: 42px !important;
+                letter-spacing: -2px !important;
+            }
             .live-stats { grid-template-columns: repeat(2, 1fr); }
             .footer-content { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 32px !important;
+                letter-spacing: -1px !important;
+            }
         }
     </style>
 </head>
