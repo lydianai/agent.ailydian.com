@@ -1,0 +1,437 @@
+/* Shared Styles for Treatment, Pharmacy & Patients Pages - Fully Responsive */
+
+/* Treatment Plan Cards */
+.treatment-plan-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.treatment-plan-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.medication-list,
+.intervention-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.medication-item,
+.intervention-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--bg-color);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.medication-item:hover,
+.intervention-item:hover {
+    background: rgba(255, 0, 51, 0.05);
+    transform: translateX(5px);
+}
+
+.medication-info h5,
+.intervention-info h5 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.medication-info p,
+.intervention-info p {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.medication-badge,
+.priority-badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.medication-badge.critical {
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--danger-color);
+}
+
+.medication-badge.routine {
+    background: rgba(0, 212, 170, 0.15);
+    color: var(--success-color);
+}
+
+/* Drug Interaction Alerts */
+.interaction-alert {
+    background: rgba(255, 165, 0, 0.1);
+    border-left: 4px solid var(--warning-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.interaction-alert.severe {
+    background: rgba(255, 71, 87, 0.1);
+    border-left-color: var(--danger-color);
+}
+
+.interaction-alert h5 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.interaction-alert p {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* Prescription Verification */
+.verification-result {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.verification-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.verification-status.approved {
+    background: rgba(0, 212, 170, 0.15);
+    color: var(--success-color);
+}
+
+.verification-status.rejected {
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--danger-color);
+}
+
+.verification-status.pending {
+    background: rgba(255, 165, 0, 0.15);
+    color: var(--warning-color);
+}
+
+/* Patient List Table */
+.patients-table-container {
+    overflow-x: auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.patients-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.patients-table thead {
+    background: var(--bg-color);
+}
+
+.patients-table th {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.patients-table td {
+    padding: 15px;
+    font-size: 14px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.patients-table tbody tr:hover {
+    background: var(--bg-color);
+}
+
+.patient-status {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.patient-status.active {
+    background: rgba(0, 212, 170, 0.15);
+    color: var(--success-color);
+}
+
+.patient-status.discharged {
+    background: rgba(149, 165, 166, 0.15);
+    color: #95a5a6;
+}
+
+.patient-status.critical {
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--danger-color);
+}
+
+/* Search and Filter Bar */
+.search-filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 16px 12px 45px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background: white url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>') no-repeat 15px center;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 0, 51, 0.1);
+}
+
+.filter-select {
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Monitoring Plan */
+.monitoring-plan {
+    background: rgba(52, 152, 219, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--info-color);
+    margin-top: 20px;
+}
+
+.monitoring-plan h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.monitoring-plan ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.monitoring-plan li {
+    font-size: 14px;
+    color: var(--text-color);
+    padding-left: 20px;
+    position: relative;
+}
+
+.monitoring-plan li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--info-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Patient Details Modal/Card */
+.patient-detail-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.patient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.patient-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.patient-id-badge {
+    padding: 8px 16px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+.patient-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Timeline Component */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.timeline-content {
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.timeline-date {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.timeline-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.timeline-description {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-filter-bar {
+        flex-direction: column;
+    }
+
+    .search-input {
+        min-width: 100%;
+    }
+
+    .patients-table {
+        font-size: 12px;
+    }
+
+    .patients-table th,
+    .patients-table td {
+        padding: 10px 8px;
+    }
+
+    .patient-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .patient-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .medication-item,
+    .intervention-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
