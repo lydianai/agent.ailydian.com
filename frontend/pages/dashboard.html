@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Lydian AI</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="emergency.html">
+                    <i class="fas fa-ambulance"></i>
+                    <span>Emergency</span>
+                </a>
+            </li>
+            <li>
+                <a href="diagnosis.html">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>Diagnosis</span>
+                </a>
+            </li>
+            <li>
+                <a href="treatment.html">
+                    <i class="fas fa-notes-medical"></i>
+                    <span>Treatment</span>
+                </a>
+            </li>
+            <li>
+                <a href="pharmacy.html">
+                    <i class="fas fa-pills"></i>
+                    <span>Pharmacy</span>
+                </a>
+            </li>
+            <li>
+                <a href="patients.html">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" class="user-profile">
+                <i class="fas fa-user-circle"></i>
+                <span>Dr. Admin</span>
+            </a>
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1>Healthcare AI Dashboard</h1>
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <section class="stats-grid">
+            <div class="stat-card stat-card-primary">
+                <div class="stat-icon">
+                    <i class="fas fa-user-injured"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Active Patients</h3>
+                    <p class="stat-number">1,247</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 12.5%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-danger">
+                <div class="stat-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Emergency Cases</h3>
+                    <p class="stat-number">45</p>
+                    <span class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> 8.3%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-success">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>AI Diagnoses</h3>
+                    <p class="stat-number">3,456</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 23.1%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-warning">
+                <div class="stat-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Prescriptions</h3>
+                    <p class="stat-number">5,678</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 15.7%
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Row -->
+        <section class="charts-row">
+            <div class="chart-card">
+                <h3>Patient Flow (Last 7 Days)</h3>
+                <canvas id="patientFlowChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Triage Distribution</h3>
+                <canvas id="triageChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Recent Activity & Alerts -->
+        <section class="activity-section">
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon critical">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>STEMI Alert</strong> activated for Patient P-1023</p>
+                            <span class="activity-time">2 minutes ago</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>Diagnosis completed for Patient P-0987</p>
+                            <span class="activity-time">15 minutes ago</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon warning">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>Drug interaction detected: Warfarin + Aspirin</p>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon info">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>New patient registered: P-1025</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="alerts-panel">
+                <h3>Active Alerts</h3>
+                <div class="alert-item alert-critical">
+                    <i class="fas fa-heartbeat"></i>
+                    <div class="alert-content">
+                        <strong>Cardiac Arrest</strong>
+                        <p>Patient P-1001 - Resuscitation Bay 1</p>
+                    </div>
+                    <button class="alert-btn">Respond</button>
+                </div>
+                <div class="alert-item alert-high">
+                    <i class="fas fa-brain"></i>
+                    <div class="alert-content">
+                        <strong>Stroke Alert</strong>
+                        <p>Patient P-0892 - CT ordered</p>
+                    </div>
+                    <button class="alert-btn">View</button>
+                </div>
+                <div class="alert-item alert-medium">
+                    <i class="fas fa-lungs"></i>
+                    <div class="alert-content">
+                        <strong>Sepsis Warning</strong>
+                        <p>Patient P-0765 - Antibiotics started</p>
+                    </div>
+                    <button class="alert-btn">Monitor</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-grid">
+                <button class="action-btn">
+                    <i class="fas fa-user-plus"></i>
+                    <span>New Patient</span>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-ambulance"></i>
+                    <span>Emergency Triage</span>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-x-ray"></i>
+                    <span>Upload Imaging</span>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-prescription"></i>
+                    <span>New Prescription</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/dashboard.js"></script>
+</body>
+</html>
