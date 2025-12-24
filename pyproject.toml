@@ -8,17 +8,6 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
 
-[tool.poetry]
-name = "healthcare-ai-quantum-system"
-version = "1.0.0"
-description = "World's First Quantum-Enhanced Multi-Agent Healthcare Management Platform"
-authors = ["Healthcare AI Team <team@healthcare-ai-quantum.com>"]
-license = "Proprietary"
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-
 [tool.black]
 line-length = 100
 target-version = ['py311']
@@ -65,5 +54,5 @@ pythonpath = ["."]
 asyncio_mode = "auto"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
