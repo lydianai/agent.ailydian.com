@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://agent.ailydian.com/</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Demo Page -->
+    <url>
+        <loc>https://agent.ailydian.com/demo.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/demo.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/demo.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/demo.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Features -->
+    <url>
+        <loc>https://agent.ailydian.com/features.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/features.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/features.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/features.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Pricing -->
+    <url>
+        <loc>https://agent.ailydian.com/pricing.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/pricing.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/pricing.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/pricing.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Documentation -->
+    <url>
+        <loc>https://agent.ailydian.com/docs.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/docs.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/docs.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/docs.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Guides -->
+    <url>
+        <loc>https://agent.ailydian.com/guides.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/guides.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/guides.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/guides.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- API Reference -->
+    <url>
+        <loc>https://agent.ailydian.com/api.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/api.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/api.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/api.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Blog -->
+    <url>
+        <loc>https://agent.ailydian.com/blog.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/blog.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/blog.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/blog.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Support -->
+    <url>
+        <loc>https://agent.ailydian.com/support.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/support.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/support.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/support.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Contact -->
+    <url>
+        <loc>https://agent.ailydian.com/contact.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/contact.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/contact.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/contact.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- About -->
+    <url>
+        <loc>https://agent.ailydian.com/about.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/about.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/about.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/about.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Team -->
+    <url>
+        <loc>https://agent.ailydian.com/team.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/team.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/team.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/team.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Careers -->
+    <url>
+        <loc>https://agent.ailydian.com/careers.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/careers.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/careers.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/careers.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://agent.ailydian.com/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/privacy.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/privacy.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/privacy.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- Terms of Service -->
+    <url>
+        <loc>https://agent.ailydian.com/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/terms.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/terms.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/terms.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- Security -->
+    <url>
+        <loc>https://agent.ailydian.com/security.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/security.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/security.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/security.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Compliance -->
+    <url>
+        <loc>https://agent.ailydian.com/compliance.html</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://agent.ailydian.com/compliance.html?lang=tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://agent.ailydian.com/compliance.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://agent.ailydian.com/compliance.html"/>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>

@@ -24,6 +24,9 @@
     <!-- Responsive Mobile-First CSS Framework -->
     <link rel="stylesheet" href="/static/css/responsive-mobile-first.css">
 
+    <!-- Mobile Fix - MUST load last to override -->
+    <link rel="stylesheet" href="/static/css/mobile-fix.css">
+
     <style>
         :root {
             /* Primary Red Neon Palette for Turkey (Default) */
@@ -794,6 +797,14 @@
                 <li><a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a></li>
                 <li><a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
             </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <div class="lang-switch">
                 <button class="lang-btn active" data-lang="tr">TR</button>
                 <button class="lang-btn" data-lang="en">EN</button>
@@ -967,6 +978,7 @@
     <script src="/static/js/touch-gestures.js"></script>
     <script src="/static/js/responsive-manager.js"></script>
     <script src="/static/js/enhanced-lang-switcher.js"></script>
+    <script src="/static/js/advanced-seo.js"></script>
     <script src="/static/js/main.js"></script>
     <script src="/static/js/country-theme-switcher.js"></script>
 

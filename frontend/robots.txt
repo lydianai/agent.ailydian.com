@@ -1,0 +1,59 @@
+# Lydian Agent - robots.txt
+# https://agent.ailydian.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://agent.ailydian.com/sitemap.xml
+
+# Crawl-delay for respectful bots
+Crawl-delay: 1
+
+# Disallow admin/private areas (if any)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Allow CSS and JS for rendering
+Allow: /static/css/
+Allow: /static/js/
+Allow: /static/images/
+Allow: /static/icons/
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Allow good bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Clean URLs
+User-agent: *
+Disallow: /*?
+Allow: /*?lang=tr
+Allow: /*?lang=en
