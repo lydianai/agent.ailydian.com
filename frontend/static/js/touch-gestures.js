@@ -327,6 +327,7 @@
     class MobileMenu {
         constructor() {
             this.menuToggle = document.querySelector('.mobile-menu-toggle');
+            this.menuClose = document.querySelector('.mobile-menu-close');
             this.navLinks = document.querySelector('.nav-links');
             this.body = document.body;
             this.isOpen = false;
@@ -341,6 +342,13 @@
             this.menuToggle.addEventListener('click', () => {
                 this.toggle();
             });
+
+            // Close button (inside mobile menu)
+            if (this.menuClose) {
+                this.menuClose.addEventListener('click', () => {
+                    this.close();
+                });
+            }
 
             // Close on link click
             this.navLinks.querySelectorAll('a').forEach(link => {
@@ -382,6 +390,7 @@
 
         open() {
             this.navLinks.classList.add('active');
+            this.menuToggle.classList.add('active');
             this.body.style.overflow = 'hidden';
             this.isOpen = true;
             HapticFeedback.light();
@@ -389,6 +398,7 @@
 
         close() {
             this.navLinks.classList.remove('active');
+            this.menuToggle.classList.remove('active');
             this.body.style.overflow = '';
             this.isOpen = false;
             HapticFeedback.light();
