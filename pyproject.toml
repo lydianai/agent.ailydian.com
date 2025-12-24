@@ -1,3 +1,13 @@
+[project]
+name = "healthcare-ai-quantum-system"
+version = "1.0.0"
+description = "World's First Quantum-Enhanced Multi-Agent Healthcare Management Platform"
+authors = [{name = "Healthcare AI Team", email = "team@healthcare-ai-quantum.com"}]
+license = {text = "Proprietary"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
 [tool.poetry]
 name = "healthcare-ai-quantum-system"
 version = "1.0.0"
