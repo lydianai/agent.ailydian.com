@@ -672,3 +672,99 @@ body {
         text-align: center;
     }
 }
+
+/* Development Banner */
+.dev-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #ff0033 0%, #ff4757 100%);
+    color: #fff;
+    padding: 8px 15px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 10000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dev-banner i {
+    font-size: 16px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Adjust main content to account for dev banner */
+body {
+    padding-top: 40px;
+}
+
+/* Language Switch Enhancements */
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.lang-btn {
+    padding: 6px 14px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.lang-btn.active {
+    background: #ff0033;
+    box-shadow: 0 2px 8px rgba(255, 0, 51, 0.3);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .dev-banner {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    .dev-banner i {
+        font-size: 14px;
+    }
+    
+    body {
+        padding-top: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dev-banner {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+    
+    .dev-banner span {
+        display: inline-block;
+        max-width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

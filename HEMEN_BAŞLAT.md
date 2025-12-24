@@ -14,13 +14,16 @@ python3.12 -m http.server 8080
 
 ---
 
-## 📱 Tüm Sayfalar
+## 📱 Tüm Sayfalar (6/6 Tamamlandı)
 
-| Sayfa | URL | Özellikler |
-|-------|-----|------------|
-| **Dashboard** | http://localhost:8080/pages/dashboard.html | ✅ KPI kartları, grafikler, alerts |
-| **Emergency** | http://localhost:8080/pages/emergency.html | ✅ ESI triage, vital signs, ABCDE |
-| **Diagnosis** | http://localhost:8080/pages/diagnosis.html | ✅ AI tanı, görüntü yükleme, risk |
+| Sayfa | URL | Durum | Özellikler |
+|-------|-----|-------|------------|
+| **Dashboard** | http://localhost:8080/pages/dashboard.html | ✅ | KPI kartları, grafikler, alerts, TR/EN |
+| **Emergency** | http://localhost:8080/pages/emergency.html | ✅ | ESI triage, vital signs, ABCDE, TR/EN |
+| **Diagnosis** | http://localhost:8080/pages/diagnosis.html | ✅ | AI tanı, görüntü yükleme, risk, TR/EN |
+| **Treatment** | http://localhost:8080/pages/treatment.html | ✅ | Tedavi planı, ilaç listesi, etkileşim uyarısı |
+| **Pharmacy** | http://localhost:8080/pages/pharmacy.html | ✅ | Reçete doğrulama, güvenlik kontrolleri |
+| **Patients** | http://localhost:8080/pages/patients.html | ✅ | Hasta kayıtları, arama, filtreleme |
 
 ---
 
@@ -93,6 +96,7 @@ frontend/
 - Triage dağılım grafiği
 - Canlı activity feed
 - Alert paneli
+- **TR/EN dil değiştirme** 🆕
 
 ### ✅ Emergency
 - **ESI Level 1-5 Triage**
@@ -100,6 +104,7 @@ frontend/
   - ABCDE assessment
   - Protocol activation
   - Immediate actions
+- **Development banner** 🆕
 
 ### ✅ Diagnosis
 - **AI-Powered Diagnosis**
@@ -109,6 +114,33 @@ frontend/
   - Clinical reasoning
   - Risk stratification
   - Recommendations
+- **Development banner** 🆕
+
+### ✅ Treatment (YENİ!)
+- **Tedavi Planlama**
+  - İlaç tedavi planları
+  - İlaç etkileşimi uyarıları
+  - İlaç dışı müdahaleler
+  - İzleme planı
+  - Tedavi hedefleri
+- Demo hasta: Pneumonia (J18.9)
+
+### ✅ Pharmacy (YENİ!)
+- **Reçete Doğrulama**
+  - Prescription verification
+  - Drug-drug interaction checking
+  - Allergy contraindications
+  - Dosage appropriateness
+  - Safety checks (renal/hepatic)
+  - Monitoring recommendations
+
+### ✅ Patients (YENİ!)
+- **Hasta Kayıtları**
+  - Patient list table
+  - Search & filter functionality
+  - Status badges (active, critical, discharged)
+  - Patient statistics
+  - Action buttons (view, edit)
 
 ---
 

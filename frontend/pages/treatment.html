@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment Planning | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/treatment-pharmacy-patients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Development Banner -->
+    <div class="dev-banner">
+        <i class="fas fa-code"></i>
+        <span>Development Mode - Some features may be in beta</span>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Lydian AI</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span data-tr="Dashboard" data-en="Dashboard">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="emergency.html">
+                    <i class="fas fa-ambulance"></i>
+                    <span data-tr="Acil Servis" data-en="Emergency">Acil Servis</span>
+                </a>
+            </li>
+            <li>
+                <a href="diagnosis.html">
+                    <i class="fas fa-stethoscope"></i>
+                    <span data-tr="Tanı" data-en="Diagnosis">Tanı</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="treatment.html">
+                    <i class="fas fa-notes-medical"></i>
+                    <span data-tr="Tedavi Planlama" data-en="Treatment">Tedavi Planlama</span>
+                </a>
+            </li>
+            <li>
+                <a href="pharmacy.html">
+                    <i class="fas fa-pills"></i>
+                    <span data-tr="Eczane" data-en="Pharmacy">Eczane</span>
+                </a>
+            </li>
+            <li>
+                <a href="patients.html">
+                    <i class="fas fa-users"></i>
+                    <span data-tr="Hastalar" data-en="Patients">Hastalar</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" class="user-profile">
+                <i class="fas fa-user-circle"></i>
+                <span>Dr. Admin</span>
+            </a>
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span data-tr="Çıkış" data-en="Logout">Çıkış</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-notes-medical"></i> <span data-tr="Tedavi Planlama" data-en="Treatment Planning">Tedavi Planlama</span></h1>
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">1</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Treatment Stats -->
+        <section class="stats-grid">
+            <div class="stat-card stat-card-primary">
+                <div class="stat-icon">
+                    <i class="fas fa-file-prescription"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 data-tr="Aktif Tedavi Planları" data-en="Active Treatment Plans">Aktif Tedavi Planları</h3>
+                    <p class="stat-number">67</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-success">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 data-tr="Başarı Oranı" data-en="Success Rate">Başarı Oranı</h3>
+                    <p class="stat-number">94.2%</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 3.1%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-warning">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 data-tr="İlaç Etkileşimleri" data-en="Drug Interactions">İlaç Etkileşimleri</h3>
+                    <p class="stat-number">8</p>
+                    <span class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> 5%
+                    </span>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card-info">
+                <div class="stat-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 data-tr="Reçete Edilen İlaçlar" data-en="Prescribed Medications">Reçete Edilen İlaçlar</h3>
+                    <p class="stat-number">324</p>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 8.5%
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatment Planning Demo -->
+        <section class="treatment-demo">
+            <div class="treatment-plan-card">
+                <h3><i class="fas fa-clipboard-list"></i> <span data-tr="Örnek Tedavi Planı" data-en="Sample Treatment Plan">Örnek Tedavi Planı</span></h3>
+
+                <div class="patient-info-box">
+                    <strong>Patient:</strong> P-1023 | <strong>Diagnosis:</strong> Community-Acquired Pneumonia (J18.9)
+                </div>
+
+                <div class="treatment-section">
+                    <h4><i class="fas fa-pills"></i> <span data-tr="İlaç Tedavisi" data-en="Pharmacological Treatment">İlaç Tedavisi</span></h4>
+                    <ul class="medication-list">
+                        <li class="medication-item">
+                            <div class="medication-info">
+                                <h5>Amoxicillin-Clavulanate 875mg/125mg</h5>
+                                <p>PO BID x 7 days | Priority: STAT</p>
+                            </div>
+                            <span class="medication-badge critical">High Priority</span>
+                        </li>
+                        <li class="medication-item">
+                            <div class="medication-info">
+                                <h5>Azithromycin 500mg</h5>
+                                <p>PO daily x 5 days | Priority: Routine</p>
+                            </div>
+                            <span class="medication-badge routine">Routine</span>
+                        </li>
+                        <li class="medication-item">
+                            <div class="medication-info">
+                                <h5>Acetaminophen 500mg</h5>
+                                <p>PO Q6H PRN fever/pain | Max 3g/day</p>
+                            </div>
+                            <span class="medication-badge routine">PRN</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="interaction-alert severe">
+                    <h5><i class="fas fa-exclamation-triangle"></i> <span data-tr="İlaç Etkileşimi Uyarısı" data-en="Drug Interaction Alert">İlaç Etkileşimi Uyarısı</span></h5>
+                    <p>No significant interactions detected for current medication regimen.</p>
+                </div>
+
+                <div class="treatment-section">
+                    <h4><i class="fas fa-procedures"></i> <span data-tr="İlaç Dışı Müdahaleler" data-en="Non-Pharmacological Interventions">İlaç Dışı Müdahaleler</span></h4>
+                    <ul class="intervention-list">
+                        <li class="intervention-item">
+                            <div class="intervention-info">
+                                <h5>Oxygen Therapy</h5>
+                                <p>Maintain SpO2 >92% via nasal cannula 2-4L/min</p>
+                            </div>
+                        </li>
+                        <li class="intervention-item">
+                            <div class="intervention-info">
+                                <h5>Respiratory Physiotherapy</h5>
+                                <p>Incentive spirometry Q2H while awake</p>
+                            </div>
+                        </li>
+                        <li class="intervention-item">
+                            <div class="intervention-info">
+                                <h5>Hydration</h5>
+                                <p>Encourage PO fluids 2-3L/day or IV NS at 100mL/hr</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="monitoring-plan">
+                    <h4><i class="fas fa-heartbeat"></i> <span data-tr="İzleme Planı" data-en="Monitoring Plan">İzleme Planı</span></h4>
+                    <ul>
+                        <li>Vital signs Q4H (BP, HR, RR, Temp, SpO2)</li>
+                        <li>Daily chest auscultation for crackles/wheezing</li>
+                        <li>CBC, CMP on Day 3 to assess response</li>
+                        <li>Chest X-ray follow-up in 48-72 hours</li>
+                        <li>Monitor for adverse drug reactions (rash, GI upset)</li>
+                    </ul>
+                </div>
+
+                <div class="treatment-goals">
+                    <h4><i class="fas fa-bullseye"></i> <span data-tr="Tedavi Hedefleri" data-en="Treatment Goals">Tedavi Hedefleri</span></h4>
+                    <ul>
+                        <li>Resolution of fever within 48-72 hours</li>
+                        <li>Improvement in respiratory symptoms (cough, dyspnea)</li>
+                        <li>SpO2 >95% on room air by Day 5</li>
+                        <li>Clear chest X-ray by Week 2-3</li>
+                        <li>Return to baseline functional status</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Treatment Plans -->
+        <section class="recent-treatments">
+            <h2><i class="fas fa-history"></i> <span data-tr="Son Tedavi Planları" data-en="Recent Treatment Plans">Son Tedavi Planları</span></h2>
+            <div class="patients-table-container">
+                <table class="patients-table">
+                    <thead>
+                        <tr>
+                            <th data-tr="Hasta ID" data-en="Patient ID">Hasta ID</th>
+                            <th data-tr="Tanı" data-en="Diagnosis">Tanı</th>
+                            <th data-tr="İlaçlar" data-en="Medications">İlaçlar</th>
+                            <th data-tr="Durum" data-en="Status">Durum</th>
+                            <th data-tr="Tarih" data-en="Date">Tarih</th>
+                            <th data-tr="İşlemler" data-en="Actions">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>P-1023</strong></td>
+                            <td>Pneumonia (J18.9)</td>
+                            <td>Amoxicillin-Clav, Azithromycin</td>
+                            <td><span class="patient-status active">Active</span></td>
+                            <td>2024-01-15 14:30</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>P-0987</strong></td>
+                            <td>STEMI (I21.9)</td>
+                            <td>Aspirin, Clopidogrel, Atorvastatin</td>
+                            <td><span class="patient-status critical">Critical</span></td>
+                            <td>2024-01-15 13:15</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>P-0892</strong></td>
+                            <td>Ischemic Stroke (I63.9)</td>
+                            <td>Alteplase, Aspirin</td>
+                            <td><span class="patient-status active">Active</span></td>
+                            <td>2024-01-15 12:00</td>
+                            <td>
+                                <button class="btn-table-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-table-action"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Lydian Healthcare AI</h4>
+                <p>AI-powered healthcare management platform</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-tr="Hızlı Bağlantılar" data-en="Quick Links">Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="emergency.html" data-tr="Acil Servis" data-en="Emergency">Acil Servis</a></li>
+                    <li><a href="diagnosis.html" data-tr="Tanı" data-en="Diagnosis">Tanı</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+                <p>info@lydian.com</p>
+                <p>+90 (212) 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Lydian Healthcare AI. All rights reserved. | v1.0.0</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../static/js/dashboard.js"></script>
+    <script src="../static/js/language.js"></script>
+</body>
+</html>

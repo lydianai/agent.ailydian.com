@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/treatment-pharmacy-patients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dev-banner"><i class="fas fa-code"></i><span data-tr="Geliştirme Modu" data-en="Development Mode">Geliştirme Modu</span></div>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle"><span></span><span></span><span></span></button>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header"><h2>Lydian AI</h2><button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button></div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+            <li><a href="emergency.html"><i class="fas fa-ambulance"></i><span data-tr="Acil" data-en="Emergency">Acil</span></a></li>
+            <li><a href="diagnosis.html"><i class="fas fa-stethoscope"></i><span data-tr="Tanı" data-en="Diagnosis">Tanı</span></a></li>
+            <li><a href="treatment.html"><i class="fas fa-notes-medical"></i><span data-tr="Tedavi" data-en="Treatment">Tedavi</span></a></li>
+            <li><a href="pharmacy.html"><i class="fas fa-pills"></i><span data-tr="Eczane" data-en="Pharmacy">Eczane</span></a></li>
+            <li class="active"><a href="patients.html"><i class="fas fa-users"></i><span data-tr="Hastalar" data-en="Patients">Hastalar</span></a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" class="user-profile"><i class="fas fa-user-circle"></i><span>Dr. Admin</span></a>
+            <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span data-tr="Çıkış" data-en="Logout">Çıkış</span></a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <header class="page-header">
+            <h1><i class="fas fa-users"></i> <span data-tr="Hasta Kayıtları" data-en="Patient Records">Hasta Kayıtları</span></h1>
+            <div class="header-actions">
+                <div class="lang-switch"><button class="lang-btn active" data-lang="tr">TR</button><button class="lang-btn" data-lang="en">EN</button></div>
+                <button class="notification-btn"><i class="fas fa-bell"></i><span class="notification-badge">2</span></button>
+            </div>
+        </header>
+        <section class="stats-grid">
+            <div class="stat-card stat-card-primary"><div class="stat-icon"><i class="fas fa-user-plus"></i></div><div class="stat-content"><h3 data-tr="Toplam Hastalar" data-en="Total Patients">Toplam Hastalar</h3><p class="stat-number">1,247</p><span class="stat-change positive"><i class="fas fa-arrow-up"></i> 12.5%</span></div></div>
+            <div class="stat-card stat-card-danger"><div class="stat-icon"><i class="fas fa-heartbeat"></i></div><div class="stat-content"><h3 data-tr="Kritik Hastalar" data-en="Critical Patients">Kritik Hastalar</h3><p class="stat-number">8</p><span class="stat-change negative"><i class="fas fa-arrow-down"></i> 2</span></div></div>
+            <div class="stat-card stat-card-success"><div class="stat-icon"><i class="fas fa-procedures"></i></div><div class="stat-content"><h3 data-tr="Yatan Hastalar" data-en="Admitted Patients">Yatan Hastalar</h3><p class="stat-number">89</p><span class="stat-change positive"><i class="fas fa-arrow-up"></i> 8%</span></div></div>
+            <div class="stat-card stat-card-info"><div class="stat-icon"><i class="fas fa-user-check"></i></div><div class="stat-content"><h3 data-tr="Taburcu Edilen" data-en="Discharged">Taburcu Edilen</h3><p class="stat-number">234</p><span class="stat-change positive"><i class="fas fa-arrow-up"></i> 15%</span></div></div>
+        </section>
+        <section class="search-section">
+            <div class="search-filter-bar">
+                <input type="text" class="search-input" placeholder="Search patients by ID, name, diagnosis..." data-tr-placeholder="Hasta ID, isim veya tanıya göre ara..." data-en-placeholder="Search patients by ID, name, diagnosis...">
+                <select class="filter-select"><option value="">All Status</option><option value="active">Active</option><option value="critical">Critical</option><option value="discharged">Discharged</option></select>
+            </div>
+        </section>
+        <section class="patients-list">
+            <h2><i class="fas fa-hospital-user"></i> <span data-tr="Hasta Listesi" data-en="Patient List">Hasta Listesi</span></h2>
+            <div class="patients-table-container">
+                <table class="patients-table">
+                    <thead><tr><th>ID</th><th data-tr="İsim" data-en="Name">İsim</th><th data-tr="Yaş" data-en="Age">Yaş</th><th data-tr="Cinsiyet" data-en="Gender">Cinsiyet</th><th data-tr="Tanı" data-en="Diagnosis">Tanı</th><th data-tr="Durum" data-en="Status">Durum</th><th data-tr="Kabul Tarihi" data-en="Admission Date">Kabul Tarihi</th><th data-tr="İşlemler" data-en="Actions">İşlemler</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>P-1023</strong></td><td>John Doe</td><td>55</td><td>M</td><td>Pneumonia (J18.9)</td><td><span class="patient-status active">Active</span></td><td>2024-01-15</td><td><button class="btn-table-action"><i class="fas fa-eye"></i></button><button class="btn-table-action"><i class="fas fa-edit"></i></button></td></tr>
+                        <tr><td><strong>P-0987</strong></td><td>Jane Smith</td><td>67</td><td>F</td><td>STEMI (I21.9)</td><td><span class="patient-status critical">Critical</span></td><td>2024-01-15</td><td><button class="btn-table-action"><i class="fas fa-eye"></i></button><button class="btn-table-action"><i class="fas fa-edit"></i></button></td></tr>
+                        <tr><td><strong>P-0892</strong></td><td>Bob Johnson</td><td>72</td><td>M</td><td>Stroke (I63.9)</td><td><span class="patient-status active">Active</span></td><td>2024-01-15</td><td><button class="btn-table-action"><i class="fas fa-eye"></i></button><button class="btn-table-action"><i class="fas fa-edit"></i></button></td></tr>
+                        <tr><td><strong>P-0765</strong></td><td>Sarah Williams</td><td>42</td><td>F</td><td>Appendicitis (K35.80)</td><td><span class="patient-status discharged">Discharged</span></td><td>2024-01-14</td><td><button class="btn-table-action"><i class="fas fa-eye"></i></button><button class="btn-table-action"><i class="fas fa-edit"></i></button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section"><h4>Lydian Healthcare AI</h4><p>AI-powered patient management</p></div>
+            <div class="footer-section"><h4 data-tr="Bağlantılar" data-en="Links">Bağlantılar</h4><ul><li><a href="dashboard.html">Dashboard</a></li><li><a href="emergency.html">Emergency</a></li></ul></div>
+            <div class="footer-section"><h4 data-tr="İletişim" data-en="Contact">İletişim</h4><p>patients@lydian.com</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2024 Lydian Healthcare AI. v1.0.0</p></div>
+    </footer>
+    <script src="../static/js/dashboard.js"></script>
+    <script src="../static/js/language.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/treatment-pharmacy-patients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Development Banner -->
+    <div class="dev-banner">
+        <i class="fas fa-code"></i>
+        <span data-tr="Geliştirme Modu - Bazı özellikler beta aşamasında" data-en="Development Mode - Some features may be in beta">Geliştirme Modu</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span><span></span><span></span>
+    </button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Lydian AI</h2>
+            <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+            <li><a href="emergency.html"><i class="fas fa-ambulance"></i><span data-tr="Acil" data-en="Emergency">Acil</span></a></li>
+            <li><a href="diagnosis.html"><i class="fas fa-stethoscope"></i><span data-tr="Tanı" data-en="Diagnosis">Tanı</span></a></li>
+            <li><a href="treatment.html"><i class="fas fa-notes-medical"></i><span data-tr="Tedavi" data-en="Treatment">Tedavi</span></a></li>
+            <li class="active"><a href="pharmacy.html"><i class="fas fa-pills"></i><span data-tr="Eczane" data-en="Pharmacy">Eczane</span></a></li>
+            <li><a href="patients.html"><i class="fas fa-users"></i><span data-tr="Hastalar" data-en="Patients">Hastalar</span></a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" class="user-profile"><i class="fas fa-user-circle"></i><span>Dr. Admin</span></a>
+            <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span data-tr="Çıkış" data-en="Logout">Çıkış</span></a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="page-header">
+            <h1><i class="fas fa-pills"></i> <span data-tr="Eczane Yönetimi" data-en="Pharmacy Management">Eczane Yönetimi</span></h1>
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="notification-btn"><i class="fas fa-bell"></i><span class="notification-badge">3</span></button>
+            </div>
+        </header>
+
+        <!-- Stats -->
+        <section class="stats-grid">
+            <div class="stat-card stat-card-primary">
+                <div class="stat-icon"><i class="fas fa-prescription"></i></div>
+                <div class="stat-content">
+                    <h3 data-tr="Bekleyen Reçeteler" data-en="Pending Prescriptions">Bekleyen Reçeteler</h3>
+                    <p class="stat-number">23</p>
+                    <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 15%</span>
+                </div>
+            </div>
+            <div class="stat-card stat-card-success">
+                <div class="stat-icon"><i class="fas fa-check-double"></i></div>
+                <div class="stat-content">
+                    <h3 data-tr="Onaylanan Bugün" data-en="Approved Today">Onaylanan Bugün</h3>
+                    <p class="stat-number">89</p>
+                    <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 8%</span>
+                </div>
+            </div>
+            <div class="stat-card stat-card-warning">
+                <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="stat-content">
+                    <h3 data-tr="Etkileşim Uyarıları" data-en="Interaction Alerts">Etkileşim Uyarıları</h3>
+                    <p class="stat-number">5</p>
+                    <span class="stat-change negative"><i class="fas fa-arrow-down"></i> 20%</span>
+                </div>
+            </div>
+            <div class="stat-card stat-card-info">
+                <div class="stat-icon"><i class="fas fa-pills"></i></div>
+                <div class="stat-content">
+                    <h3 data-tr="Toplam İlaç" data-en="Total Medications">Toplam İlaç</h3>
+                    <p class="stat-number">1,247</p>
+                    <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 5%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Prescription Verification -->
+        <section class="treatment-demo">
+            <div class="treatment-plan-card">
+                <h3><i class="fas fa-clipboard-check"></i> <span data-tr="Reçete Doğrulama Demo" data-en="Prescription Verification Demo">Reçete Doğrulama Demo</span></h3>
+                
+                <div class="verification-result">
+                    <div class="verification-status approved">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-tr="ONAYLANDI" data-en="APPROVED">ONAYLANDI</span>
+                    </div>
+
+                    <div class="patient-info-box">
+                        <strong>Patient:</strong> P-1023 | <strong>Age:</strong> 55 | <strong>Weight:</strong> 75kg
+                    </div>
+
+                    <h4><i class="fas fa-prescription-bottle"></i> <span data-tr="Reçete Detayları" data-en="Prescription Details">Reçete Detayları</span></h4>
+                    <ul class="medication-list">
+                        <li class="medication-item">
+                            <div class="medication-info">
+                                <h5>Amoxicillin-Clavulanate 875mg/125mg</h5>
+                                <p><strong>Dosage:</strong> 1 tablet PO BID | <strong>Duration:</strong> 7 days | <strong>Quantity:</strong> 14 tablets</p>
+                            </div>
+                            <span class="medication-badge routine">Verified</span>
+                        </li>
+                        <li class="medication-item">
+                            <div class="medication-info">
+                                <h5>Azithromycin 500mg</h5>
+                                <p><strong>Dosage:</strong> 1 tablet PO daily | <strong>Duration:</strong> 5 days | <strong>Quantity:</strong> 5 tablets</p>
+                            </div>
+                            <span class="medication-badge routine">Verified</span>
+                        </li>
+                    </ul>
+
+                    <div class="interaction-alert">
+                        <h5><i class="fas fa-shield-alt"></i> <span data-tr="Güvenlik Kontrolleri" data-en="Safety Checks">Güvenlik Kontrolleri</span></h5>
+                        <ul>
+                            <li><i class="fas fa-check text-success"></i> No drug-drug interactions detected</li>
+                            <li><i class="fas fa-check text-success"></i> No allergy contraindications</li>
+                            <li><i class="fas fa-check text-success"></i> Dosage within safe limits</li>
+                            <li><i class="fas fa-check text-success"></i> Renal function: Normal (no adjustment needed)</li>
+                            <li><i class="fas fa-check text-success"></i> Hepatic function: Normal</li>
+                        </ul>
+                    </div>
+
+                    <div class="monitoring-plan">
+                        <h4><i class="fas fa-heartbeat"></i> <span data-tr="İzleme Önerileri" data-en="Monitoring Recommendations">İzleme Önerileri</span></h4>
+                        <ul>
+                            <li>Monitor for GI upset (nausea, diarrhea)</li>
+                            <li>Check liver function tests if prolonged use</li>
+                            <li>Counsel patient on completing full antibiotic course</li>
+                            <li>Advise to take with food to minimize GI side effects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Prescriptions -->
+        <section class="recent-treatments">
+            <h2><i class="fas fa-history"></i> <span data-tr="Son Reçeteler" data-en="Recent Prescriptions">Son Reçeteler</span></h2>
+            <div class="patients-table-container">
+                <table class="patients-table">
+                    <thead>
+                        <tr>
+                            <th>Rx ID</th>
+                            <th data-tr="Hasta" data-en="Patient">Hasta</th>
+                            <th data-tr="İlaç" data-en="Medication">İlaç</th>
+                            <th data-tr="Durum" data-en="Status">Durum</th>
+                            <th data-tr="Doktor" data-en="Prescriber">Doktor</th>
+                            <th data-tr="Tarih" data-en="Date">Tarih</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>RX-2401</strong></td>
+                            <td>P-1023</td>
+                            <td>Amoxicillin-Clavulanate</td>
+                            <td><span class="patient-status active">Approved</span></td>
+                            <td>Dr. Smith</td>
+                            <td>2024-01-15 14:30</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RX-2402</strong></td>
+                            <td>P-0987</td>
+                            <td>Atorvastatin 40mg</td>
+                            <td><span class="patient-status active">Dispensed</span></td>
+                            <td>Dr. Johnson</td>
+                            <td>2024-01-15 13:45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Lydian Healthcare AI</h4>
+                <p>AI-powered pharmacy management</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-tr="Hızlı Bağlantılar" data-en="Quick Links">Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="treatment.html" data-tr="Tedavi" data-en="Treatment">Tedavi</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-tr="İletişim" data-en="Contact">İletişim</h4>
+                <p>pharmacy@lydian.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Lydian Healthcare AI. All rights reserved. | v1.0.0</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/dashboard.js"></script>
+    <script src="../static/js/language.js"></script>
+</body>
+</html>
