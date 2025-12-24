@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özellikler | Lydian Healthcare AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 48px; margin-bottom: 20px; color: #ffffff; }
+        h2 { font-size: 32px; margin: 40px 0 20px; color: #ff0033; }
+        p { margin-bottom: 15px; color: #b0b0b0; font-size: 16px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 0, 51, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 0, 51, 0.5);
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 48px;
+            color: #ff0033;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #ff0033;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Ana Sayfaya Dön</a>
+        
+        <h1>Lydian Healthcare AI Özellikleri</h1>
+        <p>Yapay zeka ve kuantum teknolojisi ile desteklenen sağlık yönetim sisteminin tüm özellikleri.</p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-ambulance"></i></div>
+                <div class="feature-title">Acil Servis Triyaj</div>
+                <p>ESI protokolü ile otomatik hasta önceliklendirme ve risk değerlendirmesi. ABCDE yaklaşımı ile kapsamlı değerlendirme.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <div class="feature-title">AI Tanı Asistanı</div>
+                <p>Deep learning modelleri ile %89.4 doğrulukta tanı önerileri. Diferansiyel tanı ve risk analizi desteği.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-pills"></i></div>
+                <div class="feature-title">Tedavi Planlama</div>
+                <p>Kişiselleştirilmiş tedavi protokolleri, ilaç etkileşim kontrolü ve doz optimizasyonu.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-prescription-bottle"></i></div>
+                <div class="feature-title">Eczane Yönetimi</div>
+                <p>Reçete doğrulama, stok yönetimi ve otomatik sipariş sistemi.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                <div class="feature-title">Hasta Kayıtları</div>
+                <p>HIPAA/KVKK uyumlu elektronik sağlık kayıtları. Güvenli ve hızlı erişim.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-atom"></i></div>
+                <div class="feature-title">Kuantum Optimizasyon</div>
+                <p>IBM Quantum ile kaynak tahsisi ve hasta akış optimizasyonu.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-title">Güvenlik & Uyumluluk</div>
+                <p>HIPAA, KVKK ve ISO 27001 uyumlu veri güvenliği. End-to-end şifreleme.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                <div class="feature-title">Çoklu Dil Desteği</div>
+                <p>TR/EN dillerinde tam destek. i18n uyumlu arayüz.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="feature-title">Responsive Tasarım</div>
+                <p>Tüm cihazlarda (desktop, tablet, mobil) kusursuz deneyim.</p>
+            </div>
+        </div>
+
+        <h2>Teknik Altyapı</h2>
+        <ul style="color: #b0b0b0; margin-left: 20px; line-height: 2;">
+            <li>7 otonom AI agent (Emergency, Diagnosis, Treatment, Pharmacy, Records, Quantum, Coordinator)</li>
+            <li>IBM Quantum (qiskit-ibm-runtime) entegrasyonu</li>
+            <li>Real-time hasta izleme ve analytics</li>
+            <li>Cloud-native, serverless architecture (Vercel, FastAPI)</li>
+            <li>PostgreSQL veritabanı, Redis cache</li>
+            <li>99.97% uptime garantisi</li>
+        </ul>
+    </div>
+    <script src="/static/js/i18n.js"></script>
+</body>
+</html>
