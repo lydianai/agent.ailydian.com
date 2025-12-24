@@ -14,6 +14,16 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff0033">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/static/icons/icon-192x192.png">
+
+    <!-- Responsive Mobile-First CSS Framework -->
+    <link rel="stylesheet" href="/static/css/responsive-mobile-first.css">
+
     <style>
         :root {
             /* Primary Red Neon Palette for Turkey (Default) */
@@ -953,8 +963,26 @@
         </div>
     </footer>
 
+    <!-- Responsive & Touch JavaScript -->
+    <script src="/static/js/touch-gestures.js"></script>
+    <script src="/static/js/responsive-manager.js"></script>
+    <script src="/static/js/enhanced-lang-switcher.js"></script>
     <script src="/static/js/main.js"></script>
-    <script src="/static/js/language-switcher.js"></script>
     <script src="/static/js/country-theme-switcher.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('❌ Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

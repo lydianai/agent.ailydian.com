@@ -709,6 +709,16 @@
             }
         }
     </style>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff0033">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/static/icons/icon-192x192.png">
+
+    <!-- Responsive Mobile-First CSS Framework -->
+    <link rel="stylesheet" href="/static/css/responsive-mobile-first.css">
 </head>
 <body>
     <div class="cyber-bg"></div>
@@ -1430,6 +1440,26 @@
             btn.innerHTML = '<i class="fas fa-atom"></i><span>Kuantum Optimizasyonu Başlat</span>';
 
             timeline.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+
+    <!-- Responsive & Touch JavaScript -->
+    <script src="/static/js/touch-gestures.js"></script>
+    <script src="/static/js/responsive-manager.js"></script>
+    <script src="/static/js/enhanced-lang-switcher.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('❌ Service Worker registration failed:', error);
+                    });
+            });
         }
     </script>
 </body>
