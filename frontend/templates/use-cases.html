@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-tr="Gerçek Dünya Kullanım Senaryoları - Lydian Agent" data-en="Real-World Use Cases - Lydian Agent">Gerçek Dünya Kullanım Senaryoları - Lydian Agent</title>
+    <meta name="description" content="Lydian Agent'ın Türkiye ve ABD'deki önde gelen hastanelerde nasıl hayat kurtardığını keşfedin. Acıbadem, Memorial, Mayo Clinic, Johns Hopkins ve daha fazlası.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --lydian-primary: #ff0033;
+            --lydian-secondary: #ff3366;
+            --lydian-accent: #ff6699;
+            --lydian-gold: #ffaa00;
+            --dark-bg: #0a0a0f;
+            --dark-card: #131318;
+            --dark-border: #1f1f28;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e8;
+            --text-muted: #a0a0b8;
+            --gradient-lydian: linear-gradient(135deg, #ff0033 0%, #ff3366 50%, #ff6699 100%);
+            --dark-surface: #1e293b;
+            --dark-elevated: #334155;
+            --border-color: rgba(255, 0, 51, 0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); position: relative; color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        .cyber-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.3; background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; animation: gridMove 20s linear infinite; }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+        .glow-effect { position: fixed; width: 500px; height: 500px; border-radius: 50%; filter: blur(100px); opacity: 0.15; z-index: 0; pointer-events: none; }
+        .glow-1 { background: var(--lydian-primary); top: 10%; left: 10%; animation: float 15s ease-in-out infinite; }
+        .glow-2 { background: var(--lydian-secondary); top: 50%; right: 10%; animation: float 20s ease-in-out infinite reverse; }
+        .glow-3 { background: var(--lydian-accent); bottom: 10%; left: 50%; animation: float 18s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(50px, 50px); } 50% { transform: translate(0, 100px); } 75% { transform: translate(-50px, 50px); } }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); padding: 20px 60px; z-index: 1000; transition: all 0.3s ease; }
+        .navbar.scrolled { background: rgba(15, 23, 42, 0.95); padding: 15px 60px; box-shadow: 0 10px 40px rgba(255, 0, 51, 0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-icon { width: 50px; height: 50px; background: var(--gradient-lydian); border-radius: 12px; display: flex; align-items: center; justify-content: center; animation: logoPulse 3s ease-in-out infinite; }
+        .logo-icon i { font-size: 24px; color: var(--dark-bg); animation: iconSpin 10s linear infinite; }
+        @keyframes logoPulse { 0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 51, 0.3); } 50% { box-shadow: 0 0 40px rgba(255, 0, 51, 0.6); } }
+        @keyframes iconSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-brand { font-family: 'Orbitron', monospace; font-size: 24px; font-weight: 900; background: var(--gradient-lydian); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        .logo-tagline { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-secondary); letter-spacing: 3px; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease; position: relative; }
+        .nav-links a:hover { color: var(--lydian-primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gradient-lydian); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .lang-switcher { display: flex; gap: 10px; margin-left: 20px; }
+        .lang-btn { padding: 8px 16px; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; transition: all 0.3s ease; }
+        .lang-btn:hover, .lang-btn.active { background: var(--gradient-lydian); color: var(--dark-bg); border-color: transparent; }
+        .main-content { position: relative; z-index: 1; padding-top: 120px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+        .page-hero { text-align: center; padding: 80px 0 60px; }
+        .page-hero h1 { font-family: 'Orbitron', monospace; font-size: 56px; font-weight: 900; background: var(--gradient-lydian); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; line-height: 1.2; }
+        .page-hero p { font-size: 20px; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px; }
+
+        .country-section { margin-bottom: 100px; }
+        .country-header { text-align: center; margin-bottom: 60px; padding: 40px; background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 20px; }
+        .country-flag { font-size: 64px; margin-bottom: 20px; }
+        .country-title { font-family: 'Orbitron', monospace; font-size: 42px; font-weight: 800; color: var(--lydian-primary); margin-bottom: 15px; }
+        .country-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px; }
+        .country-stat { text-align: center; padding: 20px; background: rgba(255, 0, 51, 0.05); border-radius: 12px; }
+        .country-stat-value { font-family: 'Orbitron', monospace; font-size: 32px; font-weight: 800; background: var(--gradient-lydian); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .country-stat-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        .use-case-card { background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; margin-bottom: 40px; transition: all 0.3s ease; }
+        .use-case-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(255, 0, 51, 0.2); border-color: var(--lydian-primary); }
+        .use-case-header { display: flex; align-items: flex-start; gap: 30px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 2px solid var(--border-color); }
+        .hospital-icon { width: 80px; height: 80px; background: var(--gradient-lydian); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 36px; color: var(--dark-bg); flex-shrink: 0; }
+        .hospital-info h2 { font-family: 'Orbitron', monospace; font-size: 32px; color: var(--lydian-primary); margin-bottom: 10px; }
+        .hospital-location { font-size: 16px; color: var(--text-muted); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .hospital-specs { display: flex; gap: 25px; flex-wrap: wrap; }
+        .hospital-spec { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-secondary); }
+        .hospital-spec i { color: var(--lydian-accent); }
+
+        .challenge-section { margin-bottom: 35px; }
+        .challenge-section h3 { font-size: 20px; color: var(--lydian-secondary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .challenge-section h3 i { font-size: 18px; }
+        .challenge-list { list-style: none; padding-left: 0; }
+        .challenge-list li { padding: 12px 0 12px 30px; color: var(--text-secondary); position: relative; line-height: 1.7; }
+        .challenge-list li::before { content: '▸'; position: absolute; left: 0; color: var(--lydian-accent); font-weight: bold; }
+
+        .solution-section { background: rgba(255, 0, 51, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 35px; }
+        .solution-section h3 { font-size: 20px; color: var(--lydian-primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .solution-section h3 i { font-size: 18px; }
+        .solution-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
+        .solution-feature { background: var(--dark-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .solution-feature-title { font-weight: 600; color: var(--lydian-accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .solution-feature-title i { font-size: 14px; }
+        .solution-feature-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+        .results-section { background: var(--dark-elevated); border-radius: 15px; padding: 30px; }
+        .results-section h3 { font-size: 20px; color: var(--lydian-gold); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        .results-section h3 i { font-size: 18px; }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .result-metric { text-align: center; padding: 20px; background: var(--dark-surface); border-radius: 12px; border: 1px solid var(--lydian-gold); }
+        .result-value { font-family: 'Orbitron', monospace; font-size: 36px; font-weight: 800; color: var(--lydian-gold); margin-bottom: 8px; }
+        .result-label { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+        .cta-section { background: var(--dark-surface); border: 2px solid var(--lydian-primary); border-radius: 20px; padding: 60px; text-align: center; margin-top: 80px; }
+        .cta-section h2 { font-family: 'Orbitron', monospace; font-size: 36px; color: var(--lydian-primary); margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; color: var(--text-secondary); margin-bottom: 30px; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; }
+        .btn { padding: 18px 40px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s ease; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; }
+        .btn-primary { background: var(--gradient-lydian); color: #ffffff; box-shadow: 0 10px 40px rgba(255, 0, 51, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(255, 0, 51, 0.5); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--lydian-primary); border: 2px solid var(--lydian-primary); }
+        .btn-secondary:hover { background: rgba(255, 0, 51, 0.1); transform: translateY(-3px); }
+
+        .footer { position: relative; z-index: 1; background: var(--dark-surface); border-top: 1px solid var(--border-color); padding: 60px 0 30px; margin-top: 120px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; padding: 0 60px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+        .footer-brand { max-width: 350px; }
+        .footer-brand .logo { margin-bottom: 20px; }
+        .footer-description { color: var(--text-secondary); font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+        .social-links { display: flex; gap: 15px; }
+        .social-link { width: 40px; height: 40px; background: rgba(255, 0, 51, 0.1); border: 1px solid var(--border-color); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--lydian-primary); text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: var(--lydian-primary); color: var(--dark-bg); transform: translateY(-3px); }
+        .footer-links h4 { font-family: 'Orbitron', monospace; font-size: 14px; color: var(--text-primary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; display: block; padding: 8px 0; transition: all 0.3s ease; }
+        .footer-links a:hover { color: var(--lydian-primary); padding-left: 5px; }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding: 30px 60px 0; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .copyright { color: var(--text-secondary); font-size: 14px; }
+        .compliance-badges { display: flex; gap: 15px; }
+        .badge { padding: 6px 12px; background: rgba(255, 0, 51, 0.1); border: 1px solid var(--lydian-primary); border-radius: 6px; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--lydian-primary); }
+        .footer-utility { display: flex; gap: 20px; }
+        .footer-utility a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.3s ease; }
+        .footer-utility a:hover { color: var(--lydian-primary); }
+        @media (max-width: 1024px) { .solution-features { grid-template-columns: 1fr; } .results-grid { grid-template-columns: 1fr; } .country-stats { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .container { padding: 0 30px; } .navbar { padding: 15px 30px; } .page-hero h1 { font-size: 36px; } .hospital-specs { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <div class="glow-effect glow-1"></div>
+    <div class="glow-effect glow-2"></div>
+    <div class="glow-effect glow-3"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-atom"></i></div>
+                <div class="logo-text">
+                    <div class="logo-brand">LYDIAN MEDI</div>
+                    <div class="logo-tagline">AGENT</div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-tr="Özellikler" data-en="Features">Özellikler</a>
+                <a href="/demo.html" data-tr="Canlı Demo" data-en="Live Demo">Canlı Demo</a>
+                <a href="/pricing.html" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</a>
+                <a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a>
+                <a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <section class="page-hero">
+                <h1 data-tr="Gerçek Dünya Kullanım Senaryoları" data-en="Real-World Use Cases">Gerçek Dünya Kullanım Senaryoları</h1>
+                <p data-tr="Lydian Agent'ın Türkiye ve ABD'deki önde gelen hastanelerde nasıl hayat kurtardığını, operasyonel verimliliği artırdığını ve hasta sonuçlarını iyileştirdiğini keşfedin." data-en="Discover how Lydian Agent saves lives, improves operational efficiency, and enhances patient outcomes at leading hospitals in Turkey and the USA.">
+                    Lydian Agent'ın Türkiye ve ABD'deki önde gelen hastanelerde nasıl hayat kurtardığını, operasyonel verimliliği artırdığını ve hasta sonuçlarını keşfedin.
+                </p>
+            </section>
+
+            <!-- TURKEY SECTION -->
+            <section class="country-section">
+                <div class="country-header">
+                    <div class="country-flag">🇹🇷</div>
+                    <h2 class="country-title" data-tr="Türkiye Kullanım Senaryoları" data-en="Turkey Use Cases">Türkiye Kullanım Senaryoları</h2>
+                    <p data-tr="8 hastane, 340.000+ hasta, KVKK tam uyumlu" data-en="8 hospitals, 340,000+ patients, KVKK fully compliant" style="color: var(--text-secondary); font-size: 16px;">
+                        8 hastane, 340.000+ hasta, KVKK tam uyumlu
+                    </p>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <div class="country-stat-value">8</div>
+                            <div class="country-stat-label" data-tr="Hastane" data-en="Hospitals">Hastane</div>
+                        </div>
+                        <div class="country-stat">
+                            <div class="country-stat-value">340K+</div>
+                            <div class="country-stat-label" data-tr="Hasta" data-en="Patients">Hasta</div>
+                        </div>
+                        <div class="country-stat">
+                            <div class="country-stat-value">91.2%</div>
+                            <div class="country-stat-label" data-tr="Tanı Doğruluğu" data-en="Diagnosis Accuracy">Tanı Doğruluğu</div>
+                        </div>
+                        <div class="country-stat">
+                            <div class="country-stat-value">67%</div>
+                            <div class="country-stat-label" data-tr="Bekleme Süresi Azalma" data-en="Wait Time Reduction">Bekleme Süresi Azalma</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 1: Acıbadem Istanbul -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="hospital-icon"><i class="fas fa-hospital"></i></div>
+                        <div class="hospital-info">
+                            <h2 data-tr="Acıbadem Hastanesi İstanbul - Acil Servis Optimizasyonu" data-en="Acıbadem Hospital Istanbul - Emergency Department Optimization">Acıbadem Hastanesi İstanbul - Acil Servis Optimizasyonu</h2>
+                            <div class="hospital-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</span>
+                            </div>
+                            <div class="hospital-specs">
+                                <span class="hospital-spec"><i class="fas fa-bed"></i> <span data-tr="350 yatak kapasitesi" data-en="350 bed capacity">350 yatak kapasitesi</span></span>
+                                <span class="hospital-spec"><i class="fas fa-ambulance"></i> <span data-tr="80+ günlük acil başvuru" data-en="80+ daily ER visits">80+ günlük acil başvuru</span></span>
+                                <span class="hospital-spec"><i class="fas fa-users"></i> <span data-tr="450+ sağlık personeli" data-en="450+ healthcare staff">450+ sağlık personeli</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> <span data-tr="Karşılaşılan Zorluklar" data-en="Challenges Faced">Karşılaşılan Zorluklar</span></h3>
+                        <ul class="challenge-list">
+                            <li data-tr="Acil serviste aşırı yoğunluk: Günde ortalama 80+ başvuru, 25 acil yatak" data-en="Emergency department overcrowding: Average 80+ daily visits, 25 ER beds">Acil serviste aşırı yoğunluk: Günde ortalama 80+ başvuru, 25 acil yatak</li>
+                            <li data-tr="Ortalama bekleme süresi 4+ saat (kritik olmayan vakalar için)" data-en="Average wait time 4+ hours (for non-critical cases)">Ortalama bekleme süresi 4+ saat (kritik olmayan vakalar için)</li>
+                            <li data-tr="Triaj hatası riski: Manuel triaj sistemi, özellikle yoğun saatlerde hatalara açık" data-en="Triage error risk: Manual triage system prone to errors, especially during peak hours">Triaj hatası riski: Manuel triaj sistemi, özellikle yoğun saatlerde hatalara açık</li>
+                            <li data-tr="Yatak tahsis verimsizliği: Acil servis yatakları ile genel servis yatakları arasında koordinasyon eksikliği" data-en="Bed allocation inefficiency: Lack of coordination between ER beds and general ward beds">Yatak tahsis verimsizliği: Acil servis yatakları ile genel servis yatakları arasında koordinasyon eksikliği</li>
+                            <li data-tr="Hasta memnuniyetsizliği: %68 hasta memnuniyet skoru (hedef: %85+)" data-en="Patient dissatisfaction: 68% patient satisfaction score (target: 85+)">Hasta memnuniyetsizliği: %68 hasta memnuniyet skoru (hedef: %85+)</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3><i class="fas fa-lightbulb"></i> <span data-tr="Lydian Agent Çözümü" data-en="Lydian Agent Solution">Lydian Agent Çözümü</span></h3>
+                        <p data-tr="7 otonom AI agent ile tam entegre acil servis yönetim sistemi kuruldu:" data-en="Fully integrated emergency department management system with 7 autonomous AI agents:">7 otonom AI agent ile tam entegre acil servis yönetim sistemi kuruldu:</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-user-md"></i> <span data-tr="Clinical Decision Agent" data-en="Clinical Decision Agent">Clinical Decision Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="Anlık triaj kararları: Vital bulgular, semptomlar ve hasta geçmişi analizi ile 15 saniyede triaj kategorisi belirleme (Acil Kırmızı/Sarı/Yeşil)" data-en="Instant triage decisions: Determining triage category in 15 seconds with vital signs, symptoms, and patient history analysis (Emergency Red/Yellow/Green)">Anlık triaj kararları: Vital bulgular, semptomlar ve hasta geçmişi analizi ile 15 saniyede triaj kategorisi belirleme (Acil Kırmızı/Sarı/Yeşil)</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-chart-network"></i> <span data-tr="Resource Optimization Agent" data-en="Resource Optimization Agent">Resource Optimization Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="IBM Quantum QAOA ile yatak tahsisi: 25 acil yatak + 120 genel servis yatak optimizasyonu. Ortalama yatak atama süresi 4.5 saatten 1.5 saate düştü (67% iyileşme)" data-en="Bed allocation with IBM Quantum QAOA: Optimization of 25 ER beds + 120 general ward beds. Average bed assignment time reduced from 4.5 hours to 1.5 hours (67% improvement)">IBM Quantum QAOA ile yatak tahsisi: 25 acil yatak + 120 genel servis yatak optimizasyonu. Ortalama yatak atama süresi 4.5 saatten 1.5 saate düştü (67% iyileşme)</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-heartbeat"></i> <span data-tr="Patient Monitoring Agent" data-en="Patient Monitoring Agent">Patient Monitoring Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="Apache Kafka ile gerçek zamanlı vital takibi: Saniyede 120 vital parametre (nabız, tansiyon, SpO2, solunum, ateş). Kritik durumlarda 2.3 saniyede otomatik alarm" data-en="Real-time vital monitoring with Apache Kafka: 120 vital parameters per second (pulse, BP, SpO2, respiration, temperature). Automatic alarm in 2.3 seconds for critical situations">Apache Kafka ile gerçek zamanlı vital takibi: Saniyede 120 vital parametre (nabız, tansiyon, SpO2, solunum, ateş). Kritik durumlarda 2.3 saniyede otomatik alarm</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-ambulance"></i> <span data-tr="Emergency Response Agent" data-en="Emergency Response Agent">Emergency Response Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="Acil müdahale protokolleri: Kardiyak arrest, stroke, anafilaksi gibi kritik durumlar için otomatik kod ekibi çağrısı ve hazırlık süreçleri" data-en="Emergency response protocols: Automatic code team calls and preparation processes for critical situations like cardiac arrest, stroke, anaphylaxis">Acil müdahale protokolleri: Kardiyak arrest, stroke, anafilaksi gibi kritik durumlar için otomatik kod ekibi çağrısı ve hazırlık süreçleri</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3><i class="fas fa-trophy"></i> <span data-tr="Ölçülebilir Sonuçlar" data-en="Measurable Results">Ölçülebilir Sonuçlar</span></h3>
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <div class="result-value">45 dk</div>
+                                <div class="result-label" data-tr="Ortalama Bekleme Süresi (4 saatten düştü)" data-en="Average Wait Time (down from 4 hours)">Ortalama Bekleme Süresi (4 saatten düştü)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">89%</div>
+                                <div class="result-label" data-tr="Hasta Memnuniyeti (%68'den yükseldi)" data-en="Patient Satisfaction (up from 68%)">Hasta Memnuniyeti (%68'den yükseldi)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">67%</div>
+                                <div class="result-label" data-tr="Yatak Tahsis Süre Azalması" data-en="Bed Allocation Time Reduction">Yatak Tahsis Süre Azalması</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">94%</div>
+                                <div class="result-label" data-tr="Triaj Doğruluğu (manuel %78'den)" data-en="Triage Accuracy (from manual 78%)">Triaj Doğruluğu (manuel %78'den)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">0</div>
+                                <div class="result-label" data-tr="Kritik Triaj Hatası (6 ay)" data-en="Critical Triage Errors (6 months)">Kritik Triaj Hatası (6 ay)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">₺2.8M</div>
+                                <div class="result-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: Memorial Ankara -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="hospital-icon"><i class="fas fa-hospital-alt"></i></div>
+                        <div class="hospital-info">
+                            <h2 data-tr="Memorial Ankara Hastanesi - Onkoloji Tedavi Planlaması" data-en="Memorial Ankara Hospital - Oncology Treatment Planning">Memorial Ankara Hastanesi - Onkoloji Tedavi Planlaması</h2>
+                            <div class="hospital-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-tr="Ankara, Türkiye" data-en="Ankara, Turkey">Ankara, Türkiye</span>
+                            </div>
+                            <div class="hospital-specs">
+                                <span class="hospital-spec"><i class="fas fa-user-injured"></i> <span data-tr="15.000+ yıllık kanser hastası" data-en="15,000+ annual cancer patients">15.000+ yıllık kanser hastası</span></span>
+                                <span class="hospital-spec"><i class="fas fa-radiation"></i> <span data-tr="6 radyoterapi ünitesi" data-en="6 radiotherapy units">6 radyoterapi ünitesi</span></span>
+                                <span class="hospital-spec"><i class="fas fa-flask"></i> <span data-tr="12 kemoterapi koltuğu" data-en="12 chemotherapy chairs">12 kemoterapi koltuğu</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> <span data-tr="Karşılaşılan Zorluklar" data-en="Challenges Faced">Karşılaşılan Zorluklar</span></h3>
+                        <ul class="challenge-list">
+                            <li data-tr="Karmaşık tedavi protokolleri: 50+ farklı kemoterapi rejimi, 200+ ilaç kombinasyonu" data-en="Complex treatment protocols: 50+ different chemotherapy regimens, 200+ drug combinations">Karmaşık tedavi protokolleri: 50+ farklı kemoterapi rejimi, 200+ ilaç kombinasyonu</li>
+                            <li data-tr="İlaç etkileşim riski: Kanser hastaları ortalama 8-12 ilaç kullanıyor, kritik etkileşim riski yüksek" data-en="Drug interaction risk: Cancer patients using average 8-12 medications, high critical interaction risk">İlaç etkileşim riski: Kanser hastaları ortalama 8-12 ilaç kullanıyor, kritik etkileşim riski yüksek</li>
+                            <li data-tr="Doz hesaplama hataları: Vücut yüzey alanı, böbrek/karaciğer fonksiyonlarına göre doz ayarlamaları karmaşık" data-en="Dose calculation errors: Complex dose adjustments based on body surface area, kidney/liver functions">Doz hesaplama hataları: Vücut yüzey alanı, böbrek/karaciğer fonksiyonlarına göre doz ayarlamaları karmaşık</li>
+                            <li data-tr="Radyoterapi çizelgeleme: 6 lineer hızlandırıcı için optimal hasta çizelgeleme zorluğu" data-en="Radiotherapy scheduling: Difficulty in optimal patient scheduling for 6 linear accelerators">Radyoterapi çizelgeleme: 6 lineer hızlandırıcı için optimal hasta çizelgeleme zorluğu</li>
+                            <li data-tr="Klinik karar desteği yetersizliği: Her onkolojist farklı protokol tercih ediyor, standardizasyon eksik" data-en="Insufficient clinical decision support: Each oncologist prefers different protocols, lack of standardization">Klinik karar desteği yetersizliği: Her onkolojist farklı protokol tercih ediyor, standardizasyon eksik</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3><i class="fas fa-lightbulb"></i> <span data-tr="Lydian Agent Çözümü" data-en="Lydian Agent Solution">Lydian Agent Çözümü</span></h3>
+                        <p data-tr="Kuantum-güçlendirilmiş onkoloji tedavi planlama sistemi:" data-en="Quantum-enhanced oncology treatment planning system:">Kuantum-güçlendirilmiş onkoloji tedavi planlama sistemi:</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-brain"></i> <span data-tr="Treatment Planning Agent" data-en="Treatment Planning Agent">Treatment Planning Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="50+ kemoterapi protokolünü analiz eder: NCCN, ESMO, ASCO kılavuzlarına göre kanıta dayalı tedavi önerileri. 2.4M kanser vakası veritabanı ile desteklenir" data-en="Analyzes 50+ chemotherapy protocols: Evidence-based treatment recommendations according to NCCN, ESMO, ASCO guidelines. Supported by 2.4M cancer case database">50+ kemoterapi protokolünü analiz eder: NCCN, ESMO, ASCO kılavuzlarına göre kanıta dayalı tedavi önerileri. 2.4M kanser vakası veritabanı ile desteklenir</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-pills"></i> <span data-tr="Pharmacy Management Agent" data-en="Pharmacy Management Agent">Pharmacy Management Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="200+ ilaç etkileşimi kontrolü: Kritik etkileşimler (QT uzaması, sitokrom P450 inhibisyonu vb.) otomatik tespit edilir. 15.000+ ilaç bilgi grafiği" data-en="200+ drug interaction check: Critical interactions (QT prolongation, cytochrome P450 inhibition, etc.) automatically detected. 15,000+ drug knowledge graph">200+ ilaç etkileşimi kontrolü: Kritik etkileşimler (QT uzaması, sitokrom P450 inhibisyonu vb.) otomatik tespit edilir. 15.000+ ilaç bilgi grafiği</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-atom"></i> <span data-tr="Quantum Optimization Engine" data-en="Quantum Optimization Engine">Quantum Optimization Engine</span></div>
+                                <div class="solution-feature-desc" data-tr="Radyoterapi çizelgeleme optimizasyonu: 6 lineer hızlandırıcı + 120 hasta/hafta için IBM Quantum QAOA ile optimal çizelge. 5 saat manuel işten 8 dakikaya düştü" data-en="Radiotherapy scheduling optimization: Optimal schedule with IBM Quantum QAOA for 6 linear accelerators + 120 patients/week. Reduced from 5 hours manual work to 8 minutes">Radyoterapi çizelgeleme optimizasyonu: 6 lineer hızlandırıcı + 120 hasta/hafta için IBM Quantum QAOA ile optimal çizelge. 5 saat manuel işten 8 dakikaya düştü</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-calculator"></i> <span data-tr="Automated Dose Calculator" data-en="Automated Dose Calculator">Automated Dose Calculator</span></div>
+                                <div class="solution-feature-desc" data-tr="Otomatik doz hesaplama: BSA (vücut yüzey alanı), kreatinin klerensi, karaciğer fonksiyon testleri ile otomatik doz ayarlama. %99.7 doğruluk" data-en="Automatic dose calculation: Automatic dose adjustment with BSA (body surface area), creatinine clearance, liver function tests. 99.7% accuracy">Otomatik doz hesaplama: BSA (vücut yüzey alanı), kreatinin klerensi, karaciğer fonksiyon testleri ile otomatik doz ayarlama. %99.7 doğruluk</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3><i class="fas fa-trophy"></i> <span data-tr="Ölçülebilir Sonuçlar" data-en="Measurable Results">Ölçülebilir Sonuçlar</span></h3>
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <div class="result-value">94%</div>
+                                <div class="result-label" data-tr="Tedavi Planı Doğruluğu" data-en="Treatment Plan Accuracy">Tedavi Planı Doğruluğu</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">0</div>
+                                <div class="result-label" data-tr="Kritik İlaç Etkileşimi (12 ay)" data-en="Critical Drug Interactions (12 months)">Kritik İlaç Etkileşimi (12 ay)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">84%</div>
+                                <div class="result-label" data-tr="Radyoterapi Çizelgeleme Hızı Artışı" data-en="Radiotherapy Scheduling Speed Increase">Radyoterapi Çizelgeleme Hızı Artışı</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">18%</div>
+                                <div class="result-label" data-tr="Tedavi Protokol Uyumu Artışı" data-en="Treatment Protocol Adherence Increase">Tedavi Protokol Uyumu Artışı</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">92%</div>
+                                <div class="result-label" data-tr="Hasta Memnuniyeti" data-en="Patient Satisfaction">Hasta Memnuniyeti</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">₺4.2M</div>
+                                <div class="result-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: Koç University Hospital -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="hospital-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div class="hospital-info">
+                            <h2 data-tr="Koç Üniversitesi Hastanesi - Yoğun Bakım İzleme" data-en="Koç University Hospital - ICU Monitoring">Koç Üniversitesi Hastanesi - Yoğun Bakım İzleme</h2>
+                            <div class="hospital-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</span>
+                            </div>
+                            <div class="hospital-specs">
+                                <span class="hospital-spec"><i class="fas fa-procedures"></i> <span data-tr="40 yoğun bakım yatağı" data-en="40 ICU beds">40 yoğun bakım yatağı</span></span>
+                                <span class="hospital-spec"><i class="fas fa-user-nurse"></i> <span data-tr="1:2 hemşire-hasta oranı" data-en="1:2 nurse-patient ratio">1:2 hemşire-hasta oranı</span></span>
+                                <span class="hospital-spec"><i class="fas fa-heartbeat"></i> <span data-tr="COVID/Kardiyak/Travma hastaları" data-en="COVID/Cardiac/Trauma patients">COVID/Kardiyak/Travma hastaları</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> <span data-tr="Karşılaşılan Zorluklar" data-en="Challenges Faced">Karşılaşılan Zorluklar</span></h3>
+                        <ul class="challenge-list">
+                            <li data-tr="Sürekli izleme gerekliliği: 40 kritik hasta, 15+ vital parametre, 24/7 izleme" data-en="Continuous monitoring requirement: 40 critical patients, 15+ vital parameters, 24/7 monitoring">Sürekli izleme gerekliliği: 40 kritik hasta, 15+ vital parametre, 24/7 izleme</li>
+                            <li data-tr="Erken bozulma tespiti: Sepsis, ARDS, kardiyak arrest öncesi uyarı sinyalleri gözden kaçabiliyor" data-en="Early deterioration detection: Warning signs before sepsis, ARDS, cardiac arrest can be missed">Erken bozulma tespiti: Sepsis, ARDS, kardiyak arrest öncesi uyarı sinyalleri gözden kaçabiliyor</li>
+                            <li data-tr="Alarm yorgunluğu: Saatte 200+ alarm, hemşireler kritik alarmları gözden kaçırabiliyor (%15 yanlış pozitif)" data-en="Alarm fatigue: 200+ alarms per hour, nurses can miss critical alarms (15% false positive)">Alarm yorgunluğu: Saatte 200+ alarm, hemşireler kritik alarmları gözden kaçırabiliyor (%15 yanlış pozitif)</li>
+                            <li data-tr="Veri hacmi: Her hastadan saniyede 50+ veri noktası, manuel analiz imkansız" data-en="Data volume: 50+ data points per second from each patient, manual analysis impossible">Veri hacmi: Her hastadan saniyede 50+ veri noktası, manuel analiz imkansız</li>
+                            <li data-tr="Geç sepsis tanısı: Ortalama 8-10 saat gecikme, mortalite %28" data-en="Late sepsis diagnosis: Average 8-10 hour delay, mortality 28%">Geç sepsis tanısı: Ortalama 8-10 saat gecikme, mortalite %28</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3><i class="fas fa-lightbulb"></i> <span data-tr="Lydian Agent Çözümü" data-en="Lydian Agent Solution">Lydian Agent Çözümü</span></h3>
+                        <p data-tr="Gerçek zamanlı yoğun bakım izleme ve erken uyarı sistemi:" data-en="Real-time ICU monitoring and early warning system:">Gerçek zamanlı yoğun bakım izleme ve erken uyarı sistemi:</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-stream"></i> <span data-tr="Apache Kafka Streaming" data-en="Apache Kafka Streaming">Apache Kafka Streaming</span></div>
+                                <div class="solution-feature-desc" data-tr="Saniyede 10.000 vital verisi işlenir: 40 hasta × 50 parametre × 5 Hz = sürekli veri akışı. Ortalama işleme gecikmesi 48ms, %99.97 uptime" data-en="10,000 vital data processed per second: 40 patients × 50 parameters × 5 Hz = continuous data stream. Average processing latency 48ms, 99.97% uptime">Saniyede 10.000 vital verisi işlenir: 40 hasta × 50 parametre × 5 Hz = sürekli veri akışı. Ortalama işleme gecikmesi 48ms, %99.97 uptime</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-virus"></i> <span data-tr="Sepsis Early Detection" data-en="Sepsis Early Detection">Sepsis Early Detection</span></div>
+                                <div class="solution-feature-desc" data-tr="6 saat erken sepsis tespiti: LSTM neural network ile qSOFA, SIRS, laktat trendleri analiz edilir. %94 duyarlılık, %89 özgüllük. Mortalite %28'den %16'ya düştü" data-en="6 hours early sepsis detection: LSTM neural network analyzes qSOFA, SIRS, lactate trends. 94% sensitivity, 89% specificity. Mortality reduced from 28% to 16%">6 saat erken sepsis tespiti: LSTM neural network ile qSOFA, SIRS, laktat trendleri analiz edilir. %94 duyarlılık, %89 özgüllük. Mortalite %28'den %16'ya düştü</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-bell"></i> <span data-tr="Smart Alarm Filtering" data-en="Smart Alarm Filtering">Smart Alarm Filtering</span></div>
+                                <div class="solution-feature-desc" data-tr="Akıllı alarm filtreleme: Makine öğrenmesi ile yanlış pozitif alarmlar %15'ten %3'e düştü. Sadece klinik açıdan önemli alarmlar iletilir" data-en="Smart alarm filtering: Machine learning reduced false positive alarms from 15% to 3%. Only clinically significant alarms are forwarded">Akıllı alarm filtreleme: Makine öğrenmesi ile yanlış pozitif alarmlar %15'ten %3'e düştü. Sadece klinik açıdan önemli alarmlar iletilir</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-procedures"></i> <span data-tr="Emergency Response Agent" data-en="Emergency Response Agent">Emergency Response Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="Otomatik protokol aktivasyonu: Kardiyak arrest, intrakraniyal hipertansiyon, masif kanama gibi acil durumlarda otomatik kod ekibi çağrısı ve hazırlık" data-en="Automatic protocol activation: Automatic code team call and preparation in emergencies like cardiac arrest, intracranial hypertension, massive bleeding">Otomatik protokol aktivasyonu: Kardiyak arrest, intrakraniyal hipertansiyon, masif kanama gibi acil durumlarda otomatik kod ekibi çağrısı ve hazırlık</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3><i class="fas fa-trophy"></i> <span data-tr="Ölçülebilir Sonuçlar" data-en="Measurable Results">Ölçülebilir Sonuçlar</span></h3>
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <div class="result-value">23%</div>
+                                <div class="result-label" data-tr="YB Mortalite Azalması (%28→%16)" data-en="ICU Mortality Reduction (28%→16%)">YB Mortalite Azalması (%28→%16)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">6 saat</div>
+                                <div class="result-label" data-tr="Erken Sepsis Tespiti" data-en="Early Sepsis Detection">Erken Sepsis Tespiti</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">18%</div>
+                                <div class="result-label" data-tr="YB Kalış Süresi Azalması" data-en="ICU Stay Duration Reduction">YB Kalış Süresi Azalması</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">80%</div>
+                                <div class="result-label" data-tr="Yanlış Pozitif Alarm Azalması" data-en="False Positive Alarm Reduction">Yanlış Pozitif Alarm Azalması</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">94%</div>
+                                <div class="result-label" data-tr="Sepsis Tespit Duyarlılığı" data-en="Sepsis Detection Sensitivity">Sepsis Tespit Duyarlılığı</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">₺5.6M</div>
+                                <div class="result-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- USA SECTION -->
+            <section class="country-section">
+                <div class="country-header">
+                    <div class="country-flag">🇺🇸</div>
+                    <h2 class="country-title" data-tr="Amerika Birleşik Devletleri Kullanım Senaryoları" data-en="United States Use Cases">Amerika Birleşik Devletleri Kullanım Senaryoları</h2>
+                    <p data-tr="23 hastane, 1.8M+ hasta, HIPAA tam uyumlu" data-en="23 hospitals, 1.8M+ patients, HIPAA fully compliant" style="color: var(--text-secondary); font-size: 16px;">
+                        23 hastane, 1.8M+ hasta, HIPAA tam uyumlu
+                    </p>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <div class="country-stat-value">23</div>
+                            <div class="country-stat-label" data-tr="Hastane" data-en="Hospitals">Hastane</div>
+                        </div>
+                        <div class="country-stat">
+                            <div class="country-stat-value">1.8M+</div>
+                            <div class="country-stat-label" data-tr="Hasta" data-en="Patients">Hasta</div>
+                        </div>
+                        <div class="country-stat">
+                            <div class="country-stat-value">92.7%</div>
+                            <div class="country-stat-label" data-tr="Tanı Doğruluğu" data-en="Diagnosis Accuracy">Tanı Doğruluğu</div>
+                        </div>
+                        <div class="country-stat">
+                            <div class="country-stat-value">$47M</div>
+                            <div class="country-stat-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 1: Mayo Clinic -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="hospital-icon"><i class="fas fa-hospital-user"></i></div>
+                        <div class="hospital-info">
+                            <h2 data-tr="Mayo Clinic Rochester - Çok Disiplinli Koordinasyon" data-en="Mayo Clinic Rochester - Multi-Specialty Coordination">Mayo Clinic Rochester - Çok Disiplinli Koordinasyon</h2>
+                            <div class="hospital-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-tr="Rochester, Minnesota, ABD" data-en="Rochester, Minnesota, USA">Rochester, Minnesota, ABD</span>
+                            </div>
+                            <div class="hospital-specs">
+                                <span class="hospital-spec"><i class="fas fa-bed"></i> <span data-tr="1.265 yatak kapasitesi" data-en="1,265 bed capacity">1.265 yatak kapasitesi</span></span>
+                                <span class="hospital-spec"><i class="fas fa-user-md"></i> <span data-tr="1.3M yıllık hasta" data-en="1.3M annual patients">1.3M yıllık hasta</span></span>
+                                <span class="hospital-spec"><i class="fas fa-stethoscope"></i> <span data-tr="40+ uzmanlık dalı" data-en="40+ specialties">40+ uzmanlık dalı</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> <span data-tr="Karşılaşılan Zorluklar" data-en="Challenges Faced">Karşılaşılan Zorluklar</span></h3>
+                        <ul class="challenge-list">
+                            <li data-tr="40+ uzmanlık dalı koordinasyonu: Kardiyoloji, onkoloji, nöroloji, ortopedi vb. entegrasyonu zorluğu" data-en="40+ specialty coordination: Difficulty integrating cardiology, oncology, neurology, orthopedics, etc.">40+ uzmanlık dalı koordinasyonu: Kardiyoloji, onkoloji, nöroloji, ortopedi vb. entegrasyonu zorluğu</li>
+                            <li data-tr="Karmaşık bakım yolları: Çok komorbiditeli hastalar için standart bakım yolu oluşturma zorluğu" data-en="Complex care pathways: Difficulty creating standard care pathways for patients with multiple comorbidities">Karmaşık bakım yolları: Çok komorbiditeli hastalar için standart bakım yolu oluşturma zorluğu</li>
+                            <li data-tr="Epic EHR entegrasyonu: 1.3M hasta verisi, 500+ klinisyen, HL7 FHIR standardı entegrasyonu" data-en="Epic EHR integration: 1.3M patient data, 500+ clinicians, HL7 FHIR standard integration">Epic EHR entegrasyonu: 1.3M hasta verisi, 500+ klinisyen, HL7 FHIR standardı entegrasyonu</li>
+                            <li data-tr="Tanı gecikmesi: Multidisipliner konsültasyonlar ortalama 12 gün sürüyor" data-en="Diagnosis delay: Multidisciplinary consultations take average 12 days">Tanı gecikmesi: Multidisipliner konsültasyonlar ortalama 12 gün sürüyor</li>
+                            <li data-tr="Maliyet kontrolü: Kompleks vakaların yıllık maliyeti $850M, %15 azaltma hedefi" data-en="Cost control: Annual cost of complex cases $850M, 15% reduction target">Maliyet kontrolü: Kompleks vakaların yıllık maliyeti $850M, %15 azaltma hedefi</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3><i class="fas fa-lightbulb"></i> <span data-tr="Lydian Agent Çözümü" data-en="Lydian Agent Solution">Lydian Agent Çözümü</span></h3>
+                        <p data-tr="Multi-model AI sistemi ile uzmanlık dalları arası koordinasyon:" data-en="Inter-specialty coordination with multi-model AI system:">Multi-model AI sistemi ile uzmanlık dalları arası koordinasyon:</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-plug"></i> <span data-tr="Epic EHR Integration (HL7 FHIR)" data-en="Epic EHR Integration (HL7 FHIR)">Epic EHR Integration (HL7 FHIR)</span></div>
+                                <div class="solution-feature-desc" data-tr="Tam Epic entegrasyonu: 1.3M hasta kaydı, gerçek zamanlı senkronizasyon, %99.98 uptime. HL7 FHIR R4 standardı ile tam uyumluluk" data-en="Full Epic integration: 1.3M patient records, real-time synchronization, 99.98% uptime. Full compliance with HL7 FHIR R4 standard">Tam Epic entegrasyonu: 1.3M hasta kaydı, gerçek zamanlı senkronizasyon, %99.98 uptime. HL7 FHIR R4 standardı ile tam uyumluluk</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-brain"></i> <span data-tr="Clinical Decision Agent (Multi-Specialty)" data-en="Clinical Decision Agent (Multi-Specialty)">Clinical Decision Agent (Multi-Specialty)</span></div>
+                                <div class="solution-feature-desc" data-tr="Uzmanlığa özel öneriler: 40+ uzmanlık dalı için kanıta dayalı klinik kılavuzlar. Kardiyoloji için ACC/AHA, onkoloji için NCCN, nöroloji için AAN kılavuzları" data-en="Specialty-specific recommendations: Evidence-based clinical guidelines for 40+ specialties. ACC/AHA for cardiology, NCCN for oncology, AAN for neurology">Uzmanlığa özel öneriler: 40+ uzmanlık dalı için kanıta dayalı klinik kılavuzlar. Kardiyoloji için ACC/AHA, onkoloji için NCCN, nöroloji için AAN kılavuzları</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-project-diagram"></i> <span data-tr="7 Autonomous AI Agents" data-en="7 Autonomous AI Agents">7 Autonomous AI Agents</span></div>
+                                <div class="solution-feature-desc" data-tr="Otonom çalışan AI agentlar: Clinical Decision, Diagnosis, Treatment Planning, Resource Optimization, Patient Monitoring, Emergency Response, Pharmacy Management agentları bağımsız çalışır" data-en="Autonomous AI agents: Clinical Decision, Diagnosis, Treatment Planning, Resource Optimization, Patient Monitoring, Emergency Response, Pharmacy Management agents work independently">Otonom çalışan AI agentlar: Clinical Decision, Diagnosis, Treatment Planning, Resource Optimization, Patient Monitoring, Emergency Response, Pharmacy Management agentları bağımsız çalışır</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-route"></i> <span data-tr="Care Pathway Optimization" data-en="Care Pathway Optimization">Care Pathway Optimization</span></div>
+                                <div class="solution-feature-desc" data-tr="Kişiselleştirilmiş bakım yolları: Her hastaya özel, komorbiditeler dikkate alınarak oluşturulan bakım yolu. 150+ standart protokolden en uygun seçim" data-en="Personalized care pathways: Patient-specific care pathway created considering comorbidities. Optimal selection from 150+ standard protocols">Kişiselleştirilmiş bakım yolları: Her hastaya özel, komorbiditeler dikkate alınarak oluşturulan bakım yolu. 150+ standart protokolden en uygun seçim</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3><i class="fas fa-trophy"></i> <span data-tr="Ölçülebilir Sonuçlar" data-en="Measurable Results">Ölçülebilir Sonuçlar</span></h3>
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <div class="result-value">31%</div>
+                                <div class="result-label" data-tr="Tanı Süresi Azalması (12 gün→8.3 gün)" data-en="Diagnosis Time Reduction (12 days→8.3 days)">Tanı Süresi Azalması (12 gün→8.3 gün)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">$12M</div>
+                                <div class="result-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">94%</div>
+                                <div class="result-label" data-tr="Bakım Yolu Uyumu" data-en="Care Pathway Adherence">Bakım Yolu Uyumu</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">89%</div>
+                                <div class="result-label" data-tr="Multidisipliner Karar Doğruluğu" data-en="Multidisciplinary Decision Accuracy">Multidisipliner Karar Doğruluğu</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">22%</div>
+                                <div class="result-label" data-tr="Hastanede Kalış Süresi Azalması" data-en="Hospital Stay Duration Reduction">Hastanede Kalış Süresi Azalması</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">96%</div>
+                                <div class="result-label" data-tr="Klinisyen Memnuniyeti" data-en="Clinician Satisfaction">Klinisyen Memnuniyeti</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: Johns Hopkins -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="hospital-icon"><i class="fas fa-scalpel"></i></div>
+                        <div class="hospital-info">
+                            <h2 data-tr="Johns Hopkins Hospital - Ameliyathane Optimizasyonu" data-en="Johns Hopkins Hospital - Surgical Optimization">Johns Hopkins Hospital - Ameliyathane Optimizasyonu</h2>
+                            <div class="hospital-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-tr="Baltimore, Maryland, ABD" data-en="Baltimore, Maryland, USA">Baltimore, Maryland, ABD</span>
+                            </div>
+                            <div class="hospital-specs">
+                                <span class="hospital-spec"><i class="fas fa-procedures"></i> <span data-tr="1.154 yatak" data-en="1,154 beds">1.154 yatak</span></span>
+                                <span class="hospital-spec"><i class="fas fa-cut"></i> <span data-tr="85.000+ yıllık ameliyat" data-en="85,000+ annual surgeries">85.000+ yıllık ameliyat</span></span>
+                                <span class="hospital-spec"><i class="fas fa-door-open"></i> <span data-tr="42 ameliyathane" data-en="42 operating rooms">42 ameliyathane</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> <span data-tr="Karşılaşılan Zorluklar" data-en="Challenges Faced">Karşılaşılan Zorluklar</span></h3>
+                        <ul class="challenge-list">
+                            <li data-tr="Kompleks ameliyathane çizelgelemesi: 42 ameliyathane, 85.000+ ameliyat/yıl, 200+ cerrah" data-en="Complex OR scheduling: 42 operating rooms, 85,000+ surgeries/year, 200+ surgeons">Kompleks ameliyathane çizelgelemesi: 42 ameliyathane, 85.000+ ameliyat/yıl, 200+ cerrah</li>
+                            <li data-tr="Ekipman tahsisi: $45M değerinde cerrahi ekipman (robotik cerrahi, laparoskopi, kardiyopulmoner bypass vb.)" data-en="Equipment allocation: $45M worth of surgical equipment (robotic surgery, laparoscopy, cardiopulmonary bypass, etc.)">Ekipman tahsisi: $45M değerinde cerrahi ekipman (robotik cerrahi, laparoskopi, kardiyopulmoner bypass vb.)</li>
+                            <li data-tr="Ameliyat gecikmesi: Ortalama %18 ameliyat başlama gecikmesi, günlük 2-3 saat verimsizlik" data-en="Surgery delay: Average 18% surgery start delay, 2-3 hours daily inefficiency">Ameliyat gecikmesi: Ortalama %18 ameliyat başlama gecikmesi, günlük 2-3 saat verimsizlik</li>
+                            <li data-tr="Cerrahi ekip koordinasyonu: Anestezi, hemşirelik, cerrahi ekiplerinin uyumlu çalışması zorluğu" data-en="Surgical team coordination: Difficulty in coordinating anesthesia, nursing, surgical teams">Cerrahi ekip koordinasyonu: Anestezi, hemşirelik, cerrahi ekiplerinin uyumlu çalışması zorluğu</li>
+                            <li data-tr="Ameliyathane kullanım oranı: %74 (hedef: %90+)" data-en="OR utilization rate: 74% (target: 90+)">Ameliyathane kullanım oranı: %74 (hedef: %90+)</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3><i class="fas fa-lightbulb"></i> <span data-tr="Lydian Agent Çözümü" data-en="Lydian Agent Solution">Lydian Agent Çözümü</span></h3>
+                        <p data-tr="IBM Quantum QAOA ile ameliyathane optimizasyonu:" data-en="Operating room optimization with IBM Quantum QAOA:">IBM Quantum QAOA ile ameliyathane optimizasyonu:</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-atom"></i> <span data-tr="IBM Quantum QAOA Optimization" data-en="IBM Quantum QAOA Optimization">IBM Quantum QAOA Optimization</span></div>
+                                <div class="solution-feature-desc" data-tr="42 ameliyathane için eş zamanlı optimizasyon: Cerrah tercihleri, ekipman gereklilikleri, hasta öncelikleri dikkate alınarak optimal çizelge. Klasik algoritmalara göre %82 hızlanma" data-en="Simultaneous optimization for 42 ORs: Optimal schedule considering surgeon preferences, equipment requirements, patient priorities. 82% speedup vs classical algorithms">42 ameliyathane için eş zamanlı optimizasyon: Cerrah tercihleri, ekipman gereklilikleri, hasta öncelikleri dikkate alınarak optimal çizelge. Klasik algoritmalara göre %82 hızlanma</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-tools"></i> <span data-tr="Resource Optimization Agent" data-en="Resource Optimization Agent">Resource Optimization Agent</span></div>
+                                <div class="solution-feature-desc" data-tr="$45M ekipman envanteri yönetimi: Robotik cerrahi sistemler, laparoskopi setleri, kardiyopulmoner bypass cihazları gerçek zamanlı izlenir. Bakım planlaması ve kullanılabilirlik optimizasyonu" data-en="$45M equipment inventory management: Robotic surgical systems, laparoscopy sets, cardiopulmonary bypass devices monitored in real-time. Maintenance planning and availability optimization">$45M ekipman envanteri yönetimi: Robotik cerrahi sistemler, laparoskopi setleri, kardiyopulmoner bypass cihazları gerçek zamanlı izlenir. Bakım planlaması ve kullanılabilirlik optimizasyonu</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-clock"></i> <span data-tr="Real-Time Team Availability" data-en="Real-Time Team Availability">Real-Time Team Availability</span></div>
+                                <div class="solution-feature-desc" data-tr="Cerrahi ekip müsaitliği takibi: 200+ cerrah, 150+ anestezi hekimi, 300+ ameliyathane hemşiresi için gerçek zamanlı vardiya ve müsaitlik takibi" data-en="Surgical team availability tracking: Real-time shift and availability tracking for 200+ surgeons, 150+ anesthesiologists, 300+ OR nurses">Cerrahi ekip müsaitliği takibi: 200+ cerrah, 150+ anestezi hekimi, 300+ ameliyathane hemşiresi için gerçek zamanlı vardiya ve müsaitlik takibi</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-chart-line"></i> <span data-tr="Predictive Delay Management" data-en="Predictive Delay Management">Predictive Delay Management</span></div>
+                                <div class="solution-feature-desc" data-tr="Tahmine dayalı gecikme yönetimi: Ameliyat süreleri ML ile tahmin edilir, gerçek zamanlı gecikme senaryolarında otomatik yeniden çizelgeleme yapılır" data-en="Predictive delay management: Surgery durations predicted with ML, automatic rescheduling in real-time delay scenarios">Tahmine dayalı gecikme yönetimi: Ameliyat süreleri ML ile tahmin edilir, gerçek zamanlı gecikme senaryolarında otomatik yeniden çizelgeleme yapılır</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3><i class="fas fa-trophy"></i> <span data-tr="Ölçülebilir Sonuçlar" data-en="Measurable Results">Ölçülebilir Sonuçlar</span></h3>
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <div class="result-value">18%</div>
+                                <div class="result-label" data-tr="Ameliyathane Kullanımı Artışı (%74→%87)" data-en="OR Utilization Increase (74%→87%)">Ameliyathane Kullanımı Artışı (%74→%87)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">22%</div>
+                                <div class="result-label" data-tr="Ameliyat Gecikmesi Azalması" data-en="Surgery Delay Reduction">Ameliyat Gecikmesi Azalması</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">82%</div>
+                                <div class="result-label" data-tr="Kuantum Hızlanma (vs Klasik)" data-en="Quantum Speedup (vs Classical)">Kuantum Hızlanma (vs Klasik)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">$8.4M</div>
+                                <div class="result-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">2.8h</div>
+                                <div class="result-label" data-tr="Günlük Verimlilik Artışı" data-en="Daily Efficiency Increase">Günlük Verimlilik Artışı</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">93%</div>
+                                <div class="result-label" data-tr="Cerrahi Ekip Memnuniyeti" data-en="Surgical Team Satisfaction">Cerrahi Ekip Memnuniyeti</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: Cleveland Clinic -->
+                <div class="use-case-card">
+                    <div class="use-case-header">
+                        <div class="hospital-icon"><i class="fas fa-heart"></i></div>
+                        <div class="hospital-info">
+                            <h2 data-tr="Cleveland Clinic - Kronik Hastalık Yönetimi" data-en="Cleveland Clinic - Chronic Disease Management">Cleveland Clinic - Kronik Hastalık Yönetimi</h2>
+                            <div class="hospital-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-tr="Cleveland, Ohio, ABD" data-en="Cleveland, Ohio, USA">Cleveland, Ohio, ABD</span>
+                            </div>
+                            <div class="hospital-specs">
+                                <span class="hospital-spec"><i class="fas fa-users"></i> <span data-tr="6.2M yıllık hasta ziyareti" data-en="6.2M annual patient visits">6.2M yıllık hasta ziyareti</span></span>
+                                <span class="hospital-spec"><i class="fas fa-heartbeat"></i> <span data-tr="300K+ kronik hastalık hastası" data-en="300K+ chronic disease patients">300K+ kronik hastalık hastası</span></span>
+                                <span class="hospital-spec"><i class="fas fa-mobile-alt"></i> <span data-tr="Uzaktan izleme programı" data-en="Remote monitoring program">Uzaktan izleme programı</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="challenge-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> <span data-tr="Karşılaşılan Zorluklar" data-en="Challenges Faced">Karşılaşılan Zorluklar</span></h3>
+                        <ul class="challenge-list">
+                            <li data-tr="300.000+ kronik hastalık hastası: Kalp yetmezliği, KOAH, diyabet, hipertansiyon, kronik böbrek hastalığı" data-en="300,000+ chronic disease patients: Heart failure, COPD, diabetes, hypertension, chronic kidney disease">300.000+ kronik hastalık hastası: Kalp yetmezliği, KOAH, diyabet, hipertansiyon, kronik böbrek hastalığı</li>
+                            <li data-tr="Hastane tekrar yatışları: 30 gün içinde %24 tekrar yatış oranı (hedef: <%15)" data-en="Hospital readmissions: 24% readmission rate within 30 days (target: <15%)">Hastane tekrar yatışları: 30 gün içinde %24 tekrar yatış oranı (hedef: <%15)</li>
+                            <li data-tr="İlaç uyumu: Kronik hastalık ilaçlarına uyum %68 (kalp yetmezliği için kritik)" data-en="Medication adherence: 68% adherence to chronic disease medications (critical for heart failure)">İlaç uyumu: Kronik hastalık ilaçlarına uyum %68 (kalp yetmezliği için kritik)</li>
+                            <li data-tr="Reaktif bakım modeli: Sorunlar ortaya çıktıktan sonra müdahale, proaktif izleme yetersiz" data-en="Reactive care model: Intervention after problems arise, insufficient proactive monitoring">Reaktif bakım modeli: Sorunlar ortaya çıktıktan sonra müdahale, proaktif izleme yetersiz</li>
+                            <li data-tr="Maliyet yükü: Kronik hastalıklar yıllık $420M maliyet, önlenebilir hastane yatışları" data-en="Cost burden: Chronic diseases cost $420M annually, preventable hospitalizations">Maliyet yükü: Kronik hastalıklar yıllık $420M maliyet, önlenebilir hastane yatışları</li>
+                        </ul>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3><i class="fas fa-lightbulb"></i> <span data-tr="Lydian Agent Çözümü" data-en="Lydian Agent Solution">Lydian Agent Çözümü</span></h3>
+                        <p data-tr="Proaktif kronik hastalık yönetimi ve uzaktan izleme platformu:" data-en="Proactive chronic disease management and remote monitoring platform:">Proaktif kronik hastalık yönetimi ve uzaktan izleme platformu:</p>
+                        <div class="solution-features">
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-mobile-alt"></i> <span data-tr="Remote Patient Monitoring" data-en="Remote Patient Monitoring">Remote Patient Monitoring</span></div>
+                                <div class="solution-feature-desc" data-tr="300.000 hastanın uzaktan izlenmesi: Kan basıncı, ağırlık, kalp hızı, SpO2, kan şekeri otomatik izlenir. Giyilebilir cihazlar ve evde kullanım cihazları entegrasyonu" data-en="Remote monitoring of 300,000 patients: Blood pressure, weight, heart rate, SpO2, blood sugar automatically monitored. Wearable devices and home-use device integration">300.000 hastanın uzaktan izlenmesi: Kan basıncı, ağırlık, kalp hızı, SpO2, kan şekeri otomatik izlenir. Giyilebilir cihazlar ve evde kullanım cihazları entegrasyonu</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-exclamation-circle"></i> <span data-tr="Diagnosis Agent (Exacerbation Prediction)" data-en="Diagnosis Agent (Exacerbation Prediction)">Diagnosis Agent (Exacerbation Prediction)</span></div>
+                                <div class="solution-feature-desc" data-tr="Kalp yetmezliği alevlenmesi 10 gün önce tahmin edilir: Ağırlık artışı, ödem, dispne, yorgunluk paternleri LSTM neural network ile analiz edilir. %87 tahmin doğruluğu" data-en="Heart failure exacerbation predicted 10 days early: Weight gain, edema, dyspnea, fatigue patterns analyzed with LSTM neural network. 87% prediction accuracy">Kalp yetmezliği alevlenmesi 10 gün önce tahmin edilir: Ağırlık artışı, ödem, dispne, yorgunluk paternleri LSTM neural network ile analiz edilir. %87 tahmin doğruluğu</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-pills"></i> <span data-tr="Treatment Planning Agent (Dynamic Adjustment)" data-en="Treatment Planning Agent (Dynamic Adjustment)">Treatment Planning Agent (Dynamic Adjustment)</span></div>
+                                <div class="solution-feature-desc" data-tr="Dinamik ilaç ayarlaması: Vital bulgulara, laboratuvar sonuçlarına göre diüretik, ACE inhibitörü, beta bloker dozları otomatik önerilir. Hekim onayı ile uygulanır" data-en="Dynamic medication adjustment: Diuretic, ACE inhibitor, beta blocker doses automatically recommended based on vital signs, lab results. Applied with physician approval">Dinamik ilaç ayarlaması: Vital bulgulara, laboratuvar sonuçlarına göre diüretik, ACE inhibitörü, beta bloker dozları otomatik önerilir. Hekim onayı ile uygulanır</div>
+                            </div>
+                            <div class="solution-feature">
+                                <div class="solution-feature-title"><i class="fas fa-bell"></i> <span data-tr="Medication Adherence Monitoring" data-en="Medication Adherence Monitoring">Medication Adherence Monitoring</span></div>
+                                <div class="solution-feature-desc" data-tr="İlaç uyum takibi: Akıllı ilaç kutuları, mobil uygulamalar ile ilaç kullanımı izlenir. Uyum düşükse otomatik hatırlatmalar ve telehealth konsültasyonu" data-en="Medication adherence tracking: Medication use monitored with smart pill boxes, mobile apps. Automatic reminders and telehealth consultation if adherence drops">İlaç uyum takibi: Akıllı ilaç kutuları, mobil uygulamalar ile ilaç kullanımı izlenir. Uyum düşükse otomatik hatırlatmalar ve telehealth konsültasyonu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3><i class="fas fa-trophy"></i> <span data-tr="Ölçülebilir Sonuçlar" data-en="Measurable Results">Ölçülebilir Sonuçlar</span></h3>
+                        <div class="results-grid">
+                            <div class="result-metric">
+                                <div class="result-value">28%</div>
+                                <div class="result-label" data-tr="Hastane Tekrar Yatış Azalması (%24→%17)" data-en="Hospital Readmission Reduction (24%→17%)">Hastane Tekrar Yatış Azalması (%24→%17)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">92%</div>
+                                <div class="result-label" data-tr="İlaç Uyumu (%68'den yükseldi)" data-en="Medication Adherence (up from 68%)">İlaç Uyumu (%68'den yükseldi)</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">10 gün</div>
+                                <div class="result-label" data-tr="Erken Alevlenme Tespiti" data-en="Early Exacerbation Detection">Erken Alevlenme Tespiti</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">87%</div>
+                                <div class="result-label" data-tr="Alevlenme Tahmin Doğruluğu" data-en="Exacerbation Prediction Accuracy">Alevlenme Tahmin Doğruluğu</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">34%</div>
+                                <div class="result-label" data-tr="Acil Servis Ziyareti Azalması" data-en="Emergency Room Visit Reduction">Acil Servis Ziyareti Azalması</div>
+                            </div>
+                            <div class="result-metric">
+                                <div class="result-value">$26M</div>
+                                <div class="result-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2 data-tr="Hastanenize Lydian Agent Getirin" data-en="Bring Lydian Agent to Your Hospital">Hastanenize Lydian Agent Getirin</h2>
+                <p data-tr="7 otonom AI agent, IBM Quantum teknolojisi ve gerçek zamanlı hasta izleme ile hastanenizin operasyonel verimliliğini artırın ve hasta sonuçlarını iyileştirin." data-en="Increase your hospital's operational efficiency and improve patient outcomes with 7 autonomous AI agents, IBM Quantum technology, and real-time patient monitoring.">
+                    7 otonom AI agent, IBM Quantum teknolojisi ve gerçek zamanlı hasta izleme ile hastanenizin operasyonel verimliliğini artırın ve hasta sonuçlarını iyileştirin.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/demo.html" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        <span data-tr="Canlı Demo Dene" data-en="Try Live Demo">Canlı Demo Dene</span>
+                    </a>
+                    <a href="/contact.html" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        <span data-tr="Satış Ekibiyle İletişim" data-en="Contact Sales Team">Satış Ekibiyle İletişim</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-atom"></i></div>
+                    <div class="logo-text">
+                        <div class="logo-brand">LYDIAN MEDI</div>
+                        <div class="logo-tagline">AGENT</div>
+                    </div>
+                </a>
+                <p class="footer-description" data-tr="Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerini dönüştüren yeni nesil klinik karar destek platformu." data-en="Next-generation clinical decision support platform transforming healthcare with quantum computing and artificial intelligence.">
+                    Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerini dönüştüren yeni nesil klinik karar destek platformu.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/lydian-agent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/company/lydian-agent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/lydianagent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/@lydianagent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Ürün" data-en="Product">Ürün</h4>
+                <ul>
+                    <li><a href="/features.html" data-tr="Özellikler" data-en="Features">Özellikler</a></li>
+                    <li><a href="/demo.html" data-tr="Canlı Demo" data-en="Live Demo">Canlı Demo</a></li>
+                    <li><a href="/pricing.html" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</a></li>
+                    <li><a href="/integrations.html" data-tr="Entegrasyonlar" data-en="Integrations">Entegrasyonlar</a></li>
+                    <li><a href="/changelog.html" data-tr="Değişiklikler" data-en="Changelog">Değişiklikler</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Kaynaklar" data-en="Resources">Kaynaklar</h4>
+                <ul>
+                    <li><a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a></li>
+                    <li><a href="/api.html" data-tr="API Referansı" data-en="API Reference">API Referansı</a></li>
+                    <li><a href="/guides.html" data-tr="Rehberler" data-en="Guides">Rehberler</a></li>
+                    <li><a href="/blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+                    <li><a href="/support.html" data-tr="Destek Merkezi" data-en="Support Center">Destek Merkezi</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
+                <ul>
+                    <li><a href="/about.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+                    <li><a href="/team.html" data-tr="Ekip" data-en="Team">Ekip</a></li>
+                    <li><a href="/careers.html" data-tr="Kariyer" data-en="Careers">Kariyer</a></li>
+                    <li><a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                    <li><a href="/press.html" data-tr="Basın" data-en="Press">Basın</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Yasal" data-en="Legal">Yasal</h4>
+                <ul>
+                    <li><a href="/privacy.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+                    <li><a href="/terms.html" data-tr="Kullanım Koşulları" data-en="Terms of Service">Kullanım Koşulları</a></li>
+                    <li><a href="/security.html" data-tr="Güvenlik" data-en="Security">Güvenlik</a></li>
+                    <li><a href="/compliance.html" data-tr="Uyumluluk" data-en="Compliance">Uyumluluk</a></li>
+                    <li><a href="/cookies.html" data-tr="Çerezler" data-en="Cookies">Çerezler</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright" data-tr="© 2025 Lydian Agent. Tüm hakları saklıdır." data-en="© 2025 Lydian Agent. All rights reserved.">© 2025 Lydian Agent. Tüm hakları saklıdır.</p>
+            <div class="compliance-badges">
+                <span class="badge">HIPAA Compliant</span>
+                <span class="badge">KVKK Uyumlu</span>
+                <span class="badge">ISO 27001 Certified</span>
+            </div>
+            <div class="footer-utility">
+                <a href="/sitemap.html" data-tr="Site Haritası" data-en="Sitemap">Site Haritası</a>
+                <a href="/status.html" data-tr="Sistem Durumu" data-en="System Status">Sistem Durumu</a>
+                <a href="/accessibility.html" data-tr="Erişilebilirlik" data-en="Accessibility">Erişilebilirlik</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/js/language-switcher.js"></script>
+    <script src="/static/js/country-theme-switcher.js"></script>
+</body>
+</html>

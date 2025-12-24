@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rehberler - Lydian Agent</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><style>:root{--lydian-primary:#0ea5e9;--lydian-secondary:#10b981;--lydian-accent:#06b6d4;--lydian-gold:#f59e0b;--gradient-lydian:linear-gradient(135deg,#0ea5e9 0%,#10b981 50%,#06b6d4 100%);--dark-bg:#0f172a;--dark-surface:#1e293b;--text-primary:#f8fafc;--text-secondary:#cbd5e1;--text-muted:#94a3b8;--dark-elevated:#334155;--border-color:rgba(14,165,233,0.2)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:var(--dark-bg);color:var(--text-primary);line-height:1.6}.cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.3;background:linear-gradient(90deg,rgba(14,165,233,0.05) 1px,transparent 1px),linear-gradient(0deg,rgba(14,165,233,0.05) 1px,transparent 1px);background-size:50px 50px;animation:gridMove 20s linear infinite}@keyframes gridMove{0%{background-position:0 0}100%{background-position:50px 50px}}.navbar{position:fixed;top:0;width:100%;background:rgba(10,14,26,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);padding:20px 60px;z-index:1000}.nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.logo{display:flex;align-items:center;gap:15px;text-decoration:none}.logo-icon{width:50px;height:50px;background:var(--gradient-lydian);border-radius:12px;display:flex;align-items:center;justify-content:center}.logo-icon i{font-size:24px;color:var(--dark-bg)}.logo-brand{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;background:var(--gradient-lydian);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.nav-links{display:flex;gap:40px;align-items:center}.nav-links a{color:var(--text-primary);text-decoration:none;font-size:14px}.main-content{position:relative;z-index:1;padding-top:120px;min-height:80vh}.container{max-width:1200px;margin:0 auto;padding:0 60px}.page-hero{text-align:center;padding:80px 0 60px}.page-hero h1{font-family:'Orbitron',monospace;font-size:56px;font-weight:900;background:var(--gradient-lydian);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}.content-section{background:var(--dark-surface);border:1px solid var(--border-color);border-radius:20px;padding:50px;margin-bottom:40px}.content-section h2{font-family:'Orbitron',monospace;font-size:32px;color:var(--lydian-primary);margin-bottom:25px}.content-section p{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:15px}.footer{position:relative;z-index:1;background:var(--dark-surface);border-top:1px solid var(--border-color);padding:60px 0 30px;margin-top:120px}.footer-content{max-width:1400px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:60px}.footer-links h4{font-family:'Orbitron',monospace;font-size:14px;margin-bottom:20px}.footer-links ul{list-style:none}.footer-links a{color:var(--text-secondary);text-decoration:none;font-size:14px;display:block;padding:8px 0}.footer-bottom{max-width:1400px;margin:0 auto;padding:30px 60px 0;border-top:1px solid var(--border-color);text-align:center}.copyright{color:var(--text-secondary);font-size:14px}</style></head><body><div class="cyber-bg"></div><nav class="navbar"><div class="nav-container"><a href="/index.html" class="logo"><div class="logo-icon"><i class="fas fa-atom"></i></div><div class="logo-brand">LYDIAN MEDI</div></a><div class="nav-links"><a href="/features.html">Özellikler</a><a href="/demo.html">Canlı Demo</a><a href="/pricing.html">Fiyatlandırma</a><a href="/docs.html">Dokümantasyon</a><a href="/contact.html">İletişim</a></div></div></nav><main class="main-content"><div class="container"><section class="page-hero"><h1>Rehberler</h1></section><div class="content-section"><h2>Installation Guide</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Prerequisites</h3><ul style="color:var(--text-secondary);margin-left:30px;line-height:2"><li>Docker 24.0+ and Docker Compose 2.0+</li><li>Python 3.11+ (for local development)</li><li>Node.js 20+ (for frontend development)</li><li>PostgreSQL 15+, MongoDB 7+, Redis 7+</li><li>Quantum computing access (for quantum features)</li><li>Minimum 16GB RAM, 4 CPU cores</li></ul><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Quick Install with Docker</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Clone the repository
+git clone https://github.com/lydian-agent/platform.git
+cd platform
+
+# Configure environment variables
+cp .env.example .env
+nano .env  # Configure your database credentials
+
+# Start all services
+docker-compose up -d
+
+# Initialize database schema
+docker-compose exec backend python scripts/init_db.py
+
+# Create admin user
+docker-compose exec backend python scripts/create_admin.py
+
+# Access the platform at http://localhost:8000</code></pre></div><div class="content-section"><h2>Docker Deployment Guide</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Production Docker Compose</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">version: '3.9'
+
+services:
+  backend:
+    image: lydian-agent:latest
+    environment:
+      - DATABASE_URL=postgresql://user:pass@postgres:5432/lydian
+      - KAFKA_BROKERS=kafka:9092
+      - REDIS_URL=redis://redis:6379/0
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - mongodb
+      - redis
+      - kafka
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  postgres:
+    image: timescale/timescaledb:latest-pg15
+    environment:
+      POSTGRES_PASSWORD: secure_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:7
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:7-alpine
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+
+volumes:
+  postgres_data:
+  mongo_data:</code></pre></div><div class="content-section"><h2>Kubernetes Deployment</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Deploy to Kubernetes Cluster</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Create namespace
+kubectl create namespace lydian-agent
+
+# Apply configurations
+kubectl apply -f k8s/secrets.yaml
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/postgres-statefulset.yaml
+kubectl apply -f k8s/mongodb-statefulset.yaml
+kubectl apply -f k8s/redis-deployment.yaml
+kubectl apply -f k8s/kafka-deployment.yaml
+kubectl apply -f k8s/backend-deployment.yaml
+kubectl apply -f k8s/service.yaml
+kubectl apply -f k8s/ingress.yaml
+
+# Verify deployment
+kubectl get pods -n lydian-agent
+kubectl get services -n lydian-agent
+
+# Scale backend pods
+kubectl scale deployment/lydian-backend --replicas=3 -n lydian-agent</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Example Backend Deployment YAML</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lydian-backend
+  namespace: lydian-agent
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lydian-backend
+  template:
+    metadata:
+      labels:
+        app: lydian-backend
+    spec:
+      containers:
+      - name: backend
+        image: lydian-agent:v1.2.0
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: lydian-secrets
+              key: database-url
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10</code></pre></div><div class="content-section"><h2>HIPAA Compliance Configuration</h2><p>Lydian Agent is designed to be HIPAA-compliant out of the box. Follow these steps to ensure full compliance:</p><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">1. Enable Encryption at Rest</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># PostgreSQL encryption
+ENABLE_DATABASE_ENCRYPTION=true
+ENCRYPTION_ALGORITHM=AES-256-GCM
+DATABASE_ENCRYPTION_KEY=your-32-byte-key-here
+
+# MongoDB encryption
+MONGODB_ENCRYPTION=true
+MONGODB_KEY_FILE=/path/to/keyfile</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">2. Configure TLS/SSL</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">ENFORCE_TLS=true
+MIN_TLS_VERSION=1.3
+SSL_CERT_FILE=/path/to/cert.pem
+SSL_KEY_FILE=/path/to/key.pem</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">3. Enable Audit Logging</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">ENABLE_AUDIT_TRAIL=true
+AUDIT_LOG_RETENTION_DAYS=2555  # 7 years required
+ENABLE_PHI_ACCESS_LOGGING=true
+AUDIT_LOG_PATH=/var/log/lydian/audit.log</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">4. Configure Access Controls</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">ENABLE_RBAC=true
+REQUIRE_MFA=true
+SESSION_TIMEOUT_MINUTES=15
+PASSWORD_MIN_LENGTH=12
+PASSWORD_REQUIRE_SPECIAL=true
+MAX_LOGIN_ATTEMPTS=3
+ACCOUNT_LOCKOUT_DURATION_MINUTES=30</code></pre></div><div class="content-section"><h2>EHR Integration Guide</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">HL7 FHIR Integration</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">from lydian_agent import FHIRClient
+
+# Initialize FHIR client
+client = FHIRClient(
+    base_url="https://fhir.ehr-system.com",
+    auth_token="your-token"
+)
+
+# Fetch patient data
+patient = client.get_patient("12345")
+
+# Convert to Lydian Agent format
+lydian_patient = client.convert_to_lydian(patient)
+
+# Submit to Clinical Decision Agent
+from lydian_agent.agents import ClinicalDecisionAgent
+
+agent = ClinicalDecisionAgent()
+decision = agent.analyze(lydian_patient)</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Epic Integration</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Epic FHIR endpoint configuration
+EPIC_FHIR_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth
+EPIC_CLIENT_ID=your-client-id
+EPIC_PRIVATE_KEY=/path/to/private-key.pem
+
+# Enable Epic integration in Lydian Agent
+ENABLE_EPIC_INTEGRATION=true
+EPIC_SYNC_INTERVAL_MINUTES=5</code></pre></div><div class="content-section"><h2>Custom Agent Development</h2><p>Extend Lydian Agent with your own custom AI agents:</p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">from lydian_agent.core import BaseAgent
+from lydian_agent.models import PatientData
+
+class CustomRadiologyAgent(BaseAgent):
+    """Custom agent for radiology analysis"""
+
+    def __init__(self):
+        super().__init__(
+            name="Radiology Analysis Agent",
+            version="1.0.0"
+        )
+
+    async def analyze(self, imaging_data: dict) -> dict:
+        """Analyze radiology images"""
+
+        # Your custom AI model logic here
+        results = await self.ai_model.predict(imaging_data)
+
+        return {
+            "findings": results.findings,
+            "severity": results.severity,
+            "recommendations": results.recommendations,
+            "confidence": results.confidence
+        }
+
+    async def generate_report(self, analysis: dict) -> str:
+        """Generate structured radiology report"""
+        return self.llm.generate(
+            template="radiology_report",
+            data=analysis
+        )
+
+# Register custom agent
+from lydian_agent import register_agent
+
+register_agent(CustomRadiologyAgent())</code></pre></div><div class="content-section"><h2>Performance Optimization</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Database Optimization</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># PostgreSQL connection pooling
+DATABASE_POOL_SIZE=20
+DATABASE_MAX_OVERFLOW=10
+
+# TimescaleDB hypertable optimization
+CREATE EXTENSION IF NOT EXISTS timescaledb;
+SELECT create_hypertable('patient_vitals', 'timestamp');
+SELECT add_retention_policy('patient_vitals', INTERVAL '90 days');
+
+# Create indexes for common queries
+CREATE INDEX idx_patient_vitals_patient_id
+ON patient_vitals(patient_id, timestamp DESC);
+
+CREATE INDEX idx_clinical_decisions_timestamp
+ON clinical_decisions(created_at DESC);</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Redis Caching Strategy</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Enable Redis caching
+REDIS_CACHE_ENABLED=true
+REDIS_CACHE_TTL_SECONDS=300
+
+# Cache configuration
+CACHE_PATIENT_DATA=true
+CACHE_CLINICAL_GUIDELINES=true
+CACHE_DRUG_INTERACTIONS=true</code></pre></div><div class="content-section"><h2>Monitoring & Observability</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Prometheus Metrics</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Enable Prometheus metrics endpoint
+ENABLE_METRICS=true
+METRICS_PORT=9090
+
+# Access metrics at http://localhost:9090/metrics
+
+# Key metrics tracked:
+# - lydian_agent_requests_total
+# - lydian_agent_response_time_seconds
+# - lydian_agent_active_patients
+# - lydian_quantum_jobs_total
+# - lydian_kafka_messages_processed</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Grafana Dashboards</h3><p>Import pre-built Lydian Agent dashboards:</p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Download dashboard
+curl -O https://lydian-agent.com/grafana/dashboards/main.json
+
+# Import to Grafana
+# Dashboards > Import > Upload JSON file</code></pre></div><div class="content-section"><h2>Troubleshooting</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Common Issues</h3><p><strong style="color:var(--lydian-primary)">Issue: Kafka connection timeout</strong></p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Check Kafka health
+docker-compose logs kafka
+
+# Increase timeout
+KAFKA_CONNECTION_TIMEOUT_MS=30000</code></pre><p><strong style="color:var(--lydian-primary)">Issue: Quantum API errors</strong></p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Verify IBM Quantum credentials
+python scripts/test_quantum_connection.py
+
+# Use simulator for testing
+QUANTUM_BACKEND=ibmq_qasm_simulator</code></pre><p><strong style="color:var(--lydian-primary)">Issue: Database migration failures</strong></p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Check migration status
+python manage.py showmigrations
+
+# Apply migrations manually
+python manage.py migrate --fake-initial</code></pre></div><div class="content-section"><h2>Next Steps</h2><ul style="color:var(--text-secondary);margin-left:30px;line-height:2"><li><a href="/api.html" style="color:var(--lydian-primary)">Explore the API Reference</a></li><li><a href="/docs.html" style="color:var(--lydian-primary)">Read Full Documentation</a></li><li><a href="/support.html" style="color:var(--lydian-primary)">Get Support</a></li><li><a href="/contact.html" style="color:var(--lydian-primary)">Contact Sales for Enterprise Licensing</a></li></ul></div></div></main><footer class="footer"><div class="footer-content"><div class="footer-links"><h4>Ürün</h4><ul><li><a href="/features.html">Özellikler</a></li><li><a href="/demo.html">Canlı Demo</a></li><li><a href="/pricing.html">Fiyatlandırma</a></li></ul></div><div class="footer-links"><h4>Kaynaklar</h4><ul><li><a href="/docs.html">Dokümantasyon</a></li><li><a href="/api.html">API Referansı</a></li><li><a href="/support.html">Destek</a></li></ul></div><div class="footer-links"><h4>Şirket</h4><ul><li><a href="/about.html">Hakkımızda</a></li><li><a href="/contact.html">İletişim</a></li></ul></div><div class="footer-links"><h4>Yasal</h4><ul><li><a href="/privacy.html">Gizlilik</a></li><li><a href="/terms.html">Koşullar</a></li><li><a href="/security.html">Güvenlik</a></li></ul></div></div><div class="footer-bottom"><p class="copyright">© 2025 Lydian Agent. Tüm hakları saklıdır.</p></div></footer><script src="/static/js/language-switcher.js"></script>    <script src="/static/js/country-theme-switcher.js"></script>
+</body></html>

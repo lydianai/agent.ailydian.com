@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - Lydian Agent | Quantum AI Healthcare</title>
+    <meta name="description" content="Lydian Agent - Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerinde devrim yaratan ekip. Misyonumuz, vizyonumuz ve değerlerimiz.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --lydian-primary: #ff0033;
+            --lydian-secondary: #ff3366;
+            --lydian-accent: #ff6699;
+            --lydian-gold: #ffaa00;
+            --dark-bg: #0a0a0f;
+            --dark-card: #131318;
+            --dark-border: #1f1f28;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e8;
+            --text-muted: #a0a0b8;
+            --gradient-lydian: linear-gradient(135deg, #ff0033 0%, #ff3366 50%, #ff6699 100%);
+            --dark-surface: #1e293b;
+            --dark-elevated: #334155;
+            --border-color: rgba(255, 0, 51, 0.2);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); position: relative; color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        .cyber-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.3; background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; animation: gridMove 20s linear infinite; }
+        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+        .glow-effect { position: fixed; width: 500px; height: 500px; border-radius: 50%; filter: blur(100px); opacity: 0.15; z-index: 0; pointer-events: none; }
+        .glow-1 { background: var(--lydian-primary); top: 10%; left: 10%; animation: float 15s ease-in-out infinite; }
+        .glow-2 { background: var(--lydian-secondary); top: 50%; right: 10%; animation: float 20s ease-in-out infinite reverse; }
+        .glow-3 { background: var(--lydian-accent); bottom: 10%; left: 50%; animation: float 18s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(50px, 50px); } 50% { transform: translate(0, 100px); } 75% { transform: translate(-50px, 50px); } }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); padding: 20px 60px; z-index: 1000; transition: all 0.3s ease; }
+        .navbar.scrolled { background: rgba(15, 23, 42, 0.95); padding: 15px 60px; box-shadow: 0 10px 40px rgba(255, 0, 51, 0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-icon { width: 50px; height: 50px; background: var(--gradient-lydian); border-radius: 12px; display: flex; align-items: center; justify-content: center; animation: logoPulse 3s ease-in-out infinite; }
+        .logo-icon i { font-size: 24px; color: var(--dark-bg); animation: iconSpin 10s linear infinite; }
+        @keyframes logoPulse { 0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 51, 0.3); } 50% { box-shadow: 0 0 40px rgba(255, 0, 51, 0.6); } }
+        @keyframes iconSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-brand { font-family: 'Orbitron', monospace; font-size: 24px; font-weight: 900; background: var(--gradient-lydian); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        .logo-tagline { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-secondary); letter-spacing: 3px; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.3s ease; position: relative; }
+        .nav-links a:hover { color: var(--lydian-primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gradient-lydian); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .lang-switcher { display: flex; gap: 10px; margin-left: 20px; }
+        .lang-btn { padding: 8px 16px; background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; transition: all 0.3s ease; }
+        .lang-btn:hover, .lang-btn.active { background: var(--gradient-lydian); color: var(--dark-bg); border-color: transparent; }
+        .main-content { position: relative; z-index: 1; padding-top: 120px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+        .page-hero { text-align: center; padding: 80px 0 60px; }
+        .page-hero h1 { font-family: 'Orbitron', monospace; font-size: 56px; font-weight: 900; background: var(--gradient-lydian); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; line-height: 1.2; }
+        .page-hero p { font-size: 20px; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px; }
+        .mission-section { background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 20px; padding: 60px; margin-bottom: 80px; text-align: center; }
+        .mission-section h2 { font-family: 'Orbitron', monospace; font-size: 36px; font-weight: 700; color: var(--lydian-primary); margin-bottom: 30px; }
+        .mission-section p { font-size: 18px; color: var(--text-secondary); line-height: 1.8; max-width: 900px; margin: 0 auto; }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 80px; }
+        .value-card { background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 20px; padding: 40px; text-align: center; transition: all 0.3s ease; }
+        .value-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(255, 0, 51, 0.2); border-color: var(--lydian-primary); }
+        .value-icon { width: 80px; height: 80px; background: rgba(255, 0, 51, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
+        .value-icon i { font-size: 36px; color: var(--lydian-primary); }
+        .value-card h3 { font-family: 'Orbitron', monospace; font-size: 22px; color: var(--text-primary); margin-bottom: 15px; }
+        .value-card p { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .stats-section { background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 20px; padding: 60px; margin-bottom: 80px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .stat-item { text-align: center; }
+        .stat-value { font-family: 'Orbitron', monospace; font-size: 48px; font-weight: 900; background: var(--gradient-lydian); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        .stat-label { color: var(--text-secondary); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-section { margin-bottom: 80px; }
+        .timeline-section h2 { font-family: 'Orbitron', monospace; font-size: 36px; font-weight: 700; color: var(--lydian-primary); margin-bottom: 50px; text-align: center; }
+        .timeline { position: relative; padding-left: 50px; }
+        .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: var(--gradient-lydian); }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-dot { position: absolute; left: -37px; top: 0; width: 16px; height: 16px; background: var(--lydian-primary); border-radius: 50%; box-shadow: 0 0 20px var(--lydian-primary); }
+        .timeline-content { background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; }
+        .timeline-year { font-family: 'Orbitron', monospace; font-size: 24px; color: var(--lydian-primary); margin-bottom: 10px; }
+        .timeline-title { font-size: 20px; color: var(--text-primary); margin-bottom: 10px; font-weight: 600; }
+        .timeline-description { color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+        .footer { position: relative; z-index: 1; background: var(--dark-surface); border-top: 1px solid var(--border-color); padding: 60px 0 30px; margin-top: 120px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; padding: 0 60px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+        .footer-brand { max-width: 350px; }
+        .footer-brand .logo { margin-bottom: 20px; }
+        .footer-description { color: var(--text-secondary); font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+        .social-links { display: flex; gap: 15px; }
+        .social-link { width: 40px; height: 40px; background: rgba(255, 0, 51, 0.1); border: 1px solid var(--border-color); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--lydian-primary); text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: var(--lydian-primary); color: var(--dark-bg); transform: translateY(-3px); }
+        .footer-links h4 { font-family: 'Orbitron', monospace; font-size: 14px; color: var(--text-primary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; display: block; padding: 8px 0; transition: all 0.3s ease; }
+        .footer-links a:hover { color: var(--lydian-primary); padding-left: 5px; }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; padding: 30px 60px 0; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .copyright { color: var(--text-secondary); font-size: 14px; }
+        .compliance-badges { display: flex; gap: 15px; }
+        .badge { padding: 6px 12px; background: rgba(255, 0, 51, 0.1); border: 1px solid var(--lydian-primary); border-radius: 6px; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--lydian-primary); }
+        .footer-utility { display: flex; gap: 20px; }
+        .footer-utility a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.3s ease; }
+        .footer-utility a:hover { color: var(--lydian-primary); }
+        @media (max-width: 1024px) { .values-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .footer-content { grid-template-columns: repeat(3, 1fr); } .footer-brand { grid-column: span 3; } }
+        @media (max-width: 768px) { .container { padding: 0 30px; } .navbar { padding: 15px 30px; } .page-hero h1 { font-size: 36px; } .stats-grid { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr; } .footer-brand { grid-column: span 1; } .footer-bottom { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <div class="glow-effect glow-1"></div>
+    <div class="glow-effect glow-2"></div>
+    <div class="glow-effect glow-3"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-atom"></i></div>
+                <div class="logo-text">
+                    <div class="logo-brand">LYDIAN MEDI</div>
+                    <div class="logo-tagline">AGENT</div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-tr="Özellikler" data-en="Features">Özellikler</a>
+                <a href="/demo.html" data-tr="Canlı Demo" data-en="Live Demo">Canlı Demo</a>
+                <a href="/pricing.html" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</a>
+                <a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a>
+                <a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="container">
+            <section class="page-hero">
+                <h1 data-tr="Sağlıkta Kuantum Devrimi" data-en="Quantum Revolution in Healthcare">Sağlıkta Kuantum Devrimi</h1>
+                <p data-tr="Lydian Agent, kuantum hesaplama ve yapay zeka teknolojilerini birleştirerek sağlık hizmetlerinde yeni bir çağ başlatıyor." data-en="Lydian Agent is ushering in a new era in healthcare by combining quantum computing and artificial intelligence technologies.">
+                    Lydian Agent, kuantum hesaplama ve yapay zeka teknolojilerini birleştirerek sağlık hizmetlerinde yeni bir çağ başlatıyor.
+                </p>
+            </section>
+            <section class="mission-section">
+                <h2 data-tr="Misyonumuz" data-en="Our Mission">Misyonumuz</h2>
+                <p data-tr="Kuantum-güçlendirilmiş yapay zeka ile her hastane ve kliniğe dünya standartlarında klinik karar desteği sağlamak, hekim hatalarını minimize etmek ve hasta sonuçlarını dramatik şekilde iyileştirmek. HIPAA ve KVKK uyumlu, güvenli ve ölçeklenebilir altyapımız ile sağlık profesyonellerini en iyi kararları verebilmeleri için güçlendiriyoruz." data-en="To provide world-class clinical decision support to every hospital and clinic with quantum-powered artificial intelligence, minimize physician errors, and dramatically improve patient outcomes. We empower healthcare professionals to make the best decisions with our HIPAA and KVKK compliant, secure and scalable infrastructure.">
+                    Kuantum-güçlendirilmiş yapay zeka ile her hastane ve kliniğe dünya standartlarında klinik karar desteği sağlamak, hekim hatalarını minimize etmek ve hasta sonuçlarını dramatik şekilde iyileştirmek. HIPAA ve KVKK uyumlu, güvenli ve ölçeklenebilir altyapımız ile sağlık profesyonellerini en iyi kararları verebilmeleri için güçlendiriyoruz.
+                </p>
+            </section>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 data-tr="Hasta Odaklılık" data-en="Patient-Centric">Hasta Odaklılık</h3>
+                    <p data-tr="Her kararımızın merkezinde hasta güvenliği ve sonuçları vardır. %89.4 tanı doğruluğu ile hayat kurtarıyoruz." data-en="Patient safety and outcomes are at the center of every decision. We save lives with 89.4% diagnostic accuracy.">
+                        Her kararımızın merkezinde hasta güvenliği ve sonuçları vardır. %89.4 tanı doğruluğu ile hayat kurtarıyoruz.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-atom"></i></div>
+                    <h3 data-tr="Teknolojik İnovasyon" data-en="Technological Innovation">Teknolojik İnovasyon</h3>
+                    <p data-tr="IBM Qiskit kuantum bilişim ve gelişmiş AI modellerini birleştirerek sınırları zorluyoruz." data-en="We push boundaries by combining IBM Qiskit quantum computing and advanced AI models.">
+                        IBM Qiskit kuantum bilişim ve gelişmiş AI modellerini birleştirerek sınırları zorluyoruz.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 data-tr="Güvenlik ve Uyumluluk" data-en="Security & Compliance">Güvenlik ve Uyumluluk</h3>
+                    <p data-tr="HIPAA, KVKK ve ISO 27001 sertifikalı altyapımızla hasta verilerinin güvenliği birinci önceliğimizdir." data-en="Patient data security is our top priority with HIPAA, KVKK and ISO 27001 certified infrastructure.">
+                        HIPAA, KVKK ve ISO 27001 sertifikalı altyapımızla hasta verilerinin güvenliği birinci önceliğimizdir.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3 data-tr="İşbirliği" data-en="Collaboration">İşbirliği</h3>
+                    <p data-tr="Hekimler, araştırmacılar ve hastanelerle yakın işbirliği içinde sürekli gelişiyoruz." data-en="We continuously improve in close collaboration with physicians, researchers and hospitals.">
+                        Hekimler, araştırmacılar ve hastanelerle yakın işbirliği içinde sürekli gelişiyoruz.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 data-tr="Kanıta Dayalı Yaklaşım" data-en="Evidence-Based Approach">Kanıta Dayalı Yaklaşım</h3>
+                    <p data-tr="Tüm önerilerimiz peer-reviewed klinik çalışmalar ve güncel tıbbi rehberlerle desteklenir." data-en="All our recommendations are supported by peer-reviewed clinical studies and current medical guidelines.">
+                        Tüm önerilerimiz peer-reviewed klinik çalışmalar ve güncel tıbbi rehberlerle desteklenir.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-globe"></i></div>
+                    <h3 data-tr="Global Erişilebilirlik" data-en="Global Accessibility">Global Erişilebilirlik</h3>
+                    <p data-tr="Türkçe ve İngilizce dillerinde, dünya genelinde her sağlık kuruluşuna erişilebilir hizmet sunuyoruz." data-en="We provide accessible services to healthcare organizations worldwide in Turkish and English.">
+                        Türkçe ve İngilizce dillerinde, dünya genelinde her sağlık kuruluşuna erişilebilir hizmet sunuyoruz.
+                    </p>
+                </div>
+            </div>
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">50K+</div>
+                        <div class="stat-label" data-tr="Analiz Edilen Hasta" data-en="Patients Analyzed">Analiz Edilen Hasta</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">127</div>
+                        <div class="stat-label" data-tr="Entegre Hastane" data-en="Integrated Hospitals">Entegre Hastane</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99.97%</div>
+                        <div class="stat-label" data-tr="Sistem Uptime" data-en="System Uptime">Sistem Uptime</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">6.4h</div>
+                        <div class="stat-label" data-tr="Erken Sepsis Tespiti" data-en="Early Sepsis Detection">Erken Sepsis Tespiti</div>
+                    </div>
+                </div>
+            </div>
+            <section class="mission-section" style="margin-bottom: 80px;">
+                <h2 data-tr="Gerçek Dünya Etkimiz" data-en="Real-World Impact">Gerçek Dünya Etkimiz</h2>
+                <p data-tr="Lydian Agent, dünya genelinde 12 ülkede 47 hastanede 2.3 milyon hastaya hizmet veriyor. Türkiye'de 8 hastane ve 340.000+ hasta, ABD'de 23 hastane ve 1.8M+ hasta ile sağlık hizmetlerinde yeni bir çağ başlattık." data-en="Lydian Agent serves 2.3 million patients at 47 hospitals in 12 countries worldwide. We have started a new era in healthcare with 8 hospitals and 340,000+ patients in Turkey, 23 hospitals and 1.8M+ patients in the USA.">
+                    Lydian Agent, dünya genelinde 12 ülkede 47 hastanede 2.3 milyon hastaya hizmet veriyor. Türkiye'de 8 hastane ve 340.000+ hasta, ABD'de 23 hastane ve 1.8M+ hasta ile sağlık hizmetlerinde yeni bir çağ başlattık.
+                </p>
+            </section>
+            <div class="stats-section" style="margin-bottom: 80px;">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label" data-tr="Ülke" data-en="Countries">Ülke</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">47</div>
+                        <div class="stat-label" data-tr="Hastane" data-en="Hospitals">Hastane</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">2.3M+</div>
+                        <div class="stat-label" data-tr="Hasta" data-en="Patients">Hasta</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">$47M</div>
+                        <div class="stat-label" data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</div>
+                    </div>
+                </div>
+            </div>
+            <div class="values-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 80px;">
+                <div class="value-card" style="text-align: left;">
+                    <div class="value-icon" style="margin: 0 0 25px 0;"><i class="fas fa-flag"></i></div>
+                    <h3 data-tr="Türkiye Metrikleri" data-en="Turkey Metrics">Türkiye Metrikleri</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Entegre Hastaneler" data-en="Integrated Hospitals">Entegre Hastaneler</span>
+                            <strong style="color: var(--lydian-primary);">8</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Toplam Hasta Sayısı" data-en="Total Patients">Toplam Hasta Sayısı</span>
+                            <strong style="color: var(--lydian-primary);">340.000+</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Tanı Doğruluğu" data-en="Diagnosis Accuracy">Tanı Doğruluğu</span>
+                            <strong style="color: var(--lydian-primary);">91.2%</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Acil Servis Bekleme Azalması" data-en="ER Wait Time Reduction">Acil Servis Bekleme Azalması</span>
+                            <strong style="color: var(--lydian-primary);">67%</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="YB Mortalite Azalması" data-en="ICU Mortality Reduction">YB Mortalite Azalması</span>
+                            <strong style="color: var(--lydian-primary);">23%</strong>
+                        </li>
+                        <li style="padding: 10px 0; display: flex; justify-content: space-between;">
+                            <span data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</span>
+                            <strong style="color: var(--lydian-primary);">₺12.6M</strong>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px; color: var(--text-muted);" data-tr="Başlıca Hastaneler: Acıbadem İstanbul, Memorial Ankara, Koç Üniversitesi Hastanesi, Liv Hospital, Florence Nightingale" data-en="Major Hospitals: Acıbadem Istanbul, Memorial Ankara, Koç University Hospital, Liv Hospital, Florence Nightingale">
+                        Başlıca Hastaneler: Acıbadem İstanbul, Memorial Ankara, Koç Üniversitesi Hastanesi, Liv Hospital, Florence Nightingale
+                    </p>
+                </div>
+                <div class="value-card" style="text-align: left;">
+                    <div class="value-icon" style="margin: 0 0 25px 0;"><i class="fas fa-flag-usa"></i></div>
+                    <h3 data-tr="ABD Metrikleri" data-en="USA Metrics">ABD Metrikleri</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Entegre Hastaneler" data-en="Integrated Hospitals">Entegre Hastaneler</span>
+                            <strong style="color: var(--lydian-primary);">23</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Toplam Hasta Sayısı" data-en="Total Patients">Toplam Hasta Sayısı</span>
+                            <strong style="color: var(--lydian-primary);">1.8M+</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Tanı Doğruluğu" data-en="Diagnosis Accuracy">Tanı Doğruluğu</span>
+                            <strong style="color: var(--lydian-primary);">92.7%</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Ameliyathane Kullanımı Artışı" data-en="OR Utilization Increase">Ameliyathane Kullanımı Artışı</span>
+                            <strong style="color: var(--lydian-primary);">18%</strong>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                            <span data-tr="Hastane Tekrar Yatış Azalması" data-en="Hospital Readmission Reduction">Hastane Tekrar Yatış Azalması</span>
+                            <strong style="color: var(--lydian-primary);">28%</strong>
+                        </li>
+                        <li style="padding: 10px 0; display: flex; justify-content: space-between;">
+                            <span data-tr="Yıllık Maliyet Tasarrufu" data-en="Annual Cost Savings">Yıllık Maliyet Tasarrufu</span>
+                            <strong style="color: var(--lydian-primary);">$46.4M</strong>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px; color: var(--text-muted);" data-tr="Başlıca Hastaneler: Mayo Clinic, Johns Hopkins, Cleveland Clinic, Mass General, Stanford Medicine, UCSF Medical Center" data-en="Major Hospitals: Mayo Clinic, Johns Hopkins, Cleveland Clinic, Mass General, Stanford Medicine, UCSF Medical Center">
+                        Başlıca Hastaneler: Mayo Clinic, Johns Hopkins, Cleveland Clinic, Mass General, Stanford Medicine, UCSF Medical Center
+                    </p>
+                </div>
+            </div>
+            <div class="values-grid" style="margin-bottom: 80px;">
+                <div class="value-card" style="background: rgba(255, 0, 51, 0.05);">
+                    <div class="value-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3 data-tr="Hasta Sonuçları" data-en="Patient Outcomes">Hasta Sonuçları</h3>
+                    <p data-tr="89.4% ortalama tanı doğruluğu, 6 saat erken sepsis tespiti, %23 YB mortalite azalması, %28 hastane tekrar yatış azalması. Lydian Agent ile hayat kurtarıyoruz." data-en="89.4% average diagnosis accuracy, 6 hours early sepsis detection, 23% ICU mortality reduction, 28% hospital readmission reduction. We save lives with Lydian Agent.">
+                        89.4% ortalama tanı doğruluğu, 6 saat erken sepsis tespiti, %23 YB mortalite azalması, %28 hastane tekrar yatış azalması. Lydian Agent ile hayat kurtarıyoruz.
+                    </p>
+                </div>
+                <div class="value-card" style="background: rgba(255, 51, 102, 0.05);">
+                    <div class="value-icon" style="background: rgba(255, 51, 102, 0.1);"><i class="fas fa-chart-line" style="color: var(--lydian-secondary);"></i></div>
+                    <h3 data-tr="Operasyonel Verimlilik" data-en="Operational Efficiency">Operasyonel Verimlilik</h3>
+                    <p data-tr="67% acil servis bekleme süresi azalması, 82% kuantum hızlanma (ameliyathane çizelgeleme), %18 ameliyathane kullanım artışı, 10.000 vital/saniye işleme kapasitesi." data-en="67% ER wait time reduction, 82% quantum speedup (OR scheduling), 18% OR utilization increase, 10,000 vitals/second processing capacity.">
+                        67% acil servis bekleme süresi azalması, 82% kuantum hızlanma (ameliyathane çizelgeleme), %18 ameliyathane kullanım artışı, 10.000 vital/saniye işleme kapasitesi.
+                    </p>
+                </div>
+                <div class="value-card" style="background: rgba(255, 102, 153, 0.05);">
+                    <div class="value-icon" style="background: rgba(255, 102, 153, 0.1);"><i class="fas fa-dollar-sign" style="color: var(--lydian-accent);"></i></div>
+                    <h3 data-tr="Maliyet Tasarrufları" data-en="Cost Savings">Maliyet Tasarrufları</h3>
+                    <p data-tr="Toplam $47M yıllık maliyet tasarrufu: Gereksiz testlerin azaltılması, hastane yatış sürelerinin kısalması, önlenebilir komplikasyonların azalması, kaynak optimizasyonu." data-en="Total $47M annual cost savings: Reduction of unnecessary tests, shorter hospital stays, fewer preventable complications, resource optimization.">
+                        Toplam $47M yıllık maliyet tasarrufu: Gereksiz testlerin azaltılması, hastane yatış sürelerinin kısalması, önlenebilir komplikasyonların azalması, kaynak optimizasyonu.
+                    </p>
+                </div>
+            </div>
+            <section class="mission-section" style="background: rgba(255, 0, 51, 0.05); margin-bottom: 80px;">
+                <h2 data-tr="Müşteri Görüşleri" data-en="Customer Testimonials">Müşteri Görüşleri</h2>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px;">
+                    <div style="background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; border-left: 4px solid var(--lydian-primary);">
+                        <p style="font-size: 16px; line-height: 1.8; font-style: italic; margin-bottom: 20px;" data-tr="Lydian Agent, Acıbadem İstanbul'da acil servisimizi tamamen dönüştürdü. 4 saatten 45 dakikaya düşen bekleme süreleri ve %89 hasta memnuniyeti ile çığır açtık. IBM Quantum QAOA optimizasyonu sayesinde yatak tahsis süremiz %67 azaldı." data-en="Lydian Agent completely transformed our emergency department at Acıbadem Istanbul. We made a breakthrough with wait times reduced from 4 hours to 45 minutes and 89% patient satisfaction. Thanks to IBM Quantum QAOA optimization, our bed allocation time decreased by 67%.">
+                            "Lydian Agent, Acıbadem İstanbul'da acil servisimizi tamamen dönüştürdü. 4 saatten 45 dakikaya düşen bekleme süreleri ve %89 hasta memnuniyeti ile çığır açtık. IBM Quantum QAOA optimizasyonu sayesinde yatak tahsis süremiz %67 azaldı."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-lydian); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--dark-bg); font-weight: bold; font-size: 20px;">
+                                DK
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--lydian-primary);" data-tr="Dr. Deniz Kaya" data-en="Dr. Deniz Kaya">Dr. Deniz Kaya</div>
+                                <div style="font-size: 14px; color: var(--text-muted);" data-tr="CIO, Acıbadem Hastanesi İstanbul" data-en="CIO, Acıbadem Hospital Istanbul">CIO, Acıbadem Hastanesi İstanbul</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; border-left: 4px solid var(--lydian-secondary);">
+                        <p style="font-size: 16px; line-height: 1.8; font-style: italic; margin-bottom: 20px;" data-tr="Mayo Clinic'te 40+ uzmanlık dalını koordine etmek her zaman zordu. Lydian Agent'ın multi-model AI sistemi sayesinde tanı süremiz 12 günden 8.3 güne düştü. Epic EHR entegrasyonu kusursuz çalışıyor. Yılda $12M tasarruf sağladık." data-en="Coordinating 40+ specialties at Mayo Clinic was always challenging. Thanks to Lydian Agent's multi-model AI system, our diagnosis time decreased from 12 days to 8.3 days. Epic EHR integration works flawlessly. We saved $12M annually.">
+                            "Mayo Clinic'te 40+ uzmanlık dalını koordine etmek her zaman zordu. Lydian Agent'ın multi-model AI sistemi sayesinde tanı süremiz 12 günden 8.3 güne düştü. Epic EHR entegrasyonu kusursuz çalışıyor. Yılda $12M tasarruf sağladık."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-lydian); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--dark-bg); font-weight: bold; font-size: 20px;">
+                                JC
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--lydian-primary);" data-tr="Dr. Jennifer Chen" data-en="Dr. Jennifer Chen">Dr. Jennifer Chen</div>
+                                <div style="font-size: 14px; color: var(--text-muted);" data-tr="Chief Medical Officer, Mayo Clinic Rochester" data-en="Chief Medical Officer, Mayo Clinic Rochester">Chief Medical Officer, Mayo Clinic Rochester</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; border-left: 4px solid var(--lydian-accent);">
+                        <p style="font-size: 16px; line-height: 1.8; font-style: italic; margin-bottom: 20px;" data-tr="Koç Üniversitesi Hastanesi'nde yoğun bakım mortalitemiz %28'den %16'ya düştü. Sepsis tespitinde 6 saat kazanç hayat kurtarıyor. Apache Kafka ile saniyede 10.000 vital işleme kapasitesi olağanüstü. Lydian Agent vazgeçilmez oldu." data-en="Our ICU mortality at Koç University Hospital decreased from 28% to 16%. Gaining 6 hours in sepsis detection saves lives. Processing capacity of 10,000 vitals per second with Apache Kafka is extraordinary. Lydian Agent has become indispensable.">
+                            "Koç Üniversitesi Hastanesi'nde yoğun bakım mortalitemiz %28'den %16'ya düştü. Sepsis tespitinde 6 saat kazanç hayat kurtarıyor. Apache Kafka ile saniyede 10.000 vital işleme kapasitesi olağanüstü. Lydian Agent vazgeçilmez oldu."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-lydian); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--dark-bg); font-weight: bold; font-size: 20px;">
+                                MA
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--lydian-primary);" data-tr="Dr. Mehmet Arslan" data-en="Dr. Mehmet Arslan">Dr. Mehmet Arslan</div>
+                                <div style="font-size: 14px; color: var(--text-muted);" data-tr="Yoğun Bakım Direktörü, Koç Üniversitesi Hastanesi" data-en="ICU Director, Koç University Hospital">Yoğun Bakım Direktörü, Koç Üniversitesi Hastanesi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: var(--dark-surface); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; border-left: 4px solid var(--lydian-gold);">
+                        <p style="font-size: 16px; line-height: 1.8; font-style: italic; margin-bottom: 20px;" data-tr="Johns Hopkins'te 42 ameliyathane çizelgelemesi kabustu. Lydian Agent'ın kuantum optimizasyonu ile ameliyathane kullanımımız %74'ten %87'ye çıktı. Ameliyat gecikmeleri %22 azaldı. Cerrahlarımız çok memnun, günde 2.8 saat kazanıyoruz." data-en="Scheduling 42 operating rooms at Johns Hopkins was a nightmare. With Lydian Agent's quantum optimization, our OR utilization increased from 74% to 87%. Surgery delays decreased by 22%. Our surgeons are very satisfied, we save 2.8 hours daily.">
+                            "Johns Hopkins'te 42 ameliyathane çizelgelemesi kabustu. Lydian Agent'ın kuantum optimizasyonu ile ameliyathane kullanımımız %74'ten %87'ye çıktı. Ameliyat gecikmeleri %22 azaldı. Cerrahlarımız çok memnun, günde 2.8 saat kazanıyoruz."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background: var(--gradient-lydian); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--dark-bg); font-weight: bold; font-size: 20px;">
+                                RP
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--lydian-primary);" data-tr="Dr. Robert Patterson" data-en="Dr. Robert Patterson">Dr. Robert Patterson</div>
+                                <div style="font-size: 14px; color: var(--text-muted);" data-tr="Cerrahi Operasyon Direktörü, Johns Hopkins Hospital" data-en="Director of Surgical Operations, Johns Hopkins Hospital">Cerrahi Operasyon Direktörü, Johns Hopkins Hospital</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="timeline-section">
+                <h2 data-tr="Yolculuğumuz" data-en="Our Journey">Yolculuğumuz</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-title" data-tr="Kuruluş ve Araştırma" data-en="Foundation and Research">Kuruluş ve Araştırma</div>
+                            <div class="timeline-description" data-tr="Lydian Agent, Stanford ve MIT mezunu AI araştırmacıları tarafından kuruldu. İlk kuantum-AI hibrit modelimizi geliştirdik." data-en="Lydian Agent was founded by AI researchers from Stanford and MIT. We developed our first quantum-AI hybrid model.">
+                                Lydian Agent, Stanford ve MIT mezunu AI araştırmacıları tarafından kuruldu. İlk kuantum-AI hibrit modelimizi geliştirdik.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2023</div>
+                            <div class="timeline-title" data-tr="İlk Pilot Uygulamalar" data-en="First Pilot Implementations">İlk Pilot Uygulamalar</div>
+                            <div class="timeline-description" data-tr="5 büyük hastanede pilot uygulamalar başladı. %87.2 tanı doğruluğu ile ilk başarılarımızı elde ettik." data-en="Pilot implementations started in 5 major hospitals. We achieved our first successes with 87.2% diagnostic accuracy.">
+                                5 büyük hastanede pilot uygulamalar başladı. %87.2 tanı doğruluğu ile ilk başarılarımızı elde ettik.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-title" data-tr="Kuantum Entegrasyonu" data-en="Quantum Integration">Kuantum Entegrasyonu</div>
+                            <div class="timeline-description" data-tr="IBM Qiskit QAOA algoritmasını entegre ettik. Ameliyathane çizelgeleme optimizasyonunda %82 hızlanma sağladık. HIPAA ve KVKK sertifikalarını aldık." data-en="We integrated IBM Qiskit QAOA algorithm. Achieved 82% speedup in OR scheduling optimization. Obtained HIPAA and KVKK certifications.">
+                                IBM Qiskit QAOA algoritmasını entegre ettik. Ameliyathane çizelgeleme optimizasyonunda %82 hızlanma sağladık. HIPAA ve KVKK sertifikalarını aldık.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-title" data-tr="Global Genişleme" data-en="Global Expansion">Global Genişleme</div>
+                            <div class="timeline-description" data-tr="127 hastaneye ulaştık, 50.000+ hasta analiz ettik. %89.4 tanı doğruluğu ile sektör lideri olduk. San Francisco ofisimizi açtık." data-en="Reached 127 hospitals, analyzed 50,000+ patients. Became industry leader with 89.4% diagnostic accuracy. Opened our San Francisco office.">
+                                127 hastaneye ulaştık, 50.000+ hasta analiz ettik. %89.4 tanı doğruluğu ile sektör lideri olduk. San Francisco ofisimizi açtık.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-atom"></i></div>
+                    <div class="logo-text">
+                        <div class="logo-brand">LYDIAN MEDI</div>
+                        <div class="logo-tagline">AGENT</div>
+                    </div>
+                </a>
+                <p class="footer-description" data-tr="Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerini dönüştüren yeni nesil klinik karar destek platformu." data-en="Next-generation clinical decision support platform transforming healthcare with quantum computing and artificial intelligence.">
+                    Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerini dönüştüren yeni nesil klinik karar destek platformu.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/lydian-agent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/company/lydian-agent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/lydianagent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/@lydianagent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Ürün" data-en="Product">Ürün</h4>
+                <ul>
+                    <li><a href="/features.html" data-tr="Özellikler" data-en="Features">Özellikler</a></li>
+                    <li><a href="/demo.html" data-tr="Canlı Demo" data-en="Live Demo">Canlı Demo</a></li>
+                    <li><a href="/pricing.html" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</a></li>
+                    <li><a href="/integrations.html" data-tr="Entegrasyonlar" data-en="Integrations">Entegrasyonlar</a></li>
+                    <li><a href="/changelog.html" data-tr="Değişiklikler" data-en="Changelog">Değişiklikler</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Kaynaklar" data-en="Resources">Kaynaklar</h4>
+                <ul>
+                    <li><a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a></li>
+                    <li><a href="/api.html" data-tr="API Referansı" data-en="API Reference">API Referansı</a></li>
+                    <li><a href="/guides.html" data-tr="Rehberler" data-en="Guides">Rehberler</a></li>
+                    <li><a href="/blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+                    <li><a href="/support.html" data-tr="Destek Merkezi" data-en="Support Center">Destek Merkezi</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
+                <ul>
+                    <li><a href="/about.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+                    <li><a href="/team.html" data-tr="Ekip" data-en="Team">Ekip</a></li>
+                    <li><a href="/careers.html" data-tr="Kariyer" data-en="Careers">Kariyer</a></li>
+                    <li><a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                    <li><a href="/press.html" data-tr="Basın" data-en="Press">Basın</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-tr="Yasal" data-en="Legal">Yasal</h4>
+                <ul>
+                    <li><a href="/privacy.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+                    <li><a href="/terms.html" data-tr="Kullanım Koşulları" data-en="Terms of Service">Kullanım Koşulları</a></li>
+                    <li><a href="/security.html" data-tr="Güvenlik" data-en="Security">Güvenlik</a></li>
+                    <li><a href="/compliance.html" data-tr="Uyumluluk" data-en="Compliance">Uyumluluk</a></li>
+                    <li><a href="/cookies.html" data-tr="Çerezler" data-en="Cookies">Çerezler</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright" data-tr="© 2025 Lydian Agent. Tüm hakları saklıdır." data-en="© 2025 Lydian Agent. All rights reserved.">© 2025 Lydian Agent. Tüm hakları saklıdır.</p>
+            <div class="compliance-badges">
+                <span class="badge">HIPAA Compliant</span>
+                <span class="badge">KVKK Uyumlu</span>
+                <span class="badge">ISO 27001 Certified</span>
+            </div>
+            <div class="footer-utility">
+                <a href="/sitemap.html" data-tr="Site Haritası" data-en="Sitemap">Site Haritası</a>
+                <a href="/status.html" data-tr="Sistem Durumu" data-en="System Status">Sistem Durumu</a>
+                <a href="/accessibility.html" data-tr="Erişilebilirlik" data-en="Accessibility">Erişilebilirlik</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        let currentLang = 'tr';
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const text = lang === 'tr' ? el.getAttribute('data-tr') : el.getAttribute('data-en');
+                if (text) { el.innerHTML = text; }
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+        });
+    </script>
+    <script src="/static/js/tech-animations.js"></script>
+    <script src="/static/js/language-switcher.js"></script>
+    <script src="/static/js/country-theme-switcher.js"></script>
+</body>
+</html>

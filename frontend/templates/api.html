@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>API Referansı - Lydian Agent</title><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><style>:root{--lydian-primary:#0ea5e9;--lydian-secondary:#10b981;--lydian-accent:#06b6d4;--lydian-gold:#f59e0b;--gradient-lydian:linear-gradient(135deg,#0ea5e9 0%,#10b981 50%,#06b6d4 100%);--dark-bg:#0f172a;--dark-surface:#1e293b;--text-primary:#f8fafc;--text-secondary:#cbd5e1;--text-muted:#94a3b8;--dark-elevated:#334155;--border-color:rgba(14,165,233,0.2)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:var(--dark-bg);color:var(--text-primary);line-height:1.6}.cyber-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.3;background:linear-gradient(90deg,rgba(14,165,233,0.05) 1px,transparent 1px),linear-gradient(0deg,rgba(14,165,233,0.05) 1px,transparent 1px);background-size:50px 50px;animation:gridMove 20s linear infinite}@keyframes gridMove{0%{background-position:0 0}100%{background-position:50px 50px}}.navbar{position:fixed;top:0;width:100%;background:rgba(10,14,26,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-color);padding:20px 60px;z-index:1000}.nav-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}.logo{display:flex;align-items:center;gap:15px;text-decoration:none}.logo-icon{width:50px;height:50px;background:var(--gradient-lydian);border-radius:12px;display:flex;align-items:center;justify-content:center}.logo-icon i{font-size:24px;color:var(--dark-bg)}.logo-brand{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;background:var(--gradient-lydian);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.nav-links{display:flex;gap:40px;align-items:center}.nav-links a{color:var(--text-primary);text-decoration:none;font-size:14px}.main-content{position:relative;z-index:1;padding-top:120px;min-height:80vh}.container{max-width:1200px;margin:0 auto;padding:0 60px}.page-hero{text-align:center;padding:80px 0 60px}.page-hero h1{font-family:'Orbitron',monospace;font-size:56px;font-weight:900;background:var(--gradient-lydian);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}.content-section{background:var(--dark-surface);border:1px solid var(--border-color);border-radius:20px;padding:50px;margin-bottom:40px}.content-section h2{font-family:'Orbitron',monospace;font-size:32px;color:var(--lydian-primary);margin-bottom:25px}.content-section p{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:15px}.footer{position:relative;z-index:1;background:var(--dark-surface);border-top:1px solid var(--border-color);padding:60px 0 30px;margin-top:120px}.footer-content{max-width:1400px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:60px}.footer-links h4{font-family:'Orbitron',monospace;font-size:14px;margin-bottom:20px}.footer-links ul{list-style:none}.footer-links a{color:var(--text-secondary);text-decoration:none;font-size:14px;display:block;padding:8px 0}.footer-bottom{max-width:1400px;margin:0 auto;padding:30px 60px 0;border-top:1px solid var(--border-color);text-align:center}.copyright{color:var(--text-secondary);font-size:14px}</style></head><body><div class="cyber-bg"></div><nav class="navbar"><div class="nav-container"><a href="/index.html" class="logo"><div class="logo-icon"><i class="fas fa-atom"></i></div><div class="logo-brand">LYDIAN MEDI</div></a><div class="nav-links"><a href="/features.html">Özellikler</a><a href="/demo.html">Canlı Demo</a><a href="/pricing.html">Fiyatlandırma</a><a href="/docs.html">Dokümantasyon</a><a href="/contact.html">İletişim</a></div></div></nav><main class="main-content"><div class="container"><section class="page-hero"><h1>API Referansı</h1></section><div class="content-section"><h2>API Overview</h2><p>The Lydian Agent REST API provides programmatic access to all 7 AI agents, patient data, quantum optimization, and real-time monitoring. All endpoints use JSON and require OAuth 2.0 authentication.</p><p><strong style="color:var(--lydian-primary)">Base URL:</strong> <code style="background:var(--dark-elevated);padding:4px 8px;border-radius:4px;color:var(--lydian-accent)">https://api.lydian-agent.com/v1</code></p><p><strong style="color:var(--lydian-primary)">Current Version:</strong> v1.2.0</p></div><div class="content-section"><h2>Authentication</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Obtain Access Token</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/auth/token
+
+Request:
+{
+  "grant_type": "client_credentials",
+  "client_id": "your_client_id",
+  "client_secret": "your_client_secret",
+  "scope": "clinical.read clinical.write quantum.access"
+}
+
+Response:
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "clinical.read clinical.write quantum.access"
+}</code></pre><p>Include the token in all API requests:</p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">Authorization: Bearer YOUR_ACCESS_TOKEN</code></pre></div><div class="content-section"><h2>Patient Management API</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Create Patient</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/patients
+
+{
+  "mrn": "MRN123456",
+  "first_name": "John",
+  "last_name": "Doe",
+  "date_of_birth": "1985-05-15",
+  "gender": "M",
+  "contact": {
+    "phone": "+1-555-0123",
+    "email": "john.doe@example.com"
+  },
+  "insurance": {
+    "provider": "Blue Cross",
+    "policy_number": "BC123456789"
+  }
+}
+
+Response: 201 Created
+{
+  "patient_id": "P789012",
+  "mrn": "MRN123456",
+  "created_at": "2025-12-24T10:30:00Z"
+}</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Get Patient Details</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">GET /api/v1/patients/{patient_id}
+
+Response: 200 OK
+{
+  "patient_id": "P789012",
+  "mrn": "MRN123456",
+  "demographics": {...},
+  "active_conditions": [...],
+  "medications": [...],
+  "allergies": [...]
+}</code></pre></div><div class="content-section"><h2>Clinical Decision API</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Request Clinical Decision Support</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/agents/clinical-decision
+
+{
+  "patient_id": "P789012",
+  "chief_complaint": "Chest pain",
+  "symptoms": ["chest pain", "shortness of breath", "diaphoresis"],
+  "vitals": {
+    "temperature": 37.2,
+    "blood_pressure": "150/95",
+    "heart_rate": 102,
+    "respiratory_rate": 22,
+    "oxygen_saturation": 94
+  },
+  "duration_hours": 2,
+  "severity": "moderate-to-severe"
+}
+
+Response: 200 OK
+{
+  "decision_id": "CD20251224-001",
+  "primary_diagnosis": "Acute Coronary Syndrome (probable)",
+  "differential_diagnoses": [
+    {"condition": "STEMI", "probability": 0.65},
+    {"condition": "Unstable Angina", "probability": 0.25},
+    {"condition": "Pulmonary Embolism", "probability": 0.08}
+  ],
+  "recommendations": [
+    {
+      "priority": "immediate",
+      "action": "Administer aspirin 325mg PO",
+      "rationale": "Antiplatelet therapy for suspected ACS"
+    },
+    {
+      "priority": "immediate",
+      "action": "12-lead ECG within 10 minutes",
+      "rationale": "Rule out STEMI"
+    },
+    {
+      "priority": "urgent",
+      "action": "Troponin I/T, BNP, D-dimer labs",
+      "rationale": "Biomarkers for ACS and alternative diagnoses"
+    }
+  ],
+  "triage_level": "Emergency - Red",
+  "confidence_score": 0.89,
+  "processing_time_ms": 234
+}</code></pre></div><div class="content-section"><h2>Real-Time Monitoring API</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">WebSocket Connection</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">WSS wss://api.lydian-agent.com/v1/monitoring/stream
+
+Connection:
+{
+  "action": "subscribe",
+  "patient_ids": ["P789012", "P789013"],
+  "vitals": ["heart_rate", "blood_pressure", "oxygen_saturation"],
+  "alert_threshold": "medium"
+}
+
+Incoming Stream:
+{
+  "timestamp": "2025-12-24T10:30:45.123Z",
+  "patient_id": "P789012",
+  "vitals": {
+    "heart_rate": 98,
+    "blood_pressure": "142/88",
+    "oxygen_saturation": 96
+  },
+  "alerts": []
+}</code></pre><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Submit Vital Signs</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/monitoring/vitals
+
+{
+  "patient_id": "P789012",
+  "timestamp": "2025-12-24T10:30:00Z",
+  "vitals": {
+    "heart_rate": 98,
+    "blood_pressure_systolic": 142,
+    "blood_pressure_diastolic": 88,
+    "temperature": 37.1,
+    "respiratory_rate": 16,
+    "oxygen_saturation": 96
+  },
+  "device_id": "MONITOR-001"
+}
+
+Response: 201 Created
+{
+  "vital_id": "V20251224-123456",
+  "anomaly_detected": false,
+  "trend_analysis": "stable"
+}</code></pre></div><div class="content-section"><h2>Quantum Optimization API</h2><h3 style="color:var(--lydian-secondary);margin:30px 0 15px">Optimize Resource Allocation</h3><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/quantum/optimize-resources
+
+{
+  "optimization_type": "bed_allocation",
+  "constraints": {
+    "total_beds": 50,
+    "icu_beds": 10,
+    "isolation_beds": 5
+  },
+  "patients": [
+    {"patient_id": "P001", "acuity": "high", "specialty": "cardiology"},
+    {"patient_id": "P002", "acuity": "medium", "specialty": "orthopedics"}
+  ],
+  "objectives": ["minimize_wait_time", "maximize_utilization"]
+}
+
+Response: 200 OK
+{
+  "optimization_id": "QO20251224-001",
+  "algorithm": "QAOA",
+  "quantum_backend": "ibm_brisbane",
+  "circuit_depth": 4,
+  "allocation": [
+    {"patient_id": "P001", "bed": "ICU-03", "floor": 4},
+    {"patient_id": "P002", "bed": "MED-15", "floor": 2}
+  ],
+  "utilization_rate": 0.94,
+  "estimated_wait_time_minutes": 12,
+  "quantum_advantage": "35% improvement vs classical",
+  "execution_time_ms": 1847
+}</code></pre></div><div class="content-section"><h2>Diagnosis Agent API</h2><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/agents/diagnosis
+
+{
+  "patient_id": "P789012",
+  "symptoms": ["fever", "fatigue", "weight loss"],
+  "lab_results": {
+    "wbc": 13500,
+    "hemoglobin": 10.2,
+    "platelets": 450000
+  },
+  "imaging": {
+    "chest_xray": "bilateral infiltrates",
+    "ct_scan_url": "https://pacs.hospital.com/study/12345"
+  },
+  "patient_history": {
+    "smoking": true,
+    "family_history": ["diabetes", "hypertension"]
+  }
+}
+
+Response: 200 OK
+{
+  "diagnosis_id": "DX20251224-001",
+  "primary_diagnosis": "Community-Acquired Pneumonia",
+  "icd10_codes": ["J18.9"],
+  "confidence": 0.87,
+  "supporting_evidence": [
+    "Bilateral infiltrates on imaging",
+    "Elevated WBC count",
+    "Clinical presentation consistent with CAP"
+  ],
+  "recommended_tests": [
+    "Sputum culture",
+    "Blood cultures x2",
+    "Procalcitonin"
+  ]
+}</code></pre></div><div class="content-section"><h2>Treatment Planning API</h2><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/agents/treatment-plan
+
+{
+  "patient_id": "P789012",
+  "diagnosis": "Community-Acquired Pneumonia",
+  "severity": "moderate",
+  "comorbidities": ["type 2 diabetes"],
+  "allergies": ["penicillin"],
+  "patient_preferences": {
+    "oral_preferred": true
+  }
+}
+
+Response: 200 OK
+{
+  "plan_id": "TP20251224-001",
+  "medications": [
+    {
+      "drug": "Azithromycin",
+      "dose": "500mg",
+      "route": "PO",
+      "frequency": "daily x 5 days",
+      "rationale": "Macrolide for CAP, no cross-reactivity with penicillin allergy"
+    },
+    {
+      "drug": "Levofloxacin",
+      "dose": "750mg",
+      "route": "PO",
+      "frequency": "daily x 7 days",
+      "rationale": "Fluoroquinolone coverage for atypicals"
+    }
+  ],
+  "monitoring": [
+    "Blood glucose BID (diabetes)",
+    "Repeat CXR in 48-72 hours if not improving"
+  ],
+  "expected_duration_days": 7,
+  "follow_up_interval_days": 3
+}</code></pre></div><div class="content-section"><h2>Pharmacy Management API</h2><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)">POST /api/v1/agents/pharmacy/interaction-check
+
+{
+  "medications": [
+    {"drug": "Warfarin", "dose": "5mg daily"},
+    {"drug": "Azithromycin", "dose": "500mg daily"}
+  ]
+}
+
+Response: 200 OK
+{
+  "interaction_severity": "moderate",
+  "interactions": [
+    {
+      "drugs": ["Warfarin", "Azithromycin"],
+      "severity": "moderate",
+      "description": "Azithromycin may increase warfarin effects",
+      "recommendation": "Monitor INR more frequently",
+      "evidence_level": "clinical_study"
+    }
+  ]
+}</code></pre></div><div class="content-section"><h2>Rate Limits & Quotas</h2><table style="width:100%;border-collapse:collapse;margin:20px 0"><thead><tr style="background:var(--dark-elevated)"><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Tier</th><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Requests/Hour</th><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Concurrent WebSocket</th><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Quantum Jobs/Day</th></tr></thead><tbody><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Free</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">100</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">1</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">5</td></tr><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Professional</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">10,000</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">50</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">100</td></tr><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Enterprise</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Unlimited</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Unlimited</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Unlimited</td></tr></tbody></table></div><div class="content-section"><h2>Error Codes</h2><table style="width:100%;border-collapse:collapse;margin:20px 0"><thead><tr style="background:var(--dark-elevated)"><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Code</th><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Description</th><th style="padding:15px;text-align:left;border:1px solid var(--border-color)">Resolution</th></tr></thead><tbody><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--lydian-accent)">400</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Bad Request</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Check request format</td></tr><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--lydian-accent)">401</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Unauthorized</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Verify access token</td></tr><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--lydian-accent)">403</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Forbidden</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Check API scope permissions</td></tr><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--lydian-accent)">429</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Rate Limit Exceeded</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Wait or upgrade tier</td></tr><tr><td style="padding:12px;border:1px solid var(--border-color);color:var(--lydian-accent)">500</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Internal Server Error</td><td style="padding:12px;border:1px solid var(--border-color);color:var(--text-secondary)">Contact support</td></tr></tbody></table></div><div class="content-section"><h2>SDK & Libraries</h2><p>Official SDKs available for multiple languages:</p><pre style="background:var(--dark-elevated);padding:20px;border-radius:10px;overflow-x:auto;margin:20px 0"><code style="color:var(--lydian-accent)"># Python
+pip install lydian-agent-sdk
+
+# JavaScript/TypeScript
+npm install @lydian-agent/sdk
+
+# Java
+maven: com.lydianagent:sdk:1.2.0
+
+# C#
+NuGet: LydianAgent.SDK</code></pre></div><div class="content-section"><h2>Additional Resources</h2><ul style="color:var(--text-secondary);margin-left:30px;line-height:2"><li><a href="/docs.html" style="color:var(--lydian-primary)">Full Documentation</a></li><li><a href="/guides.html" style="color:var(--lydian-primary)">Integration Guides</a></li><li><a href="https://api.lydian-agent.com/swagger" style="color:var(--lydian-primary)">Interactive API Explorer (Swagger)</a></li><li><a href="/support.html" style="color:var(--lydian-primary)">Developer Support</a></li></ul></div></div></main><footer class="footer"><div class="footer-content"><div class="footer-links"><h4>Ürün</h4><ul><li><a href="/features.html">Özellikler</a></li><li><a href="/demo.html">Canlı Demo</a></li><li><a href="/pricing.html">Fiyatlandırma</a></li></ul></div><div class="footer-links"><h4>Kaynaklar</h4><ul><li><a href="/docs.html">Dokümantasyon</a></li><li><a href="/api.html">API Referansı</a></li><li><a href="/support.html">Destek</a></li></ul></div><div class="footer-links"><h4>Şirket</h4><ul><li><a href="/about.html">Hakkımızda</a></li><li><a href="/contact.html">İletişim</a></li></ul></div><div class="footer-links"><h4>Yasal</h4><ul><li><a href="/privacy.html">Gizlilik</a></li><li><a href="/terms.html">Koşullar</a></li><li><a href="/security.html">Güvenlik</a></li></ul></div></div><div class="footer-bottom"><p class="copyright">© 2025 Lydian Agent. Tüm hakları saklıdır.</p></div></footer><script src="/static/js/language-switcher.js"></script>    <script src="/static/js/country-theme-switcher.js"></script>
+</body></html>

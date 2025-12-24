@@ -1,0 +1,346 @@
+/* Lydian Agent - Premium Nirvana Color Palette */
+/* Black Background + White & Red Neon (No Glow, No Green) */
+
+:root {
+    /* === CORE COLORS === */
+    /* Pure Black & Grays */
+    --pure-black: #000000;
+    --deep-black: #0a0a0a;
+    --carbon-black: #121212;
+    --charcoal: #1a1a1a;
+    --dark-gray: #2a2a2a;
+    --medium-gray: #3a3a3a;
+
+    /* White Spectrum (No Glow) */
+    --pure-white: #ffffff;
+    --snow-white: #fafafa;
+    --pearl-white: #f5f5f5;
+    --silver-white: #e8e8e8;
+    --light-gray: #d0d0d0;
+    --soft-gray: #b0b0b0;
+
+    /* Red Neon Spectrum (No Glow) */
+    --neon-red-bright: #ff0040;
+    --neon-red: #ff0033;
+    --neon-red-dark: #cc0028;
+    --neon-red-deeper: #990020;
+    --crimson: #dc143c;
+    --blood-red: #8b0000;
+
+    /* === GRADIENTS (Subtle, No Glow) === */
+    --gradient-white-red: linear-gradient(135deg, #ffffff 0%, #ff0033 100%);
+    --gradient-red-white: linear-gradient(135deg, #ff0033 0%, #ffffff 100%);
+    --gradient-black-red: linear-gradient(135deg, #000000 0%, #ff0033 100%);
+    --gradient-white-fade: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);
+    --gradient-red-fade: linear-gradient(135deg, #ff0033 0%, #cc0028 50%, #990020 100%);
+
+    /* === BACKGROUNDS === */
+    --bg-primary: var(--pure-black);
+    --bg-secondary: var(--deep-black);
+    --bg-elevated: var(--carbon-black);
+    --bg-card: var(--charcoal);
+    --bg-hover: var(--dark-gray);
+
+    /* === TEXT COLORS === */
+    --text-primary: var(--pure-white);
+    --text-secondary: var(--light-gray);
+    --text-tertiary: var(--soft-gray);
+    --text-accent: var(--neon-red);
+    --text-muted: #808080;
+
+    /* === BORDER COLORS === */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(255, 255, 255, 0.15);
+    --border-strong: rgba(255, 255, 255, 0.25);
+    --border-red: rgba(255, 0, 51, 0.3);
+    --border-red-strong: rgba(255, 0, 51, 0.5);
+
+    /* === SHADOWS (Subtle, No Glow) === */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.8);
+
+    /* Red accent shadows (subtle, not glowing) */
+    --shadow-red-sm: 0 2px 4px rgba(255, 0, 51, 0.15);
+    --shadow-red-md: 0 4px 8px rgba(255, 0, 51, 0.2);
+    --shadow-red-lg: 0 8px 16px rgba(255, 0, 51, 0.25);
+
+    /* === OPACITY LEVELS === */
+    --opacity-high: 0.95;
+    --opacity-medium: 0.75;
+    --opacity-low: 0.5;
+    --opacity-subtle: 0.25;
+}
+
+/* === PREMIUM TEXT STYLES === */
+.text-premium {
+    color: var(--text-primary);
+    text-shadow: none; /* NO GLOW */
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.text-premium-bold {
+    color: var(--text-primary);
+    text-shadow: none;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.text-accent-red {
+    color: var(--neon-red);
+    text-shadow: none; /* NO GLOW */
+    font-weight: 500;
+}
+
+.text-gradient-white-red {
+    background: var(--gradient-white-red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+.text-gradient-red-white {
+    background: var(--gradient-red-white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+/* === CARD STYLES === */
+.premium-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.premium-card:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.premium-card-red {
+    background: var(--bg-card);
+    border: 1px solid var(--border-red);
+    border-radius: 12px;
+    box-shadow: var(--shadow-red-md);
+    transition: all 0.3s ease;
+}
+
+.premium-card-red:hover {
+    border-color: var(--border-red-strong);
+    box-shadow: var(--shadow-red-lg);
+    transform: translateY(-2px);
+}
+
+/* === BUTTON STYLES === */
+.premium-button {
+    background: var(--pure-white);
+    color: var(--pure-black);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.premium-button:hover {
+    background: var(--snow-white);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.premium-button-red {
+    background: var(--neon-red);
+    color: var(--pure-white);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-red-sm);
+}
+
+.premium-button-red:hover {
+    background: var(--neon-red-bright);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-red-md);
+}
+
+.premium-button-outline {
+    background: transparent;
+    color: var(--pure-white);
+    border: 2px solid var(--border-strong);
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.premium-button-outline:hover {
+    background: var(--bg-hover);
+    border-color: var(--pure-white);
+}
+
+.premium-button-outline-red {
+    background: transparent;
+    color: var(--neon-red);
+    border: 2px solid var(--border-red-strong);
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.premium-button-outline-red:hover {
+    background: rgba(255, 0, 51, 0.1);
+    border-color: var(--neon-red);
+}
+
+/* === PREMIUM BACKGROUND PATTERNS === */
+.premium-grid {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.premium-grid-red {
+    background-image:
+        linear-gradient(rgba(255, 0, 51, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 51, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.premium-dots {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.premium-dots-red {
+    background-image: radial-gradient(circle, rgba(255, 0, 51, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* === DIVIDERS === */
+.premium-divider {
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--border-medium) 50%,
+        transparent 100%);
+    margin: 40px 0;
+}
+
+.premium-divider-red {
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--border-red) 50%,
+        transparent 100%);
+    margin: 40px 0;
+}
+
+/* === BADGES === */
+.premium-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.premium-badge-red {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255, 0, 51, 0.1);
+    color: var(--neon-red);
+    border: 1px solid var(--border-red);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* === SUBTLE ANIMATIONS (No Glow) === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse-subtle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* === REMOVE ALL NEON GLOWS === */
+* {
+    text-shadow: none !important;
+}
+
+/* Specific overrides for common glow classes */
+.neon-glow-cyan,
+.neon-glow-white,
+.neon-glow-red,
+.neon-glow-green {
+    text-shadow: none !important;
+    color: var(--text-primary);
+}
+
+/* Override any box-shadow glows */
+.tech-border,
+.holo-card,
+.quantum-ripple {
+    box-shadow: var(--shadow-md) !important;
+}

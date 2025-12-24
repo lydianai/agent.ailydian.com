@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiyatlandırma - Lydian Agent | Quantum AI Healthcare</title>
+    <meta name="description" content="Lydian Agent fiyatlandırma planları: Starter, Professional, Enterprise. HIPAA uyumlu, kuantum-güçlendirilmiş AI çözümleri.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --lydian-primary: #ff0033;
+            --lydian-secondary: #ff3366;
+            --lydian-accent: #ff6699;
+            --lydian-gold: #ffaa00;
+            --gradient-lydian: linear-gradient(135deg, #ff0033 0%, #ff3366 50%, #ff6699 100%);
+            --dark-bg: #0a0a0f;
+            --dark-surface: #1e293b;
+            --dark-elevated: #334155;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e8;
+            --text-muted: #a0a0b8;
+            --border-color: rgba(255, 0, 51, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg); position: relative;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        .glow-effect {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-1 { background: var(--lydian-primary); top: 10%; left: 10%; animation: float 15s ease-in-out infinite; }
+        .glow-2 { background: var(--lydian-secondary); top: 50%; right: 10%; animation: float 20s ease-in-out infinite reverse; }
+        .glow-3 { background: var(--lydian-accent); bottom: 10%; left: 50%; animation: float 18s ease-in-out infinite; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(0, 100px); }
+            75% { transform: translate(-50px, 50px); }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 60px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 14, 26, 0.95);
+            padding: 15px 60px;
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-lydian);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: logoPulse 3s ease-in-out infinite;
+        }
+
+        .logo-icon i {
+            font-size: 24px;
+            color: var(--dark-bg);
+            animation: iconSpin 10s linear infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.6); }
+        }
+
+        @keyframes iconSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-brand {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            font-weight: 900;
+            background: var(--gradient-lydian);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .logo-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--lydian-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-lydian);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--gradient-lydian);
+            color: var(--dark-bg);
+            border-color: transparent;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            padding-top: 120px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .page-hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 56px;
+            font-weight: 900;
+            background: var(--gradient-lydian);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .billing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .billing-option {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .billing-option.active {
+            color: var(--lydian-primary);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: var(--dark-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background: var(--gradient-lydian);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-switch.annual::after {
+            transform: translateX(30px);
+        }
+
+        .save-badge {
+            padding: 6px 12px;
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid var(--lydian-secondary);
+            border-radius: 20px;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--lydian-secondary);
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .pricing-card {
+            background: var(--dark-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2);
+            border-color: var(--lydian-primary);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--lydian-primary);
+            background: linear-gradient(135deg, rgba(255, 0, 51, 0.05) 0%, rgba(255, 51, 102, 0.05) 100%);
+        }
+
+        .pricing-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-lydian);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 16px;
+            background: var(--gradient-lydian);
+            color: var(--dark-bg);
+            border-radius: 20px;
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plan-header {
+            margin-bottom: 30px;
+        }
+
+        .plan-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .plan-icon i {
+            font-size: 28px;
+            color: var(--lydian-primary);
+        }
+
+        .plan-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .plan-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .plan-pricing {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .currency {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--lydian-primary);
+        }
+
+        .amount {
+            font-family: 'Orbitron', monospace;
+            font-size: 48px;
+            font-weight: 900;
+            background: var(--gradient-lydian);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .plan-features li i {
+            color: var(--lydian-secondary);
+            margin-top: 3px;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .plan-features li.disabled {
+            opacity: 0.4;
+        }
+
+        .plan-features li.disabled i {
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-lydian);
+            border: none;
+            border-radius: 12px;
+            color: var(--dark-bg);
+            font-family: 'Orbitron', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid var(--lydian-primary);
+            color: var(--lydian-primary);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .enterprise-section {
+            background: var(--dark-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .enterprise-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--lydian-primary);
+            margin-bottom: 20px;
+        }
+
+        .enterprise-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .enterprise-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .enterprise-feature {
+            text-align: center;
+        }
+
+        .enterprise-feature i {
+            font-size: 36px;
+            color: var(--lydian-primary);
+            margin-bottom: 15px;
+        }
+
+        .enterprise-feature h4 {
+            font-family: 'Orbitron', monospace;
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .enterprise-feature p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .comparison-table {
+            background: var(--dark-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 80px;
+            overflow-x: auto;
+        }
+
+        .comparison-table h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--lydian-primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 2px solid var(--border-color);
+            font-family: 'Orbitron', monospace;
+            font-size: 16px;
+            color: var(--lydian-primary);
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .check-icon {
+            color: var(--lydian-secondary);
+            font-size: 18px;
+        }
+
+        .cross-icon {
+            color: var(--text-secondary);
+            opacity: 0.3;
+            font-size: 18px;
+        }
+
+        .faq-section {
+            margin-bottom: 80px;
+        }
+
+        .faq-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--lydian-primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .faq-item {
+            background: var(--dark-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .faq-item h4 {
+            font-family: 'Orbitron', monospace;
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .footer {
+            position: relative;
+            z-index: 1;
+            background: var(--dark-surface);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 30px;
+            margin-top: 120px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lydian-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--lydian-primary);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--lydian-primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 60px 0;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .compliance-badges {
+            display: flex;
+            gap: 15px;
+        }
+
+        .badge {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--lydian-primary);
+            border-radius: 6px;
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--lydian-primary);
+        }
+
+        .footer-utility {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-utility a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-utility a:hover {
+            color: var(--lydian-primary);
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .enterprise-features {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-brand {
+                grid-column: span 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .page-hero h1 {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                grid-column: span 1;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <div class="glow-effect glow-1"></div>
+    <div class="glow-effect glow-2"></div>
+    <div class="glow-effect glow-3"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-brand">LYDIAN MEDI</div>
+                    <div class="logo-tagline">AGENT</div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="/features.html" data-tr="Özellikler" data-en="Features">Özellikler</a>
+                <a href="/demo.html" data-tr="Canlı Demo" data-en="Live Demo">Canlı Demo</a>
+                <a href="/pricing.html" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</a>
+                <a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a>
+                <a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="page-hero">
+                <h1 data-tr="Şeffaf ve Esnek Fiyatlandırma" data-en="Transparent and Flexible Pricing">Şeffaf ve Esnek Fiyatlandırma</h1>
+                <p data-tr="İhtiyacınıza uygun planı seçin. Tüm planlar HIPAA/KVKK uyumlu, 30 gün para iade garantili ve istediğiniz zaman iptal edebilirsiniz." data-en="Choose the plan that fits your needs. All plans are HIPAA/KVKK compliant, with 30-day money-back guarantee and cancel anytime.">
+                    İhtiyacınıza uygun planı seçin. Tüm planlar HIPAA/KVKK uyumlu, 30 gün para iade garantili ve istediğiniz zaman iptal edebilirsiniz.
+                </p>
+            </section>
+
+            <div class="billing-toggle">
+                <span class="billing-option active monthly-label" data-tr="Aylık" data-en="Monthly">Aylık</span>
+                <div class="toggle-switch" onclick="toggleBilling()"></div>
+                <span class="billing-option annual-label" data-tr="Yıllık" data-en="Annual">Yıllık</span>
+                <span class="save-badge" data-tr="2 Ay Ücretsiz" data-en="2 Months Free">2 Ay Ücretsiz</span>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="plan-name" data-tr="Starter" data-en="Starter">Starter</h3>
+                        <p class="plan-description" data-tr="Küçük klinikler ve bireysel hekimler için ideal başlangıç paketi" data-en="Ideal starter package for small clinics and individual physicians">
+                            Küçük klinikler ve bireysel hekimler için ideal başlangıç paketi
+                        </p>
+                    </div>
+                    <div class="plan-pricing">
+                        <div class="price">
+                            <span class="amount" data-tr="Çok Yakında" data-en="Coming Soon">Çok Yakında</span>
+                        </div>
+                        <p class="price-note" data-tr="En fazla 5 kullanıcı" data-en="Up to 5 users">En fazla 5 kullanıcı</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Klinik karar desteği (Enterprise AI)" data-en="Clinical decision support (Enterprise AI)">Klinik karar desteği (Enterprise AI)</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="1.000 hasta/ay kapasitesi" data-en="1,000 patients/month capacity">1.000 hasta/ay kapasitesi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="NEWS2 erken uyarı sistemi" data-en="NEWS2 early warning system">NEWS2 erken uyarı sistemi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="HL7 FHIR R4 entegrasyonu" data-en="HL7 FHIR R4 integration">HL7 FHIR R4 entegrasyonu</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="HIPAA/KVKK uyumluluk" data-en="HIPAA/KVKK compliance">HIPAA/KVKK uyumluluk</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Email destek (48 saat)" data-en="Email support (48h)">Email destek (48 saat)</span></li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> <span data-tr="Kuantum optimizasyon" data-en="Quantum optimization">Kuantum optimizasyon</span></li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> <span data-tr="Çok ajanlı konsensüs" data-en="Multi-agent consensus">Çok ajanlı konsensüs</span></li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> <span data-tr="Özel model eğitimi" data-en="Custom model training">Özel model eğitimi</span></li>
+                    </ul>
+                    <a href="/contact.html" class="cta-button secondary" data-tr="Başlayın" data-en="Get Started">Başlayın</a>
+                </div>
+
+                <!-- Professional Plan (Featured) -->
+                <div class="pricing-card featured">
+                    <span class="popular-badge" data-tr="En Popüler" data-en="Most Popular">En Popüler</span>
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3 class="plan-name" data-tr="Professional" data-en="Professional">Professional</h3>
+                        <p class="plan-description" data-tr="Orta ölçekli hastaneler ve özel klinikler için tam özellikli paket" data-en="Full-featured package for mid-size hospitals and private clinics">
+                            Orta ölçekli hastaneler ve özel klinikler için tam özellikli paket
+                        </p>
+                    </div>
+                    <div class="plan-pricing">
+                        <div class="price">
+                            <span class="amount" data-tr="Çok Yakında" data-en="Coming Soon">Çok Yakında</span>
+                        </div>
+                        <p class="price-note" data-tr="En fazla 50 kullanıcı" data-en="Up to 50 users">En fazla 50 kullanıcı</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Çok modelli AI sistemi" data-en="Multi-model AI system">Çok modelli AI sistemi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="10.000 hasta/ay kapasitesi" data-en="10,000 patients/month capacity">10.000 hasta/ay kapasitesi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Kuantum QAOA optimizasyonu" data-en="Quantum QAOA optimization">Kuantum QAOA optimizasyonu</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="3 AI ajanı konsensüs sistemi" data-en="3 AI agents consensus system">3 AI ajanı konsensüs sistemi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Sepsis erken tespiti (6.4h)" data-en="Sepsis early detection (6.4h)">Sepsis erken tespiti (6.4h)</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Gerçek zamanlı Kafka streaming" data-en="Real-time Kafka streaming">Gerçek zamanlı Kafka streaming</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Epic/Cerner entegrasyonu" data-en="Epic/Cerner integration">Epic/Cerner entegrasyonu</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Öncelikli destek (12 saat)" data-en="Priority support (12h)">Öncelikli destek (12 saat)</span></li>
+                        <li class="disabled"><i class="fas fa-times-circle"></i> <span data-tr="Özel model eğitimi" data-en="Custom model training">Özel model eğitimi</span></li>
+                    </ul>
+                    <a href="/contact.html" class="cta-button" data-tr="Başlayın" data-en="Get Started">Başlayın</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <div class="plan-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="plan-name" data-tr="Enterprise" data-en="Enterprise">Enterprise</h3>
+                        <p class="plan-description" data-tr="Büyük hastane zincirleri ve sağlık kuruluşları için özel çözümler" data-en="Custom solutions for large hospital chains and healthcare organizations">
+                            Büyük hastane zincirleri ve sağlık kuruluşları için özel çözümler
+                        </p>
+                    </div>
+                    <div class="plan-pricing">
+                        <div class="price">
+                            <span class="amount" style="font-size: 36px;" data-tr="Özel Fiyat" data-en="Custom">Özel Fiyat</span>
+                        </div>
+                        <p class="price-note" data-tr="Sınırsız kullanıcı" data-en="Unlimited users">Sınırsız kullanıcı</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Sınırsız hasta kapasitesi" data-en="Unlimited patient capacity">Sınırsız hasta kapasitesi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Özel AI model eğitimi" data-en="Custom AI model training">Özel AI model eğitimi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Gerçek kuantum donanım erişimi" data-en="Real quantum hardware access">Gerçek kuantum donanım erişimi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="On-premise deployment seçeneği" data-en="On-premise deployment option">On-premise deployment seçeneği</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Özel EHR entegrasyonu" data-en="Custom EHR integration">Özel EHR entegrasyonu</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="SLA garantisi (99.99% uptime)" data-en="SLA guarantee (99.99% uptime)">SLA garantisi (99.99% uptime)</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Özel hesap yöneticisi" data-en="Dedicated account manager">Özel hesap yöneticisi</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="7/24 telefon desteği" data-en="24/7 phone support">7/24 telefon desteği</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-tr="Yerinde eğitim ve onboarding" data-en="On-site training & onboarding">Yerinde eğitim ve onboarding</span></li>
+                    </ul>
+                    <a href="/contact.html" class="cta-button" data-tr="İletişime Geçin" data-en="Contact Sales">İletişime Geçin</a>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-table">
+                <h2 data-tr="Detaylı Özellik Karşılaştırması" data-en="Detailed Feature Comparison">Detaylı Özellik Karşılaştırması</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-tr="Özellik" data-en="Feature">Özellik</th>
+                            <th>Starter</th>
+                            <th>Professional</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-tr="Hasta Kapasitesi (Aylık)" data-en="Patient Capacity (Monthly)">Hasta Kapasitesi (Aylık)</td>
+                            <td>1,000</td>
+                            <td>10,000</td>
+                            <td data-tr="Sınırsız" data-en="Unlimited">Sınırsız</td>
+                        </tr>
+                        <tr>
+                            <td data-tr="Kullanıcı Sayısı" data-en="Number of Users">Kullanıcı Sayısı</td>
+                            <td>5</td>
+                            <td>50</td>
+                            <td data-tr="Sınırsız" data-en="Unlimited">Sınırsız</td>
+                        </tr>
+                        <tr>
+                            <td data-tr="AI Model" data-en="AI Model">AI Model</td>
+                            <td>Enterprise AI</td>
+                            <td>Multi-Model AI</td>
+                            <td data-tr="Özel Model" data-en="Custom Model">Özel Model</td>
+                        </tr>
+                        <tr>
+                            <td data-tr="Kuantum Optimizasyon" data-en="Quantum Optimization">Kuantum Optimizasyon</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-tr="Çok Ajanlı Konsensüs" data-en="Multi-Agent Consensus">Çok Ajanlı Konsensüs</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-tr="Sepsis Erken Tespiti" data-en="Sepsis Early Detection">Sepsis Erken Tespiti</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-tr="HL7 FHIR R4" data-en="HL7 FHIR R4">HL7 FHIR R4</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-tr="Epic/Cerner Entegrasyonu" data-en="Epic/Cerner Integration">Epic/Cerner Entegrasyonu</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-tr="On-Premise Deployment" data-en="On-Premise Deployment">On-Premise Deployment</td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-times cross-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-tr="SLA Garantisi" data-en="SLA Guarantee">SLA Garantisi</td>
+                            <td>99.5%</td>
+                            <td>99.9%</td>
+                            <td>99.99%</td>
+                        </tr>
+                        <tr>
+                            <td data-tr="Destek Süresi" data-en="Support Response">Destek Süresi</td>
+                            <td>48h</td>
+                            <td>12h</td>
+                            <td>24/7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 data-tr="Sıkça Sorulan Sorular" data-en="Frequently Asked Questions">Sıkça Sorulan Sorular</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4 data-tr="Para iade garantisi var mı?" data-en="Is there a money-back guarantee?">Para iade garantisi var mı?</h4>
+                        <p data-tr="Evet, tüm planlarda 30 gün koşulsuz para iade garantisi sunuyoruz. İlk 30 gün içinde memnun kalmazsanız tam iade alabilirsiniz." data-en="Yes, we offer an unconditional 30-day money-back guarantee on all plans. If you're not satisfied within the first 30 days, you can get a full refund.">
+                            Evet, tüm planlarda 30 gün koşulsuz para iade garantisi sunuyoruz. İlk 30 gün içinde memnun kalmazsanız tam iade alabilirsiniz.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-tr="Planlar arasında geçiş yapabilir miyim?" data-en="Can I switch between plans?">Planlar arasında geçiş yapabilir miyim?</h4>
+                        <p data-tr="Kesinlikle! İstediğiniz zaman planınızı yükseltebilir veya düşürebilirsiniz. Fark ücretler pro-rata olarak hesaplanır." data-en="Absolutely! You can upgrade or downgrade your plan at any time. Price differences are calculated pro-rata.">
+                            Kesinlikle! İstediğiniz zaman planınızı yükseltebilir veya düşürebilirsiniz. Fark ücretler pro-rata olarak hesaplanır.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-tr="HIPAA/KVKK uyumluluğu dahil mi?" data-en="Is HIPAA/KVKK compliance included?">HIPAA/KVKK uyumluluğu dahil mi?</h4>
+                        <p data-tr="Evet, tüm planlarımız HIPAA (ABD) ve KVKK (Türkiye) standartlarına tam uyumludur. BAA (Business Associate Agreement) imzalıyoruz." data-en="Yes, all our plans are fully compliant with HIPAA (US) and KVKK (Turkey) standards. We sign BAA (Business Associate Agreement).">
+                            Evet, tüm planlarımız HIPAA (ABD) ve KVKK (Türkiye) standartlarına tam uyumludur. BAA (Business Associate Agreement) imzalıyoruz.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-tr="Veri merkezi nerede?" data-en="Where is the data center located?">Veri merkezi nerede?</h4>
+                        <p data-tr="Türkiye müşterilerimiz için İstanbul, global müşteriler için AWS/Azure multi-region deployment sunuyoruz. Enterprise planında özel konum seçilebilir." data-en="We offer Istanbul datacenter for Turkish customers, AWS/Azure multi-region deployment for global customers. Custom location available in Enterprise plan.">
+                            Türkiye müşterilerimiz için İstanbul, global müşteriler için AWS/Azure multi-region deployment sunuyoruz. Enterprise planında özel konum seçilebilir.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-tr="Ücretsiz deneme var mı?" data-en="Is there a free trial?">Ücretsiz deneme var mı?</h4>
+                        <p data-tr="Evet, Professional planı için 14 gün ücretsiz deneme sunuyoruz. Kredi kartı gerekmez, otomatik ücretlendirme yoktur." data-en="Yes, we offer a 14-day free trial for the Professional plan. No credit card required, no automatic billing.">
+                            Evet, Professional planı için 14 gün ücretsiz deneme sunuyoruz. Kredi kartı gerekmez, otomatik ücretlendirme yoktur.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-tr="Enterprise için özel fiyat nasıl alınır?" data-en="How to get custom pricing for Enterprise?">Enterprise için özel fiyat nasıl alınır?</h4>
+                        <p data-tr="İletişim formumuz üzerinden detaylı ihtiyaçlarınızı paylaşın. Satış ekibimiz 24 saat içinde size özel bir teklif hazırlayacaktır." data-en="Share your detailed needs through our contact form. Our sales team will prepare a custom proposal within 24 hours.">
+                            İletişim formumuz üzerinden detaylı ihtiyaçlarınızı paylaşın. Satış ekibimiz 24 saat içinde size özel bir teklif hazırlayacaktır.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-brand">LYDIAN MEDI</div>
+                        <div class="logo-tagline">AGENT</div>
+                    </div>
+                </a>
+                <p class="footer-description" data-tr="Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerini dönüştüren yeni nesil klinik karar destek platformu." data-en="Next-generation clinical decision support platform transforming healthcare with quantum computing and artificial intelligence.">
+                    Kuantum hesaplama ve yapay zeka ile sağlık hizmetlerini dönüştüren yeni nesil klinik karar destek platformu.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/lydian-agent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/company/lydian-agent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/lydianagent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/@lydianagent" class="social-link" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 data-tr="Ürün" data-en="Product">Ürün</h4>
+                <ul>
+                    <li><a href="/features.html" data-tr="Özellikler" data-en="Features">Özellikler</a></li>
+                    <li><a href="/demo.html" data-tr="Canlı Demo" data-en="Live Demo">Canlı Demo</a></li>
+                    <li><a href="/pricing.html" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</a></li>
+                    <li><a href="/integrations.html" data-tr="Entegrasyonlar" data-en="Integrations">Entegrasyonlar</a></li>
+                    <li><a href="/changelog.html" data-tr="Değişiklikler" data-en="Changelog">Değişiklikler</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 data-tr="Kaynaklar" data-en="Resources">Kaynaklar</h4>
+                <ul>
+                    <li><a href="/docs.html" data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</a></li>
+                    <li><a href="/api.html" data-tr="API Referansı" data-en="API Reference">API Referansı</a></li>
+                    <li><a href="/guides.html" data-tr="Rehberler" data-en="Guides">Rehberler</a></li>
+                    <li><a href="/blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+                    <li><a href="/support.html" data-tr="Destek Merkezi" data-en="Support Center">Destek Merkezi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
+                <ul>
+                    <li><a href="/about.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></li>
+                    <li><a href="/team.html" data-tr="Ekip" data-en="Team">Ekip</a></li>
+                    <li><a href="/careers.html" data-tr="Kariyer" data-en="Careers">Kariyer</a></li>
+                    <li><a href="/contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                    <li><a href="/press.html" data-tr="Basın" data-en="Press">Basın</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4 data-tr="Yasal" data-en="Legal">Yasal</h4>
+                <ul>
+                    <li><a href="/privacy.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+                    <li><a href="/terms.html" data-tr="Kullanım Koşulları" data-en="Terms of Service">Kullanım Koşulları</a></li>
+                    <li><a href="/security.html" data-tr="Güvenlik" data-en="Security">Güvenlik</a></li>
+                    <li><a href="/compliance.html" data-tr="Uyumluluk" data-en="Compliance">Uyumluluk</a></li>
+                    <li><a href="/cookies.html" data-tr="Çerezler" data-en="Cookies">Çerezler</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-tr="© 2025 Lydian Agent. Tüm hakları saklıdır." data-en="© 2025 Lydian Agent. All rights reserved.">
+                © 2025 Lydian Agent. Tüm hakları saklıdır.
+            </p>
+            <div class="compliance-badges">
+                <span class="badge">HIPAA Compliant</span>
+                <span class="badge">KVKK Uyumlu</span>
+                <span class="badge">ISO 27001 Certified</span>
+            </div>
+            <div class="footer-utility">
+                <a href="/sitemap.html" data-tr="Site Haritası" data-en="Sitemap">Site Haritası</a>
+                <a href="/status.html" data-tr="Sistem Durumu" data-en="System Status">Sistem Durumu</a>
+                <a href="/accessibility.html" data-tr="Erişilebilirlik" data-en="Accessibility">Erişilebilirlik</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'tr';
+        let isAnnual = false;
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const text = lang === 'tr' ? el.getAttribute('data-tr') : el.getAttribute('data-en');
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'SELECT') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+        }
+
+        function toggleBilling() {
+            isAnnual = !isAnnual;
+            const toggle = document.querySelector('.toggle-switch');
+            const monthlyLabels = document.querySelectorAll('.monthly-label');
+            const annualLabels = document.querySelectorAll('.annual-label');
+            const monthlyPrices = document.querySelectorAll('.monthly-price');
+            const annualPrices = document.querySelectorAll('.annual-price');
+            const monthlyPeriods = document.querySelectorAll('.monthly-period');
+            const annualPeriods = document.querySelectorAll('.annual-period');
+
+            if (isAnnual) {
+                toggle.classList.add('annual');
+                monthlyLabels.forEach(el => el.classList.remove('active'));
+                annualLabels.forEach(el => el.classList.add('active'));
+                monthlyPrices.forEach(el => el.style.display = 'none');
+                annualPrices.forEach(el => el.style.display = 'inline');
+                monthlyPeriods.forEach(el => el.style.display = 'none');
+                annualPeriods.forEach(el => el.style.display = 'inline');
+            } else {
+                toggle.classList.remove('annual');
+                monthlyLabels.forEach(el => el.classList.add('active'));
+                annualLabels.forEach(el => el.classList.remove('active'));
+                monthlyPrices.forEach(el => el.style.display = 'inline');
+                annualPrices.forEach(el => el.style.display = 'none');
+                monthlyPeriods.forEach(el => el.style.display = 'inline');
+                annualPeriods.forEach(el => el.style.display = 'none');
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script src="/static/js/tech-animations.js"></script>
+    <script src="/static/js/language-switcher.js"></script>
+    <script src="/static/js/country-theme-switcher.js"></script>
+</body>
+</html>

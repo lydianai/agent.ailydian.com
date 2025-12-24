@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # ==========================================================================
+  # POSTGRESQL (Primary Database)
+  # ==========================================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: healthcare-ai-postgres
+    environment:
+      POSTGRES_DB: healthcare_ai
+      POSTGRES_USER: healthcare_admin
+      POSTGRES_PASSWORD: Healthcare2024!SecureDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U healthcare_admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthcare-network
+
+  # ==========================================================================
+  # MONGODB (Documents & Images)
+  # ==========================================================================
+  mongodb:
+    image: mongo:7
+    container_name: healthcare-ai-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: healthcare_admin
+      MONGO_INITDB_ROOT_PASSWORD: Healthcare2024!SecureDB
+      MONGO_INITDB_DATABASE: healthcare_ai_docs
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthcare-network
+
+  # ==========================================================================
+  # REDIS (Cache)
+  # ==========================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: healthcare-ai-redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthcare-network
+
+  # ==========================================================================
+  # KAFKA (Message Queue)
+  # ==========================================================================
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: healthcare-ai-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - healthcare-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: healthcare-ai-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - healthcare-network
+
+volumes:
+  postgres_data:
+    driver: local
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  healthcare-network:
+    driver: bridge

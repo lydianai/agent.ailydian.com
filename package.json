@@ -1,0 +1,19 @@
+{
+  "name": "lydian-agent",
+  "version": "1.0.0",
+  "description": "Healthcare AI & Quantum System - Production Deployment",
+  "scripts": {
+    "dev": "python quickstart.py",
+    "build": "echo 'Building for production'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "healthcare",
+    "ai",
+    "quantum",
+    "medical"
+  ],
+  "author": "Lydian Agent Team",
+  "license": "PROPRIETARY",
+  "private": true
+}

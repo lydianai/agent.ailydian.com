@@ -1,0 +1,28 @@
+/* Lydian Agent - Neon Color Scheme */
+:root {
+    /* Updated Neon Colors */
+    --lydian-primary: #00ffff;        /* Neon Cyan (unchanged) */
+    --lydian-secondary: #ffffff;      /* Neon White (was magenta/purple) */
+    --lydian-accent: #00ff88;         /* Neon Green (unchanged) */
+    --lydian-red: #ff0044;            /* Neon Red (was pink) */
+    --lydian-gold: #ffd700;           /* Gold accent */
+
+    /* Updated Gradients */
+    --gradient-lydian: linear-gradient(135deg, #00ffff 0%, #ffffff 50%, #00ff88 100%);
+    --gradient-lydian-alt: linear-gradient(135deg, #00ffff 0%, #ff0044 50%, #00ff88 100%);
+    --gradient-dark: linear-gradient(180deg, #0a0e1a 0%, #1a1f35 100%);
+
+    /* Neutral Colors */
+    --dark-bg: #0a0e1a;
+    --dark-surface: #151b2e;
+    --dark-elevated: #1f2937;
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --border-color: rgba(0, 255, 255, 0.2);
+
+    /* Glow Effects */
+    --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5);
+    --glow-white: 0 0 20px rgba(255, 255, 255, 0.5);
+    --glow-red: 0 0 20px rgba(255, 0, 68, 0.5);
+    --glow-green: 0 0 20px rgba(0, 255, 136, 0.5);
+}
