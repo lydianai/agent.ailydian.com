@@ -78,3 +78,9 @@ htmlcov/
 
 # Docker
 docker-compose.override.yml
+
+# AILYDIAN Integration
+.claude/
+
+# AILYDIAN Integration
+.AISystem/

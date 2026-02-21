@@ -580,6 +580,33 @@ body {
     font-weight: 600;
 }
 
+/* Logic Button Styles */
+.logic-btn {
+    background: linear-gradient(135deg, #ff0033 0%, #ff3366 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(255, 0, 51, 0.3);
+    white-space: nowrap;
+}
+
+.logic-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.4);
+}
+
+.logic-btn i {
+    font-size: 16px;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .stats-grid {
@@ -621,10 +648,37 @@ body {
     .page-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
     }
 
     .page-header h1 {
-        font-size: 24px;
+        font-size: 22px;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .logic-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .logic-btn span {
+        display: inline;
+    }
+
+    .lang-switch {
+        order: 1;
+    }
+
+    .notification-btn {
+        order: 2;
     }
 
     .stats-grid {
@@ -670,6 +724,199 @@ body {
     .alert-item {
         flex-direction: column;
         text-align: center;
+    }
+
+    .logic-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .logic-btn i {
+        font-size: 14px;
+    }
+}
+
+/* Modal Overlay and Logic Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.logic-modal {
+    background: linear-gradient(135deg, #131318 0%, #1a1a2e 100%);
+    border: 2px solid rgba(255, 0, 51, 0.3);
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    color: #ffffff;
+}
+
+.modal-overlay.active .logic-modal {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 0, 51, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.modal-header p {
+    color: #a0a0b8;
+    font-size: 16px;
+}
+
+.logic-section {
+    margin-bottom: 25px;
+}
+
+.logic-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff0033;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logic-section p {
+    color: #e0e0e8;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.logic-section ul {
+    color: #e0e0e8;
+    line-height: 2;
+    margin-left: 20px;
+}
+
+.logic-highlight {
+    background: rgba(255, 0, 51, 0.1);
+    border-left: 3px solid #ff0033;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.logic-highlight strong {
+    color: #ff0033;
+}
+
+.logic-highlight p {
+    margin: 0;
+    color: #e0e0e8;
+}
+
+/* Modal Mobile Responsive */
+@media (max-width: 768px) {
+    .logic-modal {
+        width: 95%;
+        max-height: 90vh;
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 22px;
+        padding-right: 30px;
+    }
+
+    .modal-header p {
+        font-size: 14px;
+    }
+
+    .logic-section h3 {
+        font-size: 16px;
+    }
+
+    .logic-section p, .logic-section ul {
+        font-size: 14px;
+    }
+
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logic-modal {
+        width: 98%;
+        padding: 20px;
+        max-height: 92vh;
+    }
+
+    .modal-header h2 {
+        font-size: 18px;
+    }
+
+    .modal-header p {
+        font-size: 13px;
+    }
+
+    .logic-section h3 {
+        font-size: 15px;
+    }
+
+    .logic-section p, .logic-section ul {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .logic-highlight {
+        padding: 12px 15px;
     }
 }
 

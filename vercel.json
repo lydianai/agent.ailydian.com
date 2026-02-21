@@ -1,68 +1,31 @@
 {
-  "buildCommand": "echo 'No build needed'",
-  "outputDirectory": "frontend",
+  "buildCommand": "cp -r frontend public",
+  "outputDirectory": "public",
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/health",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/docs",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/redoc",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/openapi.json",
-      "destination": "/api/index.py"
-    },
-    {
-      "source": "/pages/(.*)",
-      "destination": "/pages/$1"
-    },
-    {
-      "source": "/static/js/(.*)",
-      "destination": "/static/js/$1"
-    },
-    {
-      "source": "/static/css/(.*)",
-      "destination": "/static/css/$1"
-    },
-    {
-      "source": "/(.*)\\.html",
-      "destination": "/pages/$1.html"
-    },
-    {
-      "source": "/",
-      "destination": "/pages/index.html"
-    }
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/home", "destination": "/pages/index.html" },
+    { "source": "/dashboard", "destination": "/pages/dashboard.html" },
+    { "source": "/agents", "destination": "/pages/agents.html" },
+    { "source": "/emergency", "destination": "/pages/emergency.html" },
+    { "source": "/diagnosis", "destination": "/pages/diagnosis.html" },
+    { "source": "/treatment", "destination": "/pages/treatment.html" },
+    { "source": "/pharmacy", "destination": "/pages/pharmacy.html" },
+    { "source": "/patients", "destination": "/pages/patients.html" }
   ],
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "headers": [
-        {
-          "key": "Access-Control-Allow-Credentials",
-          "value": "true"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
   ]

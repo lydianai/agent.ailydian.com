@@ -1,0 +1,1 @@
+Stage 1 complete: sidebar and header updated for all pages

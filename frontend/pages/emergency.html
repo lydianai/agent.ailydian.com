@@ -25,7 +25,15 @@
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h2>Lydian AI</h2>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">MEDIAN AGENT</div>
+                    <div class="logo-tagline">Lydian</div>
+                </div>
+            </div>
             <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
                 <i class="fas fa-times"></i>
             </button>
@@ -35,7 +43,13 @@
             <li>
                 <a href="dashboard.html">
                     <i class="fas fa-chart-line"></i>
-                    <span>Dashboard</span>
+                    <span data-tr="Dashboard" data-en="Dashboard">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="agents.html">
+                    <i class="fas fa-robot"></i>
+                    <span data-tr="Task Agentlar" data-en="Task Agents">Task Agentlar</span>
                 </a>
             </li>
             <li class="active">
@@ -86,8 +100,12 @@
     <main class="main-content">
         <!-- Header -->
         <header class="page-header">
-            <h1><i class="fas fa-ambulance"></i> Emergency Department</h1>
+            <h1 data-tr="Acil Servis Bölümü" data-en="Emergency Department"><i class="fas fa-ambulance"></i> Acil Servis Bölümü</h1>
             <div class="header-actions">
+                <button class="logic-btn" id="logicBtn" style="background: linear-gradient(135deg, #ff0033 0%, #ff3366 100%); border: none; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-right: 15px;">
+                    <i class="fas fa-brain"></i>
+                    <span data-tr="Çalışma Mantığı" data-en="Working Logic">Çalışma Mantığı</span>
+                </button>
                 <div class="lang-switch">
                     <button class="lang-btn active" data-lang="tr">TR</button>
                     <button class="lang-btn" data-lang="en">EN</button>
@@ -106,9 +124,9 @@
                     <i class="fas fa-heartbeat"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Critical (ESI 1)</h3>
+                    <h3 data-tr="Kritik (ESI 1)" data-en="Critical (ESI 1)">Kritik (ESI 1)</h3>
                     <p class="stat-number">2</p>
-                    <span class="stat-badge critical">Immediate</span>
+                    <span class="stat-badge critical" data-tr="Acil" data-en="Immediate">Acil</span>
                 </div>
             </div>
 
@@ -117,7 +135,7 @@
                     <i class="fas fa-exclamation-triangle"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Emergent (ESI 2)</h3>
+                    <h3 data-tr="Acil (ESI 2)" data-en="Emergent (ESI 2)">Acil (ESI 2)</h3>
                     <p class="stat-number">8</p>
                     <span class="stat-badge high">10 min</span>
                 </div>
@@ -128,7 +146,7 @@
                     <i class="fas fa-clock"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Urgent (ESI 3)</h3>
+                    <h3 data-tr="Önemli (ESI 3)" data-en="Urgent (ESI 3)">Önemli (ESI 3)</h3>
                     <p class="stat-number">15</p>
                     <span class="stat-badge medium">30 min</span>
                 </div>
@@ -139,7 +157,7 @@
                     <i class="fas fa-user-check"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Non-Urgent (ESI 4-5)</h3>
+                    <h3 data-tr="Acil Olmayan (ESI 4-5)" data-en="Non-Urgent (ESI 4-5)">Acil Olmayan (ESI 4-5)</h3>
                     <p class="stat-number">12</p>
                     <span class="stat-badge low">60 min</span>
                 </div>
@@ -150,33 +168,33 @@
         <section class="triage-section">
             <div class="triage-form-container">
                 <div class="section-header">
-                    <h2><i class="fas fa-clipboard-list"></i> ESI Triage Assessment</h2>
+                    <h2><i class="fas fa-clipboard-list"></i> <span data-tr="ESI Triyaj Değerlendirmesi" data-en="ESI Triage Assessment">ESI Triyaj Değerlendirmesi</span></h2>
                     <button class="btn-primary" id="clearForm">
-                        <i class="fas fa-redo"></i> Clear Form
+                        <i class="fas fa-redo"></i> <span data-tr="Formu Temizle" data-en="Clear Form">Formu Temizle</span>
                     </button>
                 </div>
 
                 <form id="triageForm" class="triage-form">
                     <!-- Patient Info -->
                     <div class="form-section">
-                        <h3>Patient Information</h3>
+                        <h3 data-tr="Hasta Bilgileri" data-en="Patient Information">Hasta Bilgileri</h3>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="patientId">Patient ID</label>
+                                <label for="patientId" data-tr="Hasta ID" data-en="Patient ID">Hasta ID</label>
                                 <input type="text" id="patientId" name="patientId" placeholder="P-XXXX" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrivalTime">Arrival Time</label>
+                                <label for="arrivalTime" data-tr="Geliş Saati" data-en="Arrival Time">Geliş Saati</label>
                                 <input type="datetime-local" id="arrivalTime" name="arrivalTime" required>
                             </div>
                             <div class="form-group">
-                                <label for="arrivalMode">Arrival Mode</label>
+                                <label for="arrivalMode" data-tr="Geliş Şekli" data-en="Arrival Mode">Geliş Şekli</label>
                                 <select id="arrivalMode" name="arrivalMode" required>
-                                    <option value="">Select...</option>
-                                    <option value="ambulance">Ambulance</option>
-                                    <option value="walk-in">Walk-in</option>
-                                    <option value="helicopter">Helicopter</option>
-                                    <option value="police">Police</option>
+                                    <option value="" data-tr="Seçiniz..." data-en="Select...">Seçiniz...</option>
+                                    <option value="ambulance" data-tr="Ambulans" data-en="Ambulance">Ambulans</option>
+                                    <option value="walk-in" data-tr="Yürüyerek" data-en="Walk-in">Yürüyerek</option>
+                                    <option value="helicopter" data-tr="Helikopter" data-en="Helicopter">Helikopter</option>
+                                    <option value="police" data-tr="Polis" data-en="Police">Polis</option>
                                 </select>
                             </div>
                         </div>
@@ -184,47 +202,47 @@
 
                     <!-- Chief Complaint -->
                     <div class="form-section">
-                        <h3>Chief Complaint</h3>
+                        <h3 data-tr="Ana Şikayet" data-en="Chief Complaint">Ana Şikayet</h3>
                         <div class="form-group">
-                            <label for="chiefComplaint">Primary Complaint</label>
-                            <textarea id="chiefComplaint" name="chiefComplaint" rows="3" placeholder="Describe the patient's main complaint..." required></textarea>
+                            <label for="chiefComplaint" data-tr="Birincil Şikayet" data-en="Primary Complaint">Birincil Şikayet</label>
+                            <textarea id="chiefComplaint" name="chiefComplaint" rows="3" placeholder="Hastanın ana şikayetini açıklayın..." required></textarea>
                         </div>
                     </div>
 
                     <!-- Vital Signs -->
                     <div class="form-section">
-                        <h3>Vital Signs</h3>
+                        <h3 data-tr="Vital Bulgular" data-en="Vital Signs">Vital Bulgular</h3>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="bloodPressureSystolic">BP Systolic (mmHg)</label>
+                                <label for="bloodPressureSystolic" data-tr="Sistolik Tansiyon (mmHg)" data-en="BP Systolic (mmHg)">Sistolik Tansiyon (mmHg)</label>
                                 <input type="number" id="bloodPressureSystolic" name="bloodPressureSystolic" placeholder="120" required>
                             </div>
                             <div class="form-group">
-                                <label for="bloodPressureDiastolic">BP Diastolic (mmHg)</label>
+                                <label for="bloodPressureDiastolic" data-tr="Diastolik Tansiyon (mmHg)" data-en="BP Diastolic (mmHg)">Diastolik Tansiyon (mmHg)</label>
                                 <input type="number" id="bloodPressureDiastolic" name="bloodPressureDiastolic" placeholder="80" required>
                             </div>
                             <div class="form-group">
-                                <label for="heartRate">Heart Rate (bpm)</label>
+                                <label for="heartRate" data-tr="Kalp Hızı (atım/dk)" data-en="Heart Rate (bpm)">Kalp Hızı (atım/dk)</label>
                                 <input type="number" id="heartRate" name="heartRate" placeholder="70" required>
                             </div>
                             <div class="form-group">
-                                <label for="respiratoryRate">Respiratory Rate (bpm)</label>
+                                <label for="respiratoryRate" data-tr="Solunum Hızı (nefes/dk)" data-en="Respiratory Rate (bpm)">Solunum Hızı (nefes/dk)</label>
                                 <input type="number" id="respiratoryRate" name="respiratoryRate" placeholder="16" required>
                             </div>
                             <div class="form-group">
-                                <label for="temperature">Temperature (°C)</label>
+                                <label for="temperature" data-tr="Vücut Sıcaklığı (°C)" data-en="Temperature (°C)">Vücut Sıcaklığı (°C)</label>
                                 <input type="number" step="0.1" id="temperature" name="temperature" placeholder="37.0" required>
                             </div>
                             <div class="form-group">
-                                <label for="oxygenSaturation">O2 Saturation (%)</label>
+                                <label for="oxygenSaturation" data-tr="O2 Saturasyonu (%)" data-en="O2 Saturation (%)">O2 Saturasyonu (%)</label>
                                 <input type="number" id="oxygenSaturation" name="oxygenSaturation" placeholder="98" required>
                             </div>
                             <div class="form-group">
-                                <label for="glasgowComaScale">Glasgow Coma Scale</label>
+                                <label for="glasgowComaScale" data-tr="Glasgow Koma Skalası" data-en="Glasgow Coma Scale">Glasgow Koma Skalası</label>
                                 <input type="number" id="glasgowComaScale" name="glasgowComaScale" placeholder="15" min="3" max="15" required>
                             </div>
                             <div class="form-group">
-                                <label for="painScale">Pain Scale (0-10)</label>
+                                <label for="painScale" data-tr="Ağrı Skalası (0-10)" data-en="Pain Scale (0-10)">Ağrı Skalası (0-10)</label>
                                 <input type="number" id="painScale" name="painScale" placeholder="0" min="0" max="10" required>
                             </div>
                         </div>
@@ -232,46 +250,46 @@
 
                     <!-- Symptoms -->
                     <div class="form-section">
-                        <h3>Symptoms</h3>
+                        <h3 data-tr="Semptomlar" data-en="Symptoms">Semptomlar</h3>
                         <div class="symptoms-grid">
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="chest_pain">
-                                <span>Chest Pain</span>
+                                <span data-tr="Göğüs Ağrısı" data-en="Chest Pain">Göğüs Ağrısı</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="difficulty_breathing">
-                                <span>Difficulty Breathing</span>
+                                <span data-tr="Nefes Darlığı" data-en="Difficulty Breathing">Nefes Darlığı</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="altered_consciousness">
-                                <span>Altered Consciousness</span>
+                                <span data-tr="Bilinç Değişikliği" data-en="Altered Consciousness">Bilinç Değişikliği</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="severe_bleeding">
-                                <span>Severe Bleeding</span>
+                                <span data-tr="Şiddetli Kanama" data-en="Severe Bleeding">Şiddetli Kanama</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="seizure">
-                                <span>Seizure</span>
+                                <span data-tr="Nöbet" data-en="Seizure">Nöbet</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="severe_pain">
-                                <span>Severe Pain</span>
+                                <span data-tr="Şiddetli Ağrı" data-en="Severe Pain">Şiddetli Ağrı</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="stroke_symptoms">
-                                <span>Stroke Symptoms</span>
+                                <span data-tr="İnme Belirtileri" data-en="Stroke Symptoms">İnme Belirtileri</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="symptoms" value="trauma">
-                                <span>Trauma</span>
+                                <span data-tr="Travma" data-en="Trauma">Travma</span>
                             </label>
                         </div>
                     </div>
 
                     <!-- Medical History -->
                     <div class="form-section">
-                        <h3>Medical History (Optional)</h3>
+                        <h3 data-tr="Tıbbi Geçmiş (Opsiyonel)" data-en="Medical History (Optional)">Tıbbi Geçmiş (Opsiyonel)</h3>
                         <div class="form-group">
                             <textarea id="medicalHistory" name="medicalHistory" rows="3" placeholder="Previous conditions, medications, allergies..."></textarea>
                         </div>
@@ -280,7 +298,7 @@
                     <!-- Submit Button -->
                     <div class="form-actions">
                         <button type="submit" class="btn-submit">
-                            <i class="fas fa-stethoscope"></i> Perform Triage Assessment
+                            <i class="fas fa-stethoscope"></i> <span data-tr="Triyaj Değerlendirmesi Yap" data-en="Perform Triage Assessment">Triyaj Değerlendirmesi Yap</span>
                         </button>
                     </div>
                 </form>
@@ -289,9 +307,9 @@
             <!-- Triage Result -->
             <div class="triage-result-container" id="triageResult" style="display: none;">
                 <div class="section-header">
-                    <h2><i class="fas fa-clipboard-check"></i> Triage Result</h2>
+                    <h2><i class="fas fa-clipboard-check"></i> <span data-tr="Triyaj Sonucu" data-en="Triage Result">Triyaj Sonucu</span></h2>
                     <button class="btn-secondary" id="newTriage">
-                        <i class="fas fa-plus"></i> New Triage
+                        <i class="fas fa-plus"></i> <span data-tr="Yeni Triyaj" data-en="New Triage">Yeni Triyaj</span>
                     </button>
                 </div>
 
@@ -307,55 +325,55 @@
                     <!-- Priority & Timing -->
                     <div class="result-grid">
                         <div class="result-card">
-                            <h4><i class="fas fa-exclamation-circle"></i> Priority</h4>
+                            <h4><i class="fas fa-exclamation-circle"></i> <span data-tr="Öncelik" data-en="Priority">Öncelik</span></h4>
                             <p id="priorityText">-</p>
                         </div>
                         <div class="result-card">
-                            <h4><i class="fas fa-clock"></i> Target Time</h4>
+                            <h4><i class="fas fa-clock"></i> <span data-tr="Hedef Süre" data-en="Target Time">Hedef Süre</span></h4>
                             <p id="targetTime">-</p>
                         </div>
                         <div class="result-card">
-                            <h4><i class="fas fa-check-circle"></i> Confidence</h4>
+                            <h4><i class="fas fa-check-circle"></i> <span data-tr="Güven Skoru" data-en="Confidence">Güven Skoru</span></h4>
                             <p id="confidenceScore">-</p>
                         </div>
                     </div>
 
                     <!-- ABCDE Assessment -->
                     <div class="abcde-container">
-                        <h3>ABCDE Assessment</h3>
+                        <h3 data-tr="ABCDE Değerlendirmesi" data-en="ABCDE Assessment">ABCDE Değerlendirmesi</h3>
                         <div class="abcde-grid">
                             <div class="abcde-item">
                                 <div class="abcde-letter">A</div>
                                 <div class="abcde-content">
-                                    <strong>Airway</strong>
+                                    <strong data-tr="Hava Yolu" data-en="Airway">Hava Yolu</strong>
                                     <p id="airwayStatus">-</p>
                                 </div>
                             </div>
                             <div class="abcde-item">
                                 <div class="abcde-letter">B</div>
                                 <div class="abcde-content">
-                                    <strong>Breathing</strong>
+                                    <strong data-tr="Solunum" data-en="Breathing">Solunum</strong>
                                     <p id="breathingStatus">-</p>
                                 </div>
                             </div>
                             <div class="abcde-item">
                                 <div class="abcde-letter">C</div>
                                 <div class="abcde-content">
-                                    <strong>Circulation</strong>
+                                    <strong data-tr="Dolaşım" data-en="Circulation">Dolaşım</strong>
                                     <p id="circulationStatus">-</p>
                                 </div>
                             </div>
                             <div class="abcde-item">
                                 <div class="abcde-letter">D</div>
                                 <div class="abcde-content">
-                                    <strong>Disability</strong>
+                                    <strong data-tr="Nörolojik Durum" data-en="Disability">Nörolojik Durum</strong>
                                     <p id="disabilityStatus">-</p>
                                 </div>
                             </div>
                             <div class="abcde-item">
                                 <div class="abcde-letter">E</div>
                                 <div class="abcde-content">
-                                    <strong>Exposure</strong>
+                                    <strong data-tr="Maruziyet" data-en="Exposure">Maruziyet</strong>
                                     <p id="exposureStatus">-</p>
                                 </div>
                             </div>
@@ -364,13 +382,13 @@
 
                     <!-- Immediate Actions -->
                     <div class="actions-container">
-                        <h3><i class="fas fa-bolt"></i> Immediate Actions</h3>
+                        <h3><i class="fas fa-bolt"></i> <span data-tr="Acil Aksiyonlar" data-en="Immediate Actions">Acil Aksiyonlar</span></h3>
                         <ul id="immediateActions" class="action-list"></ul>
                     </div>
 
                     <!-- Recommended Protocols -->
                     <div class="protocols-container">
-                        <h3><i class="fas fa-book-medical"></i> Activated Protocols</h3>
+                        <h3><i class="fas fa-book-medical"></i> <span data-tr="Aktif Protokoller" data-en="Activated Protocols">Aktif Protokoller</span></h3>
                         <div id="activatedProtocols" class="protocol-grid"></div>
                     </div>
                 </div>
@@ -379,14 +397,14 @@
 
         <!-- Active Emergency Cases -->
         <section class="active-cases">
-            <h2><i class="fas fa-users-medical"></i> Active Emergency Cases</h2>
+            <h2><i class="fas fa-users-medical"></i> <span data-tr="Aktif Acil Vakalar" data-en="Active Emergency Cases">Aktif Acil Vakalar</span></h2>
             <div class="cases-grid">
                 <div class="case-card esi-1">
                     <div class="case-header">
                         <span class="case-id">P-1001</span>
                         <span class="esi-badge-small">ESI 1</span>
                     </div>
-                    <div class="case-complaint">Cardiac Arrest</div>
+                    <div class="case-complaint"><span data-tr="Kardiyak Arrest" data-en="Cardiac Arrest">Kardiyak Arrest</span></div>
                     <div class="case-vitals">
                         <span><i class="fas fa-heartbeat"></i> 0 bpm</span>
                         <span><i class="fas fa-lungs"></i> Apneic</span>
@@ -395,7 +413,7 @@
                         <i class="fas fa-clock"></i> 2 min ago
                     </div>
                     <div class="case-actions">
-                        <button class="btn-action-critical"><i class="fas fa-play"></i> ACLS Protocol</button>
+                        <button class="btn-action-critical"><i class="fas fa-play"></i> <span data-tr="ACLS Protokolü" data-en="ACLS Protocol">ACLS Protokolü</span></button>
                     </div>
                 </div>
 
@@ -404,7 +422,7 @@
                         <span class="case-id">P-0987</span>
                         <span class="esi-badge-small">ESI 2</span>
                     </div>
-                    <div class="case-complaint">STEMI - Chest Pain</div>
+                    <div class="case-complaint"><span data-tr="STEMI - Göğüs Ağrısı" data-en="STEMI - Chest Pain">STEMI - Göğüs Ağrısı</span></div>
                     <div class="case-vitals">
                         <span><i class="fas fa-heartbeat"></i> 110 bpm</span>
                         <span><i class="fas fa-tint"></i> 145/92 mmHg</span>
@@ -413,7 +431,7 @@
                         <i class="fas fa-clock"></i> 8 min ago
                     </div>
                     <div class="case-actions">
-                        <button class="btn-action-high"><i class="fas fa-ambulance"></i> Cath Lab Alert</button>
+                        <button class="btn-action-high"><i class="fas fa-ambulance"></i> <span data-tr="Kateter Lab Alarmı" data-en="Cath Lab Alert">Kateter Lab Alarmı</span></button>
                     </div>
                 </div>
 
@@ -422,7 +440,7 @@
                         <span class="case-id">P-0892</span>
                         <span class="esi-badge-small">ESI 2</span>
                     </div>
-                    <div class="case-complaint">Stroke Alert</div>
+                    <div class="case-complaint"><span data-tr="İnme Alarmı" data-en="Stroke Alert">İnme Alarmı</span></div>
                     <div class="case-vitals">
                         <span><i class="fas fa-brain"></i> GCS 12</span>
                         <span><i class="fas fa-clock"></i> Last seen 45 min</span>
@@ -431,7 +449,7 @@
                         <i class="fas fa-clock"></i> 12 min ago
                     </div>
                     <div class="case-actions">
-                        <button class="btn-action-high"><i class="fas fa-x-ray"></i> CT Ordered</button>
+                        <button class="btn-action-high"><i class="fas fa-x-ray"></i> <span data-tr="BT İstendi" data-en="CT Ordered">BT İstendi</span></button>
                     </div>
                 </div>
 
@@ -440,7 +458,7 @@
                         <span class="case-id">P-1023</span>
                         <span class="esi-badge-small">ESI 3</span>
                     </div>
-                    <div class="case-complaint">Abdominal Pain</div>
+                    <div class="case-complaint"><span data-tr="Karın Ağrısı" data-en="Abdominal Pain">Karın Ağrısı</span></div>
                     <div class="case-vitals">
                         <span><i class="fas fa-heartbeat"></i> 88 bpm</span>
                         <span><i class="fas fa-thermometer"></i> 38.2°C</span>
@@ -449,7 +467,7 @@
                         <i class="fas fa-clock"></i> 25 min ago
                     </div>
                     <div class="case-actions">
-                        <button class="btn-action-medium"><i class="fas fa-vials"></i> Labs Pending</button>
+                        <button class="btn-action-medium"><i class="fas fa-vials"></i> <span data-tr="Lab Sonuçları Bekleniyor" data-en="Labs Pending">Lab Sonuçları Bekleniyor</span></button>
                     </div>
                 </div>
             </div>
@@ -459,12 +477,152 @@
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
-        <p>Performing AI Triage Assessment...</p>
+        <p data-tr="AI Triyaj Değerlendirmesi Yapılıyor..." data-en="Performing AI Triage Assessment...">AI Triyaj Değerlendirmesi Yapılıyor...</p>
+    </div>
+
+    <!-- Logic Modal -->
+    <div class="modal-overlay" id="logicModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="logic-modal" style="background: linear-gradient(135deg, #131318 0%, #1a1a2e 100%); border: 2px solid rgba(255,0,51,0.3); border-radius: 20px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; padding: 40px; position: relative;">
+            <button class="modal-close" id="modalClose" style="position: absolute; top: 20px; right: 20px; background: rgba(255,0,51,0.1); border: 2px solid rgba(255,0,51,0.3); color: #ff0033; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header" style="margin-bottom: 30px;">
+                <h2 style="color: #ff0033; font-size: 28px; margin-bottom: 10px;" data-tr="Acil Servis Çalışma Mantığı" data-en="Emergency Department Working Logic">Acil Servis Çalışma Mantığı</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-tr="AI destekli acil triyaj sistemi nasıl çalışır" data-en="How the AI-powered emergency triage system works">AI destekli acil triyaj sistemi nasıl çalışır</p>
+            </div>
+
+            <div class="modal-content">
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-heartbeat" style="color: #ff0033;"></i>
+                        <span data-tr="ESI Triyaj Algoritması" data-en="ESI Triage Algorithm">ESI Triyaj Algoritması</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="Sistem, Emergency Severity Index (ESI) protokolünü kullanarak hastaları 1 (kritik) ile 5 (acil olmayan) arasında sınıflandırır. AI modeli, vital bulgular, semptomlar ve tıbbi geçmişi analiz ederek en uygun ESI seviyesini belirler." data-en="The system classifies patients from 1 (critical) to 5 (non-urgent) using the Emergency Severity Index (ESI) protocol. The AI model analyzes vital signs, symptoms, and medical history to determine the most appropriate ESI level.">Sistem, Emergency Severity Index (ESI) protokolünü kullanarak hastaları 1 (kritik) ile 5 (acil olmayan) arasında sınıflandırır. AI modeli, vital bulgular, semptomlar ve tıbbi geçmişi analiz ederek en uygun ESI seviyesini belirler.</p>
+                </div>
+
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-brain" style="color: #ff0033;"></i>
+                        <span data-tr="ABCDE Değerlendirmesi" data-en="ABCDE Assessment">ABCDE Değerlendirmesi</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="AI, kritik hastaları değerlendirmek için ABCDE (Hava Yolu, Solunum, Dolaşım, Nörolojik Durum, Maruziyet) protokolünü uygular. Her kategori için vital bulgular analiz edilir ve acil müdahale gerektiren durumlar tespit edilir." data-en="The AI applies the ABCDE (Airway, Breathing, Circulation, Disability, Exposure) protocol to assess critical patients. Vital signs are analyzed for each category and conditions requiring immediate intervention are identified.">AI, kritik hastaları değerlendirmek için ABCDE (Hava Yolu, Solunum, Dolaşım, Nörolojik Durum, Maruziyet) protokolünü uygular. Her kategori için vital bulgular analiz edilir ve acil müdahale gerektiren durumlar tespit edilir.</p>
+                </div>
+
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-book-medical" style="color: #ff0033;"></i>
+                        <span data-tr="Protokol Aktivasyonu" data-en="Protocol Activation">Protokol Aktivasyonu</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="Belirli semptomlar ve vital bulgular tespit edildiğinde, sistem otomatik olarak uygun acil protokolleri aktive eder (STEMI, İnme, Sepsis, ACLS vb.). Bu protokoller, zamanın kritik olduğu durumlarda hızlı müdahale sağlar." data-en="When specific symptoms and vital signs are detected, the system automatically activates appropriate emergency protocols (STEMI, Stroke, Sepsis, ACLS, etc.). These protocols enable rapid intervention in time-critical situations.">Belirli semptomlar ve vital bulgular tespit edildiğinde, sistem otomatik olarak uygun acil protokolleri aktive eder (STEMI, İnme, Sepsis, ACLS vb.). Bu protokoller, zamanın kritik olduğu durumlarda hızlı müdahale sağlar.</p>
+                </div>
+
+                <div class="highlight-box" style="background: rgba(255,0,51,0.1); border: 2px solid rgba(255,0,51,0.3); border-radius: 10px; padding: 20px; margin-top: 20px;">
+                    <p style="color: #fff; margin: 0; line-height: 1.6;"><strong data-tr="Gerçek Zamanlı İzleme:" data-en="Real-Time Monitoring:">Gerçek Zamanlı İzleme:</strong> <span data-tr="Tüm aktif vakalar sürekli izlenir ve vital bulgulardaki değişiklikler anında tespit edilir. Sistem, durumu kötüleşen hastaları otomatik olarak önceliklendirir ve ilgili ekipleri uyarır." data-en="All active cases are continuously monitored and changes in vital signs are instantly detected. The system automatically prioritizes deteriorating patients and alerts relevant teams.">Tüm aktif vakalar sürekli izlenir ve vital bulgulardaki değişiklikler anında tespit edilir. Sistem, durumu kötüleşen hastaları otomatik olarak önceliklendirir ve ilgili ekipleri uyarır.</span></p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="../static/js/dashboard.js"></script>
     <script src="../static/js/emergency.js"></script>
     <script src="../static/js/i18n.js"></script>
+    <script>
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = localStorage.getItem('preferred-language') || 'tr';
+
+        // Set initial language
+        langBtns.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Apply initial language
+        if (currentLang === 'en') {
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const enText = el.getAttribute('data-en');
+                if (el.tagName === 'P' || el.tagName === 'STRONG') {
+                    if (enText.includes('<strong>')) {
+                        el.innerHTML = enText;
+                    } else {
+                        el.textContent = enText;
+                    }
+                } else {
+                    el.textContent = enText;
+                }
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                currentLang = lang;
+
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                document.querySelectorAll('[data-tr]').forEach(el => {
+                    const trText = el.getAttribute('data-tr');
+                    const enText = el.getAttribute('data-en');
+
+                    if (el.tagName === 'P' || el.tagName === 'STRONG') {
+                        const text = lang === 'tr' ? trText : enText;
+                        if (text.includes('<strong>')) {
+                            el.innerHTML = text;
+                        } else {
+                            el.textContent = text;
+                        }
+                    } else {
+                        el.textContent = lang === 'tr' ? trText : enText;
+                    }
+                });
+
+                localStorage.setItem('preferred-language', lang);
+            });
+        });
+
+        // Logic Modal Controls
+        const logicBtn = document.getElementById('logicBtn');
+        const logicModal = document.getElementById('logicModal');
+        const modalClose = document.getElementById('modalClose');
+
+        logicBtn?.addEventListener('click', () => {
+            logicModal.style.display = 'flex';
+        });
+
+        modalClose?.addEventListener('click', () => {
+            logicModal.style.display = 'none';
+        });
+
+        logicModal?.addEventListener('click', (e) => {
+            if (e.target === logicModal) {
+                logicModal.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && logicModal.style.display === 'flex') {
+                logicModal.style.display = 'none';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebarClose');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            sidebar?.classList.toggle('active');
+        });
+
+        sidebarClose?.addEventListener('click', () => {
+            sidebar?.classList.remove('active');
+        });
+    </script>
 </body>
 </html>

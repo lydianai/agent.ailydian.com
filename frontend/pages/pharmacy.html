@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacy | MEDIAN AGENT</title>
+    <title>Pharmacy | Lydian Healthcare AI</title>
     <link rel="stylesheet" href="../static/css/dashboard.css">
     <link rel="stylesheet" href="../static/css/treatment-pharmacy-patients.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,11 +23,20 @@
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h2>Lydian AI</h2>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">MEDIAN AGENT</div>
+                    <div class="logo-tagline">Lydian</div>
+                </div>
+            </div>
             <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+            <li><a href="dashboard.html"><i class="fas fa-chart-line"></i><span data-tr="Dashboard" data-en="Dashboard">Dashboard</span></a></li>
+            <li><a href="agents.html"><i class="fas fa-robot"></i><span data-tr="Task Agentlar" data-en="Task Agents">Task Agentlar</span></a></li>
             <li><a href="emergency.html"><i class="fas fa-ambulance"></i><span data-tr="Acil" data-en="Emergency">Acil</span></a></li>
             <li><a href="diagnosis.html"><i class="fas fa-stethoscope"></i><span data-tr="Tanı" data-en="Diagnosis">Tanı</span></a></li>
             <li><a href="treatment.html"><i class="fas fa-notes-medical"></i><span data-tr="Tedavi" data-en="Treatment">Tedavi</span></a></li>
@@ -45,6 +54,10 @@
         <header class="page-header">
             <h1><i class="fas fa-pills"></i> <span data-tr="Eczane Yönetimi" data-en="Pharmacy Management">Eczane Yönetimi</span></h1>
             <div class="header-actions">
+                <button class="logic-btn" id="logicBtn" style="background: linear-gradient(135deg, #ff0033 0%, #ff3366 100%); border: none; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-right: 15px;">
+                    <i class="fas fa-brain"></i>
+                    <span data-tr="Çalışma Mantığı" data-en="Working Logic">Çalışma Mantığı</span>
+                </button>
                 <div class="lang-switch">
                     <button class="lang-btn active" data-lang="tr">TR</button>
                     <button class="lang-btn" data-lang="en">EN</button>
@@ -188,7 +201,7 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>MEDIAN AGENT</h4>
+                <h4>Lydian Healthcare AI</h4>
                 <p>AI-powered pharmacy management</p>
             </div>
             <div class="footer-section">
@@ -204,11 +217,155 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 MEDIAN AGENT. All rights reserved. | v1.0.0</p>
+            <p>&copy; 2024 Lydian Healthcare AI. All rights reserved. | v1.0.0</p>
         </div>
     </footer>
 
     <script src="../static/js/dashboard.js"></script>
     <script src="../static/js/i18n.js"></script>
+
+
+    <!-- Logic Modal -->
+    <div class="modal-overlay" id="logicModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="logic-modal" style="background: linear-gradient(135deg, #131318 0%, #1a1a2e 100%); border: 2px solid rgba(255,0,51,0.3); border-radius: 20px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; padding: 40px; position: relative;">
+            <button class="modal-close" id="modalClose" style="position: absolute; top: 20px; right: 20px; background: rgba(255,0,51,0.1); border: 2px solid rgba(255,0,51,0.3); color: #ff0033; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header" style="margin-bottom: 30px;">
+                <h2 style="color: #ff0033; font-size: 28px; margin-bottom: 10px;" data-tr="Eczane Çalışma Mantığı" data-en="Pharmacy Working Logic">Eczane Çalışma Mantığı</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-tr="AI destekli eczane yönetim sistemi nasıl çalışır" data-en="How the AI-powered pharmacy management system works">AI destekli eczane yönetim sistemi nasıl çalışır</p>
+            </div>
+
+            <div class="modal-content">
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-capsules" style="color: #ff0033;"></i>
+                        <span data-tr="İlaç Etkileşim Kontrolü" data-en="Drug Interaction Check">İlaç Etkileşim Kontrolü</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="Sistem, reçete edilen ilaçlar arasındaki olası etkileşimleri otomatik tespit eder. Kritik etkileşimler için anında uyarı verir ve alternatif öneriler sunar." data-en="The system automatically detects possible interactions between prescribed drugs. Provides instant alerts for critical interactions and offers alternatives.">Sistem, reçete edilen ilaçlar arasındaki olası etkileşimleri otomatik tespit eder. Kritik etkileşimler için anında uyarı verir ve alternatif öneriler sunar.</p>
+                </div>
+
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-warehouse" style="color: #ff0033;"></i>
+                        <span data-tr="Stok Yönetimi" data-en="Inventory Management">Stok Yönetimi</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="AI, ilaç stoklarını takip eder ve tükenme öncesi uyarılar verir. Talep tahminleri yapılarak optimal stok seviyeleri belirlenir." data-en="The AI tracks drug inventories and provides alerts before depletion. Optimal stock levels are determined through demand forecasting.">AI, ilaç stoklarını takip eder ve tükenme öncesi uyarılar verir. Talep tahminleri yapılarak optimal stok seviyeleri belirlenir.</p>
+                </div>
+
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-shield-alt" style="color: #ff0033;"></i>
+                        <span data-tr="Güvenlik ve Uyum" data-en="Safety and Compliance">Güvenlik ve Uyum</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="Sistem, ilaç dağıtımında hasta güvenliğini sağlar. Dozaj doğrulaması, alerji kontrolü ve reçete uygunluğu otomatik kontrol edilir." data-en="The system ensures patient safety in drug dispensing. Dosage verification, allergy checking, and prescription compliance are automatically verified.">Sistem, ilaç dağıtımında hasta güvenliğini sağlar. Dozaj doğrulaması, alerji kontrolü ve reçete uygunluğu otomatik kontrol edilir.</p>
+                </div>
+
+                <div class="highlight-box" style="background: rgba(255,0,51,0.1); border: 2px solid rgba(255,0,51,0.3); border-radius: 10px; padding: 20px; margin-top: 20px;">
+                    <p style="color: #fff; margin: 0; line-height: 1.6;" data-tr="Tüm ilaç işlemleri izlenebilir ve kayıt altına alınır. Sistem, düzenleyici gerekliliklere uyumu sağlar ve hasta güvenliğini önceliklendirir." data-en="All medication operations are traceable and recorded. The system ensures regulatory compliance and prioritizes patient safety.">Tüm ilaç işlemleri izlenebilir ve kayıt altına alınır. Sistem, düzenleyici gerekliliklere uyumu sağlar ve hasta güvenliğini önceliklendirir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/js/dashboard.js"></script>
+    <script>
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = localStorage.getItem('preferred-language') || 'tr';
+
+        // Set initial language
+        langBtns.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Apply initial language
+        if (currentLang === 'en') {
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const enText = el.getAttribute('data-en');
+                if (el.tagName === 'P' || el.tagName === 'STRONG' || el.tagName === 'SPAN') {
+                    if (enText && enText.includes('<strong>')) {
+                        el.innerHTML = enText;
+                    } else if (enText) {
+                        el.textContent = enText;
+                    }
+                } else if (enText) {
+                    el.textContent = enText;
+                }
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                currentLang = lang;
+
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                document.querySelectorAll('[data-tr]').forEach(el => {
+                    const trText = el.getAttribute('data-tr');
+                    const enText = el.getAttribute('data-en');
+
+                    if (el.tagName === 'P' || el.tagName === 'STRONG' || el.tagName === 'SPAN') {
+                        const text = lang === 'tr' ? trText : enText;
+                        if (text && text.includes('<strong>')) {
+                            el.innerHTML = text;
+                        } else if (text) {
+                            el.textContent = text;
+                        }
+                    } else if (enText && trText) {
+                        el.textContent = lang === 'tr' ? trText : enText;
+                    }
+                });
+
+                localStorage.setItem('preferred-language', lang);
+            });
+        });
+
+        // Logic Modal Controls
+        const logicBtn = document.getElementById('logicBtn');
+        const logicModal = document.getElementById('logicModal');
+        const modalClose = document.getElementById('modalClose');
+
+        logicBtn?.addEventListener('click', () => {
+            logicModal.style.display = 'flex';
+        });
+
+        modalClose?.addEventListener('click', () => {
+            logicModal.style.display = 'none';
+        });
+
+        logicModal?.addEventListener('click', (e) => {
+            if (e.target === logicModal) {
+                logicModal.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && logicModal.style.display === 'flex') {
+                logicModal.style.display = 'none';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebarClose');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            sidebar?.classList.toggle('active');
+        });
+
+        sidebarClose?.addEventListener('click', () => {
+            sidebar?.classList.remove('active');
+        });
+    </script>
 </body>
 </html>

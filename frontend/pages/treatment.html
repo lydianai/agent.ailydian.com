@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treatment Planning | MEDIAN AGENT</title>
+    <title>Treatment Planning | Lydian Healthcare AI</title>
     <link rel="stylesheet" href="../static/css/dashboard.css">
     <link rel="stylesheet" href="../static/css/treatment-pharmacy-patients.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,15 @@
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <h2>Lydian AI</h2>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">MEDIAN AGENT</div>
+                    <div class="logo-tagline">Lydian</div>
+                </div>
+            </div>
             <button class="sidebar-close" id="sidebarClose" aria-label="Close Menu">
                 <i class="fas fa-times"></i>
             </button>
@@ -36,6 +44,12 @@
                 <a href="dashboard.html">
                     <i class="fas fa-chart-line"></i>
                     <span data-tr="Dashboard" data-en="Dashboard">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="agents.html">
+                    <i class="fas fa-robot"></i>
+                    <span data-tr="Task Agentlar" data-en="Task Agents">Task Agentlar</span>
                 </a>
             </li>
             <li>
@@ -88,6 +102,10 @@
         <header class="page-header">
             <h1><i class="fas fa-notes-medical"></i> <span data-tr="Tedavi Planlama" data-en="Treatment Planning">Tedavi Planlama</span></h1>
             <div class="header-actions">
+                <button class="logic-btn" id="logicBtn" style="background: linear-gradient(135deg, #ff0033 0%, #ff3366 100%); border: none; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-right: 15px;">
+                    <i class="fas fa-brain"></i>
+                    <span data-tr="Çalışma Mantığı" data-en="Working Logic">Çalışma Mantığı</span>
+                </button>
                 <div class="lang-switch">
                     <button class="lang-btn active" data-lang="tr">TR</button>
                     <button class="lang-btn" data-lang="en">EN</button>
@@ -302,7 +320,7 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>MEDIAN AGENT</h4>
+                <h4>Lydian Healthcare AI</h4>
                 <p>AI-powered healthcare management platform</p>
             </div>
             <div class="footer-section">
@@ -320,12 +338,156 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 MEDIAN AGENT. All rights reserved. | v1.0.0</p>
+            <p>&copy; 2024 Lydian Healthcare AI. All rights reserved. | v1.0.0</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="../static/js/dashboard.js"></script>
     <script src="../static/js/i18n.js"></script>
+
+
+    <!-- Logic Modal -->
+    <div class="modal-overlay" id="logicModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="logic-modal" style="background: linear-gradient(135deg, #131318 0%, #1a1a2e 100%); border: 2px solid rgba(255,0,51,0.3); border-radius: 20px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; padding: 40px; position: relative;">
+            <button class="modal-close" id="modalClose" style="position: absolute; top: 20px; right: 20px; background: rgba(255,0,51,0.1); border: 2px solid rgba(255,0,51,0.3); color: #ff0033; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header" style="margin-bottom: 30px;">
+                <h2 style="color: #ff0033; font-size: 28px; margin-bottom: 10px;" data-tr="Tedavi Planlama Çalışma Mantığı" data-en="Treatment Planning Working Logic">Tedavi Planlama Çalışma Mantığı</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 14px;" data-tr="AI destekli tedavi planlama sistemi nasıl çalışır" data-en="How the AI-powered treatment planning system works">AI destekli tedavi planlama sistemi nasıl çalışır</p>
+            </div>
+
+            <div class="modal-content">
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-pills" style="color: #ff0033;"></i>
+                        <span data-tr="İlaç Seçimi ve Dozaj" data-en="Drug Selection and Dosage">İlaç Seçimi ve Dozaj</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="AI, hastanın tanısına, yaşına, kilosuna ve tıbbi geçmişine göre en uygun ilaçları seçer. Dozaj hesaplamaları otomatik yapılır ve ilaç etkileşimleri kontrol edilir." data-en="The AI selects the most appropriate drugs based on patient diagnosis, age, weight, and medical history. Dosage calculations are automated and drug interactions are checked.">AI, hastanın tanısına, yaşına, kilosuna ve tıbbi geçmişine göre en uygun ilaçları seçer. Dozaj hesaplamaları otomatik yapılır ve ilaç etkileşimleri kontrol edilir.</p>
+                </div>
+
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-heart-pulse" style="color: #ff0033;"></i>
+                        <span data-tr="Tedavi Protokolleri" data-en="Treatment Protocols">Tedavi Protokolleri</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="Sistem, kanıta dayalı tedavi kılavuzlarını uygular ve hastalık-spesifik protokoller önerir. Tedavi adımları zamanlamasıyla birlikte detaylandırılır." data-en="The system applies evidence-based treatment guidelines and recommends disease-specific protocols. Treatment steps are detailed with timing.">Sistem, kanıta dayalı tedavi kılavuzlarını uygular ve hastalık-spesifik protokoller önerir. Tedavi adımları zamanlamasıyla birlikte detaylandırılır.</p>
+                </div>
+
+                <div class="logic-section" style="margin-bottom: 25px;">
+                    <h3 style="color: #fff; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-chart-line" style="color: #ff0033;"></i>
+                        <span data-tr="Takip ve İzleme" data-en="Follow-up and Monitoring">Takip ve İzleme</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 10px;" data-tr="AI, tedavi sürecini izlemek için gerekli kontrolleri ve testleri planlar. Tedaviye yanıt değerlendirmesi ve gerektiğinde tedavi ayarlamaları önerilir." data-en="The AI plans necessary check-ups and tests to monitor the treatment process. Treatment response evaluation and adjustments are recommended when needed.">AI, tedavi sürecini izlemek için gerekli kontrolleri ve testleri planlar. Tedaviye yanıt değerlendirmesi ve gerektiğinde tedavi ayarlamaları önerilir.</p>
+                </div>
+
+                <div class="highlight-box" style="background: rgba(255,0,51,0.1); border: 2px solid rgba(255,0,51,0.3); border-radius: 10px; padding: 20px; margin-top: 20px;">
+                    <p style="color: #fff; margin: 0; line-height: 1.6;" data-tr="Tüm tedavi önerileri güncel kılavuzlara uygun olarak oluşturulur ve hasta güvenliği önceliklendirilerek sunulur. İlaç alerjileri ve kontraendikasyonlar otomatik kontrol edilir." data-en="All treatment recommendations are created in accordance with current guidelines and presented with patient safety prioritized. Drug allergies and contraindications are automatically checked.">Tüm tedavi önerileri güncel kılavuzlara uygun olarak oluşturulur ve hasta güvenliği önceliklendirilerek sunulur. İlaç alerjileri ve kontraendikasyonlar otomatik kontrol edilir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/js/dashboard.js"></script>
+    <script>
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = localStorage.getItem('preferred-language') || 'tr';
+
+        // Set initial language
+        langBtns.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Apply initial language
+        if (currentLang === 'en') {
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const enText = el.getAttribute('data-en');
+                if (el.tagName === 'P' || el.tagName === 'STRONG' || el.tagName === 'SPAN') {
+                    if (enText && enText.includes('<strong>')) {
+                        el.innerHTML = enText;
+                    } else if (enText) {
+                        el.textContent = enText;
+                    }
+                } else if (enText) {
+                    el.textContent = enText;
+                }
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                currentLang = lang;
+
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                document.querySelectorAll('[data-tr]').forEach(el => {
+                    const trText = el.getAttribute('data-tr');
+                    const enText = el.getAttribute('data-en');
+
+                    if (el.tagName === 'P' || el.tagName === 'STRONG' || el.tagName === 'SPAN') {
+                        const text = lang === 'tr' ? trText : enText;
+                        if (text && text.includes('<strong>')) {
+                            el.innerHTML = text;
+                        } else if (text) {
+                            el.textContent = text;
+                        }
+                    } else if (enText && trText) {
+                        el.textContent = lang === 'tr' ? trText : enText;
+                    }
+                });
+
+                localStorage.setItem('preferred-language', lang);
+            });
+        });
+
+        // Logic Modal Controls
+        const logicBtn = document.getElementById('logicBtn');
+        const logicModal = document.getElementById('logicModal');
+        const modalClose = document.getElementById('modalClose');
+
+        logicBtn?.addEventListener('click', () => {
+            logicModal.style.display = 'flex';
+        });
+
+        modalClose?.addEventListener('click', () => {
+            logicModal.style.display = 'none';
+        });
+
+        logicModal?.addEventListener('click', (e) => {
+            if (e.target === logicModal) {
+                logicModal.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && logicModal.style.display === 'flex') {
+                logicModal.style.display = 'none';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebarClose');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            sidebar?.classList.toggle('active');
+        });
+
+        sidebarClose?.addEventListener('click', () => {
+            sidebar?.classList.remove('active');
+        });
+    </script>
 </body>
 </html>

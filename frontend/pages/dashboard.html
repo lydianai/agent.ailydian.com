@@ -94,6 +94,12 @@
                 </a>
             </li>
             <li>
+                <a href="agents.html">
+                    <i class="fas fa-robot"></i>
+                    <span data-tr="Task Agentlar" data-en="Task Agents">Task Agentlar</span>
+                </a>
+            </li>
+            <li>
                 <a href="emergency.html">
                     <i class="fas fa-ambulance"></i>
                     <span data-tr="Acil Servis" data-en="Emergency">Acil Servis</span>
@@ -102,13 +108,13 @@
             <li>
                 <a href="diagnosis.html">
                     <i class="fas fa-stethoscope"></i>
-                    <span data-tr="Tanı Asistanı" data-en="Diagnosis">Tanı Asistanı</span>
+                    <span data-tr="Tanı Asistanı" data-en="Diagnosis Assistant">Tanı Asistanı</span>
                 </a>
             </li>
             <li>
                 <a href="treatment.html">
                     <i class="fas fa-notes-medical"></i>
-                    <span data-tr="Tedavi Planlama" data-en="Treatment">Tedavi Planlama</span>
+                    <span data-tr="Tedavi Planlama" data-en="Treatment Planning">Tedavi Planlama</span>
                 </a>
             </li>
             <li>
@@ -141,8 +147,12 @@
     <main class="main-content">
         <!-- Header -->
         <header class="page-header">
-            <h1>Healthcare AI Dashboard</h1>
+            <h1 data-tr="Sağlık AI Dashboard" data-en="Healthcare AI Dashboard">Sağlık AI Dashboard</h1>
             <div class="header-actions">
+                <button class="logic-btn" id="logicBtn">
+                    <i class="fas fa-brain"></i>
+                    <span data-tr="Çalışma Mantığı" data-en="Working Logic">Çalışma Mantığı</span>
+                </button>
                 <div class="lang-switch">
                     <button class="lang-btn active" data-lang="tr">TR</button>
                     <button class="lang-btn" data-lang="en">EN</button>
@@ -161,7 +171,7 @@
                     <i class="fas fa-user-injured"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Active Patients</h3>
+                    <h3 data-tr="Aktif Hastalar" data-en="Active Patients">Aktif Hastalar</h3>
                     <p class="stat-number">1,247</p>
                     <span class="stat-change positive">
                         <i class="fas fa-arrow-up"></i> 12.5%
@@ -174,7 +184,7 @@
                     <i class="fas fa-ambulance"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Emergency Cases</h3>
+                    <h3 data-tr="Acil Vakalar" data-en="Emergency Cases">Acil Vakalar</h3>
                     <p class="stat-number">45</p>
                     <span class="stat-change negative">
                         <i class="fas fa-arrow-down"></i> 8.3%
@@ -187,7 +197,7 @@
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>AI Diagnoses</h3>
+                    <h3 data-tr="AI Tanıları" data-en="AI Diagnoses">AI Tanıları</h3>
                     <p class="stat-number">3,456</p>
                     <span class="stat-change positive">
                         <i class="fas fa-arrow-up"></i> 23.1%
@@ -200,7 +210,7 @@
                     <i class="fas fa-pills"></i>
                 </div>
                 <div class="stat-content">
-                    <h3>Prescriptions</h3>
+                    <h3 data-tr="Reçeteler" data-en="Prescriptions">Reçeteler</h3>
                     <p class="stat-number">5,678</p>
                     <span class="stat-change positive">
                         <i class="fas fa-arrow-up"></i> 15.7%
@@ -212,12 +222,12 @@
         <!-- Charts Row -->
         <section class="charts-row">
             <div class="chart-card">
-                <h3>Patient Flow (Last 7 Days)</h3>
+                <h3 data-tr="Hasta Akışı (Son 7 Gün)" data-en="Patient Flow (Last 7 Days)">Hasta Akışı (Son 7 Gün)</h3>
                 <canvas id="patientFlowChart"></canvas>
             </div>
 
             <div class="chart-card">
-                <h3>Triage Distribution</h3>
+                <h3 data-tr="Triaj Dağılımı" data-en="Triage Distribution">Triaj Dağılımı</h3>
                 <canvas id="triageChart"></canvas>
             </div>
         </section>
@@ -225,15 +235,15 @@
         <!-- Recent Activity & Alerts -->
         <section class="activity-section">
             <div class="recent-activity">
-                <h3>Recent Activity</h3>
+                <h3 data-tr="Son Aktiviteler" data-en="Recent Activity">Son Aktiviteler</h3>
                 <ul class="activity-list">
                     <li class="activity-item">
                         <div class="activity-icon critical">
                             <i class="fas fa-exclamation-triangle"></i>
                         </div>
                         <div class="activity-content">
-                            <p><strong>STEMI Alert</strong> activated for Patient P-1023</p>
-                            <span class="activity-time">2 minutes ago</span>
+                            <p data-tr="<strong>STEMI Uyarısı</strong> Hasta P-1023 için aktive edildi" data-en="<strong>STEMI Alert</strong> activated for Patient P-1023"><strong>STEMI Uyarısı</strong> Hasta P-1023 için aktive edildi</p>
+                            <span class="activity-time" data-tr="2 dakika önce" data-en="2 minutes ago">2 dakika önce</span>
                         </div>
                     </li>
                     <li class="activity-item">
@@ -241,8 +251,8 @@
                             <i class="fas fa-check"></i>
                         </div>
                         <div class="activity-content">
-                            <p>Diagnosis completed for Patient P-0987</p>
-                            <span class="activity-time">15 minutes ago</span>
+                            <p data-tr="Hasta P-0987 için tanı tamamlandı" data-en="Diagnosis completed for Patient P-0987">Hasta P-0987 için tanı tamamlandı</p>
+                            <span class="activity-time" data-tr="15 dakika önce" data-en="15 minutes ago">15 dakika önce</span>
                         </div>
                     </li>
                     <li class="activity-item">
@@ -250,8 +260,8 @@
                             <i class="fas fa-pills"></i>
                         </div>
                         <div class="activity-content">
-                            <p>Drug interaction detected: Warfarin + Aspirin</p>
-                            <span class="activity-time">1 hour ago</span>
+                            <p data-tr="İlaç etkileşimi tespit edildi: Warfarin + Aspirin" data-en="Drug interaction detected: Warfarin + Aspirin">İlaç etkileşimi tespit edildi: Warfarin + Aspirin</p>
+                            <span class="activity-time" data-tr="1 saat önce" data-en="1 hour ago">1 saat önce</span>
                         </div>
                     </li>
                     <li class="activity-item">
@@ -259,69 +269,191 @@
                             <i class="fas fa-user-plus"></i>
                         </div>
                         <div class="activity-content">
-                            <p>New patient registered: P-1025</p>
-                            <span class="activity-time">2 hours ago</span>
+                            <p data-tr="Yeni hasta kaydedildi: P-1025" data-en="New patient registered: P-1025">Yeni hasta kaydedildi: P-1025</p>
+                            <span class="activity-time" data-tr="2 saat önce" data-en="2 hours ago">2 saat önce</span>
                         </div>
                     </li>
                 </ul>
             </div>
 
             <div class="alerts-panel">
-                <h3>Active Alerts</h3>
+                <h3 data-tr="Aktif Uyarılar" data-en="Active Alerts">Aktif Uyarılar</h3>
                 <div class="alert-item alert-critical">
                     <i class="fas fa-heartbeat"></i>
                     <div class="alert-content">
-                        <strong>Cardiac Arrest</strong>
-                        <p>Patient P-1001 - Resuscitation Bay 1</p>
+                        <strong data-tr="Kardiyak Arrest" data-en="Cardiac Arrest">Kardiyak Arrest</strong>
+                        <p data-tr="Hasta P-1001 - Resüsitasyon Odası 1" data-en="Patient P-1001 - Resuscitation Bay 1">Hasta P-1001 - Resüsitasyon Odası 1</p>
                     </div>
-                    <button class="alert-btn">Respond</button>
+                    <button class="alert-btn" data-tr="Yanıtla" data-en="Respond">Yanıtla</button>
                 </div>
                 <div class="alert-item alert-high">
                     <i class="fas fa-brain"></i>
                     <div class="alert-content">
-                        <strong>Stroke Alert</strong>
-                        <p>Patient P-0892 - CT ordered</p>
+                        <strong data-tr="İnme Uyarısı" data-en="Stroke Alert">İnme Uyarısı</strong>
+                        <p data-tr="Hasta P-0892 - BT istenmiş" data-en="Patient P-0892 - CT ordered">Hasta P-0892 - BT istenmiş</p>
                     </div>
-                    <button class="alert-btn">View</button>
+                    <button class="alert-btn" data-tr="Görüntüle" data-en="View">Görüntüle</button>
                 </div>
                 <div class="alert-item alert-medium">
                     <i class="fas fa-lungs"></i>
                     <div class="alert-content">
-                        <strong>Sepsis Warning</strong>
-                        <p>Patient P-0765 - Antibiotics started</p>
+                        <strong data-tr="Sepsis Uyarısı" data-en="Sepsis Warning">Sepsis Uyarısı</strong>
+                        <p data-tr="Hasta P-0765 - Antibiyotik başlandı" data-en="Patient P-0765 - Antibiotics started">Hasta P-0765 - Antibiyotik başlandı</p>
                     </div>
-                    <button class="alert-btn">Monitor</button>
+                    <button class="alert-btn" data-tr="İzle" data-en="Monitor">İzle</button>
                 </div>
             </div>
         </section>
 
         <!-- Quick Actions -->
         <section class="quick-actions">
-            <h3>Quick Actions</h3>
+            <h3 data-tr="Hızlı İşlemler" data-en="Quick Actions">Hızlı İşlemler</h3>
             <div class="action-grid">
                 <button class="action-btn">
                     <i class="fas fa-user-plus"></i>
-                    <span>New Patient</span>
+                    <span data-tr="Yeni Hasta" data-en="New Patient">Yeni Hasta</span>
                 </button>
                 <button class="action-btn">
                     <i class="fas fa-ambulance"></i>
-                    <span>Emergency Triage</span>
+                    <span data-tr="Acil Triaj" data-en="Emergency Triage">Acil Triaj</span>
                 </button>
                 <button class="action-btn">
                     <i class="fas fa-x-ray"></i>
-                    <span>Upload Imaging</span>
+                    <span data-tr="Görüntü Yükle" data-en="Upload Imaging">Görüntü Yükle</span>
                 </button>
                 <button class="action-btn">
                     <i class="fas fa-prescription"></i>
-                    <span>New Prescription</span>
+                    <span data-tr="Yeni Reçete" data-en="New Prescription">Yeni Reçete</span>
                 </button>
             </div>
         </section>
     </main>
 
+    <!-- Logic Modal -->
+    <div class="modal-overlay" id="logicModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div class="logic-modal" style="background: linear-gradient(135deg, #131318 0%, #1a1a2e 100%); border: 2px solid rgba(255,0,51,0.3); border-radius: 20px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; padding: 40px; position: relative;">
+            <button class="modal-close" id="modalClose" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="modal-header" style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid rgba(255,0,51,0.2);">
+                <h2 data-tr="🏥 Dashboard Çalışma Mantığı" data-en="🏥 Dashboard Working Logic" style="font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 10px;">🏥 Dashboard Çalışma Mantığı</h2>
+                <p data-tr="MEDIAN AGENT Dashboard'un gerçek zamanlı sağlık verilerini nasıl topladığını ve görselleştirdiğini keşfedin." data-en="Discover how MEDIAN AGENT Dashboard collects and visualizes real-time healthcare data." style="color: #a0a0b8;">MEDIAN AGENT Dashboard'un gerçek zamanlı sağlık verilerini nasıl topladığını ve görselleştirdiğini keşfedin.</p>
+            </div>
+
+            <div class="logic-section" style="margin-bottom: 25px;">
+                <h3 style="font-size: 18px; font-weight: 700; color: #ff0033; margin-bottom: 15px;"><i class="fas fa-chart-line"></i> <span data-tr="Gerçek Zamanlı Veri Toplama" data-en="Real-Time Data Collection">Gerçek Zamanlı Veri Toplama</span></h3>
+                <p data-tr="Dashboard, hastane genelindeki tüm sistemlerden gerçek zamanlı veri toplar: EHR sistemleri, laboratuvar cihazları, vital signs monitörleri, görüntüleme sistemleri ve eczane. Tüm veriler merkezi bir veri göl yapısında toplanır ve anlık olarak işlenir." data-en="The dashboard collects real-time data from all hospital-wide systems: EHR systems, laboratory devices, vital signs monitors, imaging systems, and pharmacy. All data is aggregated in a central data lake structure and processed instantly." style="color: #e0e0e8; line-height: 1.8; margin-bottom: 15px;">Dashboard, hastane genelindeki tüm sistemlerden gerçek zamanlı veri toplar: EHR sistemleri, laboratuvar cihazları, vital signs monitörleri, görüntüleme sistemleri ve eczane. Tüm veriler merkezi bir veri göl yapısında toplanır ve anlık olarak işlenir.</p>
+            </div>
+
+            <div class="logic-section" style="margin-bottom: 25px;">
+                <h3 style="font-size: 18px; font-weight: 700; color: #ff0033; margin-bottom: 15px;"><i class="fas fa-brain"></i> <span data-tr="AI Destekli Analitik" data-en="AI-Powered Analytics">AI Destekli Analitik</span></h3>
+                <p data-tr="Makine öğrenimi modelleri sürekli olarak hasta verilerini analiz eder, trendleri tespit eder ve potansiyel riskleri önceden tahmin eder. Dashboard, bu öngörüleri otomatik olarak görselleştirir ve kritik durumlar için anında uyarılar oluşturur." data-en="Machine learning models continuously analyze patient data, detect trends, and predict potential risks in advance. The dashboard automatically visualizes these predictions and creates instant alerts for critical situations." style="color: #e0e0e8; line-height: 1.8; margin-bottom: 15px;">Makine öğrenimi modelleri sürekli olarak hasta verilerini analiz eder, trendleri tespit eder ve potansiyel riskleri önceden tahmin eder. Dashboard, bu öngörüleri otomatik olarak görselleştirir ve kritik durumlar için anında uyarılar oluşturur.</p>
+            </div>
+
+            <div class="logic-section" style="margin-bottom: 25px;">
+                <h3 style="font-size: 18px; font-weight: 700; color: #ff0033; margin-bottom: 15px;"><i class="fas fa-shield-alt"></i> <span data-tr="Performans Metrikleri" data-en="Performance Metrics">Performans Metrikleri</span></h3>
+                <ul style="color: #e0e0e8; line-height: 2; margin-left: 20px;">
+                    <li data-tr="📊 Aktif Hastalar: Hastanede tedavi gören veya takip edilen tüm hastaların anlık sayısı" data-en="📊 Active Patients: Real-time count of all patients being treated or monitored in the hospital">📊 Aktif Hastalar: Hastanede tedavi gören veya takip edilen tüm hastaların anlık sayısı</li>
+                    <li data-tr="🚨 Acil Vakalar: Acil serviste değerlendirilen veya acil müdahale gerektiren hasta sayısı" data-en="🚨 Emergency Cases: Number of patients being evaluated in ER or requiring emergency intervention">🚨 Acil Vakalar: Acil serviste değerlendirilen veya acil müdahale gerektiren hasta sayısı</li>
+                    <li data-tr="🤖 AI Tanıları: AI sistemleri tarafından yapılan otomatik tanı ve risk değerlendirmeleri" data-en="🤖 AI Diagnoses: Automatic diagnoses and risk assessments made by AI systems">🤖 AI Tanıları: AI sistemleri tarafından yapılan otomatik tanı ve risk değerlendirmeleri</li>
+                    <li data-tr="💊 Reçeteler: Eczane sistemine iletilen ve hazırlanan reçete sayısı" data-en="💊 Prescriptions: Number of prescriptions sent to and prepared by pharmacy system">💊 Reçeteler: Eczane sistemine iletilen ve hazırlanan reçete sayısı</li>
+                </ul>
+            </div>
+
+            <div class="logic-highlight" style="background: rgba(255,0,51,0.1); border-left: 3px solid #ff0033; padding: 15px 20px; border-radius: 8px; margin: 20px 0;">
+                <p style="margin: 0; color: #e0e0e8;">
+                    <strong data-tr="⚡ Gerçek Zamanlı Güncellemeler:" data-en="⚡ Real-Time Updates:">⚡ Gerçek Zamanlı Güncellemeler:</strong>
+                    <span data-tr="Dashboard her 5 saniyede bir otomatik olarak güncellenir. WebSocket bağlantısı ile kritik uyarılar anında gösterilir. Tüm veriler HIPAA/KVKK uyumlu şekilde AES-256 ile şifrelenir." data-en="Dashboard updates automatically every 5 seconds. Critical alerts are shown instantly via WebSocket connection. All data is encrypted with AES-256 in HIPAA/KVKK compliant manner.">Dashboard her 5 saniyede bir otomatik olarak güncellenir. WebSocket bağlantısı ile kritik uyarılar anında gösterilir. Tüm veriler HIPAA/KVKK uyumlu şekilde AES-256 ile şifrelenir.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../static/js/i18n.js"></script>
     <script src="../static/js/dashboard.js"></script>
+
+    <script>
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'tr';
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                if (lang === currentLang) return;
+
+                currentLang = lang;
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                document.querySelectorAll('[data-tr]').forEach(el => {
+                    const trText = el.getAttribute('data-tr');
+                    const enText = el.getAttribute('data-en');
+
+                    if (el.tagName === 'P' && (trText.includes('<strong>') || enText.includes('<strong>'))) {
+                        el.innerHTML = lang === 'tr' ? trText : enText;
+                    } else {
+                        el.textContent = lang === 'tr' ? trText : enText;
+                    }
+                });
+
+                localStorage.setItem('preferred-language', lang);
+            });
+        });
+
+        // Load saved language
+        const savedLang = localStorage.getItem('preferred-language');
+        if (savedLang) {
+            const savedBtn = document.querySelector(`[data-lang="${savedLang}"]`);
+            if (savedBtn) savedBtn.click();
+        }
+
+        // Logic Modal
+        const logicBtn = document.getElementById('logicBtn');
+        const logicModal = document.getElementById('logicModal');
+        const modalClose = document.getElementById('modalClose');
+
+        logicBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            logicModal?.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        modalClose?.addEventListener('click', (e) => {
+            e.preventDefault();
+            logicModal?.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        logicModal?.addEventListener('click', (e) => {
+            if (e.target === logicModal) {
+                logicModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && logicModal?.classList.contains('active')) {
+                logicModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebarClose');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            sidebar?.classList.add('active');
+        });
+
+        sidebarClose?.addEventListener('click', () => {
+            sidebar?.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
