@@ -136,7 +136,7 @@
 
 ### Başlatma Komutu:
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 python3 simple_frontend_server.py
 ```
 

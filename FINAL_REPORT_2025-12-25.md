@@ -299,7 +299,7 @@ $ python3 demo_orchestrator.py
 
 ```bash
 commit f330b37
-Author: Emrah Sardag (with Claude)
+Author: Lydian Lydian (with Claude)
 Date: Thu Dec 25 09:56:11 2025
 
 feat: Implement Task Agent Orchestrator System
@@ -467,7 +467,7 @@ feat: Implement Task Agent Orchestrator System
 
 ```bash
 # Run demo
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 python3 demo_orchestrator.py
 
 # Start local API server
@@ -521,7 +521,7 @@ The Task Agent Orchestrator system has been successfully implemented with:
 
 **Implementation Date:** December 25, 2025
 **Version:** 1.0.0
-**Developed by:** Emrah Sardag (with Claude AI assistance)
+**Developed by:** Lydian Lydian (with Claude AI assistance)
 **Status:** ✅ Complete & Ready for Production
 
 🚀 **Proje başarıyla tamamlandı ve kullanıma hazır!**

@@ -149,8 +149,8 @@ curl -I https://agent.ailydian.com/agents
 
 ### Vercel Dashboard:
 - **Project**: lydian-agent
-- **Organization**: emrahsardag-yandexcoms-projects
-- **Latest Deploy**: https://lydian-agent-i73kov2dl-emrahsardag-yandexcoms-projects.vercel.app
+- **Organization**: lydianlydian-yandexcoms-projects
+- **Latest Deploy**: https://lydian-agent-i73kov2dl-lydianlydian-yandexcoms-projects.vercel.app
 
 ---
 
@@ -168,7 +168,7 @@ curl -I https://agent.ailydian.com/agents
 
 ### Yeni Deployment İçin:
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 vercel --prod --yes
 ```
 

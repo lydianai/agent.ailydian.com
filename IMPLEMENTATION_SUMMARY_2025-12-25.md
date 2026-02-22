@@ -199,7 +199,7 @@ GET  /api/v1/orchestrator/health                 # Health check
 
 ```bash
 # Navigate to project directory
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 
 # Run demo script
 python3 demo_orchestrator.py

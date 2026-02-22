@@ -3,7 +3,7 @@
 ## ⚡ 30 Saniyede Başlat
 
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System/frontend
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System/frontend
 python3.12 -m http.server 8080
 ```
 
@@ -158,7 +158,7 @@ python3.12 -m http.server 8080
 **Çözüm:**
 ```bash
 # Doğru dizinde olduğunuzdan emin olun
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System/frontend
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System/frontend
 ls pages/  # dashboard.html, emergency.html, diagnosis.html görmelisiniz
 ```
 

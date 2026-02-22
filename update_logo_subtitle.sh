@@ -6,7 +6,7 @@
 echo "🔄 Adding Lydian subtitle to logo..."
 echo "=========================================="
 
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System/frontend
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System/frontend
 
 updated=0
 

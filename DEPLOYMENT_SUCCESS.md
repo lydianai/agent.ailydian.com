@@ -6,7 +6,7 @@
 
 **Ana URL:**
 - https://lydian-agent.vercel.app
-- https://lydian-agent-4slcpqpgb-emrahsardag-yandexcoms-projects.vercel.app
+- https://lydian-agent-4slcpqpgb-lydianlydian-yandexcoms-projects.vercel.app
 
 **Sayfalar:**
 - Ana Sayfa: https://lydian-agent.vercel.app/
@@ -82,7 +82,7 @@ TTL:   3600
 **Kurulum Adımları:**
 
 1. **Vercel Dashboard'a Git:**
-   - https://vercel.com/emrahsardag-yandexcoms-projects/lydian-agent
+   - https://vercel.com/lydianlydian-yandexcoms-projects/lydian-agent
 
 2. **Settings → Domains:**
    - "Add Domain" tıkla
@@ -237,14 +237,14 @@ d532cfb - Fix vercel.json: Use rewrites instead of routes
 ## 📞 Vercel Dashboard
 
 **Proje Linki:**
-https://vercel.com/emrahsardag-yandexcoms-projects/lydian-agent
+https://vercel.com/lydianlydian-yandexcoms-projects/lydian-agent
 
 **Deployment Details:**
-https://vercel.com/emrahsardag-yandexcoms-projects/lydian-agent/3wDGvDCfDiHbZogSEAfu7UAunUL1
+https://vercel.com/lydianlydian-yandexcoms-projects/lydian-agent/3wDGvDCfDiHbZogSEAfu7UAunUL1
 
 **Logs:**
 ```bash
-vercel logs https://lydian-agent-4slcpqpgb-emrahsardag-yandexcoms-projects.vercel.app
+vercel logs https://lydian-agent-4slcpqpgb-lydianlydian-yandexcoms-projects.vercel.app
 ```
 
 ---

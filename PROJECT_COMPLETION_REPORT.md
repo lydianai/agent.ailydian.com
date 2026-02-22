@@ -521,7 +521,7 @@ logger.info("Patient", name="John Doe")  # Sensitive
 
 ```bash
 # 1. Clone repository
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 
 # 2. Configure environment
 cp .env.example .env

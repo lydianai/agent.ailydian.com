@@ -18,7 +18,7 @@
 ### 🔧 Adım 1: Projeyi GitHub'a Push
 
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 
 # Git repository başlat (eğer yoksa)
 git init

@@ -1,16 +1,57 @@
-# Agent Healthcare Platform
+<div align="center">
 
-> Quantum-Enhanced Multi-Agent Healthcare Platform with 7 Autonomous Agents for Hospital Management
+# HealthAgent - Quantum-Enhanced Multi-Agent Hospital Management
 
-[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg)](https://www.python.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-20.x-339933.svg)](https://nodejs.org/)
-[![HIPAA](https://img.shields.io/badge/Compliance-HIPAA%20%2B%20KVKK-green.svg)]()
-[![WebSocket](https://img.shields.io/badge/Real--Time-Socket.io-black.svg)](https://socket.io/)
+<p><em>7 Autonomous Clinical Agents with Quantum Optimization for Enterprise Hospital Operations</em></p>
+
+<p>
+  <a href="#overview"><img src="https://img.shields.io/badge/Docs-Overview-blue?style=for-the-badge" alt="Overview"></a>
+  <a href="#agent-orchestration-architecture"><img src="https://img.shields.io/badge/Docs-Architecture-purple?style=for-the-badge" alt="Architecture"></a>
+  <a href="#key-features"><img src="https://img.shields.io/badge/Docs-Features-green?style=for-the-badge" alt="Features"></a>
+  <a href="#getting-started"><img src="https://img.shields.io/badge/Docs-Setup-orange?style=for-the-badge" alt="Setup"></a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/License-Proprietary-red?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Node.js-20.x-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Compliance-HIPAA%20%2B%20KVKK-009900?style=flat-square" alt="Compliance">
+  <img src="https://img.shields.io/badge/Real--Time-Socket.io-black?style=flat-square&logo=socket.io" alt="WebSocket">
+</p>
+
+<br>
+
+<table>
+<tr>
+<td width="50%">
+
+**Platform Highlights**
+- 7 autonomous agents with specialized clinical domain knowledge
+- Quantum computing optimization for resource allocation and scheduling
+- Full HIPAA compliance for all 50 US states plus Turkish KVKK
+- Real-time patient data synchronization via WebSocket across all systems
+
+</td>
+<td width="50%">
+
+**Technical Excellence**
+- FastAPI Python 3.12 backend with Node.js agent runtime
+- Inter-agent communication with dedicated message bus
+- Continuous learning from facility-specific historical patterns
+- End-to-end encryption for all patient health information
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
 
 ## Overview
 
-The Agent Healthcare Platform is an enterprise hospital management system powered by 7 autonomous agents. Each agent specializes in a distinct operational domain — from clinical decision support to pharmacy management — with quantum computing optimization for resource allocation and real-time patient data synchronization via WebSocket.
+HealthAgent is an enterprise hospital management system powered by 7 autonomous agents. Each agent specializes in a distinct operational domain — from clinical decision support to pharmacy management — with quantum computing optimization for resource allocation and real-time patient data synchronization via WebSocket.
 
 The platform meets full HIPAA compliance for US operations (all 50 states) and KVKK compliance for Turkish healthcare regulations.
 
@@ -60,16 +101,15 @@ graph TD
 - **HIPAA + KVKK Full Compliance** — Audit trails, data minimization, breach notification workflows
 - **Continuous Learning** — Agents adapt to facility-specific patterns from historical patient data
 
-## Technology Stack
+## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Backend Core | Python 3.12, FastAPI |
-| Agent Runtime | Node.js 20, Socket.io |
-| Quantum Computing | Quantum Computing APIs |
-| Real-Time | WebSocket, Socket.io |
-| Compliance | Dedicated compliance engine |
-| Container | Docker, Docker Compose |
+| Layer | Technology | Badge |
+|:------|:-----------|:------|
+| Backend Core | Python 3.12, FastAPI | ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-latest-009688?style=flat-square&logo=fastapi) |
+| Agent Runtime | Node.js 20, Socket.io | ![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=flat-square&logo=node.js&logoColor=white) |
+| Quantum Computing | Quantum Computing APIs | ![Quantum](https://img.shields.io/badge/Quantum-Computing-6200EE?style=flat-square) |
+| Real-Time | WebSocket, Socket.io | ![Socket.io](https://img.shields.io/badge/Socket.io-latest-black?style=flat-square&logo=socket.io) |
+| Container | Docker, Docker Compose | ![Docker](https://img.shields.io/badge/Docker-latest-2496ED?style=flat-square&logo=docker&logoColor=white) |
 
 ## Project Structure
 

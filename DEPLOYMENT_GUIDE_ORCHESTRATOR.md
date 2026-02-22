@@ -35,7 +35,7 @@
 
 ```bash
 # Navigate to project directory
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 
 # Run demo script
 python3 demo_orchestrator.py
@@ -72,7 +72,7 @@ python3 demo_orchestrator.py
 pip3 install fastapi uvicorn
 
 # Start FastAPI server
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 uvicorn api.index:app --reload --port 8000
 
 # In another terminal, test endpoints
@@ -128,7 +128,7 @@ Check `vercel.json`:
 npx vercel login
 
 # Deploy to production
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 npx vercel --prod
 
 # Or use vercel CLI
@@ -193,7 +193,7 @@ except ImportError:
 **Option C: Test Locally First**
 ```bash
 # Test with Python HTTP server
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 python3 -m http.server 8000
 
 # Or with uvicorn
@@ -389,7 +389,7 @@ wrk -t2 -c10 -d30s https://agent.ailydian.com/api/v1/orchestrator/status
 
 ```bash
 # 1. Navigate to project
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 
 # 2. Test locally (optional)
 python3 demo_orchestrator.py

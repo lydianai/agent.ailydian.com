@@ -85,7 +85,7 @@
 
 ```bash
 # Clone repository
-cd /Users/sardag/Desktop
+cd /Users/lydian/Desktop
 cd HealthCare-AI-Quantum-System
 
 # Create environment file

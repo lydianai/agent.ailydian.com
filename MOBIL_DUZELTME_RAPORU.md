@@ -170,7 +170,7 @@ if (logicBtn && logicModal && modalClose) {
 
 1. **Tarayıcıda test edin**:
    ```bash
-   cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+   cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
    # Frontend server'ı çalıştırın
    python frontend_server.py
    # Tarayıcıda açın: http://localhost:5000

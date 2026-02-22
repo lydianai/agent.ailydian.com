@@ -301,7 +301,7 @@ POST http://localhost:8000/api/v1/clinical-decision/diagnose
 Demo sayfası `http://localhost:8000` adresine bağlanır.  
 Backend çalışmıyorsa:
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 source venv/bin/activate
 python quickstart.py
 ```

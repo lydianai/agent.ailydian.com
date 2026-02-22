@@ -379,7 +379,7 @@ console.log(window.i18n.currentLang); // 'tr' or 'en'
 
 ### Sunucuyu Başlatma
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System/frontend
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System/frontend
 python3.12 -m http.server 8080
 ```
 

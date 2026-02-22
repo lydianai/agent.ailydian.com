@@ -446,7 +446,7 @@ Minimum:
 ### Docker ile Başlatma
 ```bash
 # 1. Repository'yi klonla
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 
 # 2. Environment ayarla
 cp .env.example .env

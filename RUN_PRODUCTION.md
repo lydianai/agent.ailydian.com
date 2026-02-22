@@ -47,7 +47,7 @@ Sistemi tam kapasite ile çalıştırmak için aşağıdaki API anahtarlarına i
 ### 1. Proje Klonlama/Kopyalama
 
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 ```
 
 ### 2. Python Virtual Environment

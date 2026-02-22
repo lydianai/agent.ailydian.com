@@ -192,7 +192,7 @@ Dark: #0f172a (Slate)
 
 **Yöntem 1: Basit (Sadece Frontend)**
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 python3 simple_frontend_server.py
 ```
 → Frontend açık: http://localhost:3000

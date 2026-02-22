@@ -4,7 +4,7 @@
 
 ### 1️⃣ Terminal'i Aç
 ```bash
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System
 ```
 
 ### 2️⃣ Başlatma Scriptini Çalıştır

@@ -6,7 +6,7 @@
 echo "🔄 Updating branding to MEDIAN AGENT..."
 echo "=========================================="
 
-cd /Users/sardag/Desktop/HealthCare-AI-Quantum-System/frontend
+cd /Users/lydian/Desktop/HealthCare-AI-Quantum-System/frontend
 
 # Count files to update
 total_files=$(find pages templates -name "*.html" -type f | wc -l | tr -d ' ')
