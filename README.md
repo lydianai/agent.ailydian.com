@@ -1,446 +1,186 @@
-# 🏥 HealthCare-AI-Quantum-System
+# Agent Healthcare Platform
 
-**Dünya'nın İlk Quantum-Enhanced, Multi-Agent Hastane Yönetim Platformu**
+> Quantum-Enhanced Multi-Agent Healthcare Platform with 7 Autonomous Agents for Hospital Management
 
-[![Status](https://img.shields.io/badge/Status-Ready%20to%20Start-green.svg)]()
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg)]()
-[![Security](https://img.shields.io/badge/Security-White%20Hat-blue.svg)]()
-[![Compliance](https://img.shields.io/badge/HIPAA-Compliant-success.svg)]()
-[![Compliance](https://img.shields.io/badge/KVKK-Compliant-success.svg)]()
+[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg)](https://www.python.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20.x-339933.svg)](https://nodejs.org/)
+[![HIPAA](https://img.shields.io/badge/Compliance-HIPAA%20%2B%20KVKK-green.svg)]()
+[![WebSocket](https://img.shields.io/badge/Real--Time-Socket.io-black.svg)](https://socket.io/)
 
----
+## Overview
 
-## 🎯 Proje Özeti
+The Agent Healthcare Platform is an enterprise hospital management system powered by 7 autonomous agents. Each agent specializes in a distinct operational domain — from clinical decision support to pharmacy management — with quantum computing optimization for resource allocation and real-time patient data synchronization via WebSocket.
 
-Bu proje, **yapay zeka ve quantum computing** teknolojilerini birleştirerek hastane yönetiminde devrim yaratmayı hedefleyen, **dünyada eşi benzeri olmayan** bir platformdur.
+The platform meets full HIPAA compliance for US operations (all 50 states) and KVKK compliance for Turkish healthcare regulations.
 
-### Temel Özellikler
+## Agent Orchestration Architecture
 
-- **7 Otonom AI Agent**: Her biri farklı hastane sürecinde uzmanlaşmış
-- **Quantum Computing**: IBM Quantum ile optimize edilmiş hastane operasyonları
-- **Dual-Market**: ABD (50 eyalet) ve Türkiye için native destek
-- **Gerçek Zamanlı Öğrenme**: Canlı hasta verilerinden sürekli gelişen sistem
-- **HIPAA + KVKK Uyumlu**: Her iki ülke yasal gerekliliğini karşılayan
-- **White-Hat AI**: Etik, şeffaf ve açıklanabilir yapay zeka
-
----
-
-## 📂 Proje Yapısı
-
-```
-HealthCare-AI-Quantum-System/
-│
-├── README.md                          # Bu dosya
-├── LICENSE                            # Lisans bilgileri
-│
-├── docs/                              # Dokümantasyon
-│   ├── turkish/                       # Türkçe dokümantasyon
-│   │   ├── PROJE_BRIEF.md            # Yönetici özeti (Türkçe)
-│   │   ├── TEKNIK_YOL_HARITASI.md    # Teknik detaylar (Türkçe)
-│   │   ├── KURULUM_REHBERI.md        # Kurulum rehberi
-│   │   └── KULLANIM_KLAVUZU.md       # Kullanıcı kılavuzu
-│   │
-│   └── english/                       # English documentation
-│       ├── PROJECT_BRIEF.md          # Executive summary
-│       ├── TECHNICAL_ROADMAP.md      # Technical details
-│       ├── API_DOCUMENTATION.md      # API reference
-│       └── DEPLOYMENT_GUIDE.md       # Deployment guide
-│
-├── agents/                            # Otonom AI Agents
-│   ├── clinical-decision/            # Klinik karar verme agent
-│   │   ├── src/
-│   │   ├── tests/
-│   │   ├── models/
-│   │   └── README.md
-│   │
-│   ├── resource-optimization/        # Kaynak optimizasyonu agent
-│   │   └── ...
-│   │
-│   ├── patient-monitoring/           # Hasta izleme agent
-│   │   └── ...
-│   │
-│   ├── emergency-response/           # Acil müdahale agent
-│   │   └── ...
-│   │
-│   ├── diagnosis/                    # Tanı asistanı agent
-│   │   └── ...
-│   │
-│   ├── treatment-planning/           # Tedavi planlama agent
-│   │   └── ...
-│   │
-│   └── pharmacy-management/          # Eczane yönetimi agent
-│       └── ...
-│
-├── quantum-core/                     # Quantum computing modülleri
-│   ├── optimization/                 # Optimizasyon algoritmaları (QAOA)
-│   ├── simulation/                   # Moleküler simülasyonlar
-│   ├── ml/                          # Quantum machine learning
-│   └── README.md
-│
-├── security/                         # Güvenlik modülleri
-│   ├── authentication/              # Kimlik doğrulama
-│   ├── authorization/               # Yetkilendirme
-│   ├── encryption/                  # Şifreleme
-│   ├── audit/                       # Denetim logları
-│   └── compliance/                  # Uyumluluk kontrolleri
-│
-├── data-models/                      # Veri modelleri
-│   ├── schemas/                     # Database schemas
-│   ├── migrations/                  # Database migrations
-│   └── README.md
-│
-├── integrations/                     # Dış sistem entegrasyonları
-│   ├── usa-hospitals/               # ABD hastane sistemleri
-│   │   ├── epic/                   # Epic EHR
-│   │   ├── cerner/                 # Cerner
-│   │   └── hl7-fhir/               # HL7 FHIR adapter
-│   │
-│   └── turkey-hospitals/            # Türkiye hastane sistemleri
-│       ├── e-nabiz/                # E-Nabız entegrasyonu
-│       ├── hbys/                   # HBYS entegrasyonu
-│       └── README.md
-│
-├── compliance/                       # Uyumluluk dosyaları
-│   ├── HIPAA_COMPLIANCE.md          # HIPAA uyumluluk
-│   ├── KVKK_COMPLIANCE.md           # KVKK uyumluluk
-│   ├── FDA_SUBMISSIONS.md           # FDA başvuruları
-│   └── audits/                      # Denetim raporları
-│
-├── tests/                           # Test dosyaları
-│   ├── unit/                       # Birim testleri
-│   ├── integration/                # Entegrasyon testleri
-│   ├── e2e/                        # End-to-end testler
-│   └── performance/                # Performans testleri
-│
-├── deployment/                      # Deployment dosyaları
-│   ├── kubernetes/                 # K8s manifests
-│   ├── terraform/                  # Infrastructure as Code
-│   ├── docker/                     # Dockerfiles
-│   └── ci-cd/                      # CI/CD pipeline configs
-│
-└── scripts/                        # Yardımcı scriptler
-    ├── setup.sh                   # İlk kurulum
-    ├── deploy.sh                  # Deployment
-    └── backup.sh                  # Yedekleme
+```mermaid
+graph TD
+    subgraph "Agent Orchestrator"
+        A[Master Coordinator]
+    end
+    subgraph "Clinical Agents"
+        A --> B[Clinical Decision Agent]
+        A --> C[Patient Management Agent]
+        A --> D[Scheduling Agent]
+    end
+    subgraph "Operations Agents"
+        A --> E[Billing Agent]
+        A --> F[Lab Integration Agent]
+        A --> G[Pharmacy Agent]
+        A --> H[Radiology Agent]
+    end
+    subgraph "Data Layer"
+        I[Real-time Sync] --> A
+        J[Quantum Optimizer] --> A
+        K[Compliance Engine] --> A
+    end
 ```
 
----
+## The 7 Autonomous Agents
 
-## 🚀 Hızlı Başlangıç
+| Agent | Domain | Responsibilities |
+|---|---|---|
+| Clinical Decision Agent | Clinical Support | Evidence-based recommendations, diagnosis support, treatment protocols |
+| Patient Management Agent | Patient Flow | Admissions, discharges, transfers, patient records |
+| Scheduling Agent | Operations | Appointment optimization, staff scheduling, OR booking |
+| Billing Agent | Finance | Insurance claims, coding, revenue cycle management |
+| Lab Integration Agent | Diagnostics | Lab order management, result routing, critical value alerts |
+| Pharmacy Agent | Medication | Drug dispensing, interaction checks, formulary management |
+| Radiology Agent | Imaging | Study routing, PACS integration, report distribution |
 
-### Gereksinimler
+## Key Features
 
-- Python 3.11+
-- Docker & Kubernetes
-- PostgreSQL 15+
-- MongoDB 7+
-- Redis 7+
-- IBM Quantum account (quantum features için)
-- AWS/Azure account (production deployment için)
+- **7 Autonomous Healthcare Agents** — Independent agents with specialized domain knowledge and inter-agent communication
+- **Quantum Computing Optimization** — Resource allocation and scheduling optimization via quantum computing APIs
+- **Real-Time Patient Data Sync** — WebSocket-based live synchronization across all hospital systems
+- **US + Turkey Native Compliance** — Full support for all 50 US states and Turkish KVKK regulations
+- **HIPAA + KVKK Full Compliance** — Audit trails, data minimization, breach notification workflows
+- **Continuous Learning** — Agents adapt to facility-specific patterns from historical patient data
 
-### Kurulum (Development)
+## Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Backend Core | Python 3.12, FastAPI |
+| Agent Runtime | Node.js 20, Socket.io |
+| Quantum Computing | Quantum Computing APIs |
+| Real-Time | WebSocket, Socket.io |
+| Compliance | Dedicated compliance engine |
+| Container | Docker, Docker Compose |
+
+## Project Structure
+
+```
+agent.ailydian.com/
+├── agents/               # 7 autonomous agent implementations
+│   ├── clinical/         # Clinical decision agent
+│   ├── patient/          # Patient management agent
+│   ├── scheduling/       # Scheduling optimization agent
+│   ├── billing/          # Billing and revenue cycle agent
+│   ├── lab/              # Lab integration agent
+│   ├── pharmacy/         # Pharmacy management agent
+│   └── radiology/        # Radiology workflow agent
+├── api/                  # FastAPI REST + WebSocket server
+├── core/                 # Agent orchestrator and coordinator
+├── quantum-core/         # Quantum optimization modules
+├── compliance/           # HIPAA + KVKK compliance engine
+├── integrations/         # Hospital system connectors
+└── frontend/             # Dashboard and monitoring UI
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.12+
+- Node.js 20+
+- Docker and Docker Compose
+- Quantum computing API credentials (see Environment Variables)
+
+### Installation
 
 ```bash
-# 1. Repository'yi clone et
-git clone https://github.com/your-org/HealthCare-AI-Quantum-System.git
-cd HealthCare-AI-Quantum-System
+# Clone the repository
+git clone https://github.com/lydianai/agent.ailydian.com.git
+cd agent.ailydian.com
 
-# 2. Virtual environment oluştur
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# veya
-venv\Scripts\activate  # Windows
+# Create Python virtual environment
+python3 -m venv venv312
+source venv312/bin/activate
 
-# 3. Dependencies yükle
+# Install Python dependencies
 pip install -r requirements.txt
 
-# 4. Environment variables ayarla
-cp .env.example .env
-# .env dosyasını düzenle (API keys, database credentials, etc.)
-
-# 5. Database'leri initialize et
-python scripts/init_databases.py
-
-# 6. İlk agent'ı çalıştır (Clinical Decision Agent)
-cd agents/clinical-decision
-python src/main.py
-
-# 7. Dashboard'u başlat (opsiyonel)
-cd ../../dashboard
+# Install Node.js dependencies
 npm install
-npm run dev
+
+# Configure environment variables
+cp .env.example .env
+
+# Start all services
+docker compose up -d
 ```
 
-### Docker ile Çalıştırma
+### Quick Start
 
 ```bash
-# Tüm sistemi Docker Compose ile başlat
-docker-compose up -d
+# Run the development server
+./START_LOCALHOST.sh
 
-# Logları izle
-docker-compose logs -f
-
-# Durdur
-docker-compose down
+# Or manually
+python main.py
 ```
 
----
+## Environment Variables
 
-## 📊 Sistem Mimarisi
+| Variable | Description | Required |
+|---|---|---|
+| `DATABASE_URL` | PostgreSQL connection string | Yes |
+| `REDIS_URL` | Redis connection string | Yes |
+| `JWT_SECRET` | JWT signing secret | Yes |
+| `QUANTUM_API_KEY` | Quantum computing service API key | Yes |
+| `QUANTUM_API_URL` | Quantum computing service endpoint | Yes |
+| `HIPAA_AUDIT_LOG_PATH` | Path for HIPAA audit logs | Yes |
+| `KVKK_DATA_RESIDENCY` | Data residency region for KVKK | Yes |
+| `LLM_PROVIDER_URL` | Language model provider endpoint | Yes |
+| `LLM_API_KEY` | Language model provider API key | Yes |
 
-### High-Level Architecture
+## Compliance
 
-```
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   Web App    │────▶│  API Gateway │────▶│  7 AI Agents │
-│  (React 18)  │     │    (Kong)    │     │              │
-└──────────────┘     └──────────────┘     └──────┬───────┘
-                                                  │
-                     ┌────────────────────────────┼────────┐
-                     │                            │        │
-              ┌──────▼──────┐            ┌───────▼──────┐ │
-              │  Kafka Bus  │            │   Quantum    │ │
-              │  (Events)   │            │   Cloud      │ │
-              └──────┬──────┘            └──────────────┘ │
-                     │                                     │
-          ┌──────────┼─────────────┐                      │
-          │          │             │                      │
-    ┌─────▼────┐ ┌──▼────┐  ┌─────▼──────┐              │
-    │PostgreSQL│ │MongoDB│  │TimescaleDB │              │
-    │ (EHR)    │ │(Docs) │  │(Time-series│              │
-    └──────────┘ └───────┘  └────────────┘              │
-                                                          │
-              ┌───────────────────────────────────────────┘
-              │
-         ┌────▼─────┐
-         │  ML      │
-         │  Models  │
-         │(GPT-4/   │
-         │ Claude)  │
-         └──────────┘
-```
+### HIPAA (United States)
 
-### 7 Otonom Agent
+- Complete audit trail for all PHI access
+- Data encryption at rest (AES-256) and in transit (TLS 1.3)
+- Role-based access control with minimum necessary access
+- Automatic breach detection and notification workflow
+- Business Associate Agreement (BAA) support
 
-1. **Clinical Decision Agent** - Klinik karar desteği
-2. **Resource Optimization Agent** - Kaynak optimizasyonu (Quantum-powered)
-3. **Patient Monitoring Agent** - Gerçek zamanlı hasta izleme
-4. **Emergency Response Agent** - Acil müdahale koordinasyonu
-5. **Diagnosis Agent** - Görüntü analizi ve tanı desteği
-6. **Treatment Planning Agent** - Kişiselleştirilmiş tedavi planları
-7. **Pharmacy Management Agent** - Eczane ve ilaç yönetimi
+### KVKK (Turkey)
 
-Detaylı bilgi için: [`docs/turkish/TEKNIK_YOL_HARITASI.md`](docs/turkish/TEKNIK_YOL_HARITASI.md)
+- Data processing records (VERBIS registration ready)
+- Explicit consent management
+- Data subject rights fulfillment (access, deletion, portability)
+- Cross-border data transfer controls
 
----
+## Security
 
-## 🔒 Güvenlik ve Uyumluluk
+See [SECURITY.md](SECURITY.md) for the vulnerability reporting policy.
 
-### Güvenlik Standartları
+- All endpoints protected with JWT authentication
+- HIPAA-compliant audit logging for all PHI access
+- End-to-end encryption for patient data
+- Regular penetration testing
+- OWASP Top 10 mitigations applied
 
-- **Encryption**: AES-256 (at rest), TLS 1.3 (in transit)
-- **Authentication**: OAuth 2.0, SAML, MFA
-- **Authorization**: RBAC, ABAC
-- **Audit**: Tam denetim kaydı (WORM storage)
-- **Penetration Testing**: Yılda 1 kez
-- **Vulnerability Scanning**: 6 ayda 1 kez
+## License
 
-### Uyumluluk
+Copyright (c) 2024-2026 Lydian (AiLydian). All Rights Reserved.
 
-- ✅ **HIPAA** (Health Insurance Portability and Accountability Act)
-- ✅ **KVKK** (Kişisel Verilerin Korunması Kanunu)
-- ✅ **FDA 21 CFR Part 11** (Electronic Records)
-- ✅ **ISO 27001** (Information Security)
-- ✅ **SOC 2 Type II** (hedef: Yıl 1)
-
-Detaylı bilgi için:
-- [`compliance/HIPAA_COMPLIANCE.md`](compliance/HIPAA_COMPLIANCE.md)
-- [`compliance/KVKK_COMPLIANCE.md`](compliance/KVKK_COMPLIANCE.md)
+This is proprietary software. See [LICENSE](LICENSE) for full terms.
 
 ---
 
-## 📈 Performans Hedefleri
-
-| Metrik | Hedef | Durum |
-|--------|-------|-------|
-| System Uptime | 99.9% | 🎯 |
-| API Response Time | <100ms | 🎯 |
-| Agent Decision Latency | <500ms | 🎯 |
-| Diagnostic Accuracy | >90% | 🎯 |
-| False Alarm Rate | <5% | 🎯 |
-| Operational Cost Reduction | 15% | 🎯 |
-
----
-
-## 🛠️ Teknoloji Stack
-
-### Backend
-- **Languages**: Python 3.11, Rust
-- **Frameworks**: FastAPI, Django
-- **Databases**: PostgreSQL, MongoDB, TimescaleDB
-- **Message Queue**: Apache Kafka, RabbitMQ
-- **Caching**: Redis
-
-### AI/ML
-- **LLMs**: GPT-4o, Claude Opus 3.5, Gemini Pro
-- **Medical Models**: Med-PaLM 2, ClinicalBERT, BioGPT
-- **Computer Vision**: MONAI, YOLOv8, nnU-Net
-- **ML Frameworks**: PyTorch, TensorFlow, scikit-learn
-
-### Quantum Computing
-- **Platforms**: IBM Qiskit, AWS Braket, Rigetti Forest
-- **Algorithms**: QAOA, VQE, Grover's, Quantum ML
-
-### Frontend
-- **Web**: React 18, Next.js 14, TypeScript
-- **Mobile**: React Native, Flutter
-- **Visualization**: D3.js, Plotly, ECharts
-
-### DevOps
-- **Cloud**: AWS (HIPAA-eligible), Azure Health
-- **Containers**: Docker, Kubernetes
-- **CI/CD**: GitHub Actions, GitLab CI
-- **Monitoring**: Prometheus, Grafana, Datadog
-
----
-
-## 📚 Dokümantasyon
-
-### Türkçe
-- [Proje Brief (Yönetici Özeti)](docs/turkish/PROJE_BRIEF.md)
-- [Teknik Yol Haritası](docs/turkish/TEKNIK_YOL_HARITASI.md)
-- [Kurulum Rehberi](docs/turkish/KURULUM_REHBERI.md) (yakında)
-- [Kullanım Kılavuzu](docs/turkish/KULLANIM_KLAVUZU.md) (yakında)
-
-### English
-- [Project Brief (Executive Summary)](docs/english/PROJECT_BRIEF.md) (yakında)
-- [Technical Roadmap](docs/english/TECHNICAL_ROADMAP.md) (yakında)
-- [API Documentation](docs/english/API_DOCUMENTATION.md) (yakında)
-- [Deployment Guide](docs/english/DEPLOYMENT_GUIDE.md) (yakında)
-
----
-
-## 🗓️ Yol Haritası
-
-### Faz 1: Temel (Ay 1-3) - Proof of Concept
-- [x] Sistem mimarisi tasarımı
-- [x] Dokümantasyon
-- [ ] Altyapı kurulumu
-- [ ] İlk 3 agent geliştirme
-- [ ] Pilot testing
-
-### Faz 2: Genişleme (Ay 4-9)
-- [ ] Tüm 7 agent tamamlanması
-- [ ] Quantum integration
-- [ ] 10 hastane rollout
-
-### Faz 3: Ölçekleme (Ay 10-18)
-- [ ] 100+ hastane deployment
-- [ ] FDA clearance
-- [ ] International expansion
-
-Detaylı yol haritası için: [`docs/turkish/PROJE_BRIEF.md`](docs/turkish/PROJE_BRIEF.md)
-
----
-
-## 💰 Yatırım ve ROI
-
-**Toplam Yatırım (18 ay)**: ~$10.3M
-- Personel: $6.2M
-- Altyapı: $2.03M
-- Operasyonel: $2.05M
-
-**3 Yıllık Gelir Projeksiyonu**: $106.3M
-- Yıl 1: $3.3M
-- Yıl 2: $26M
-- Yıl 3: $77M
-
-**ROI**: 600%+ (3 yıl)
-
-Detaylı finansal analiz için: [`docs/turkish/PROJE_BRIEF.md`](docs/turkish/PROJE_BRIEF.md)
-
----
-
-## 👥 Ekip
-
-### Aranılan Roller
-
-- **Chief Medical Officer** (MD with AI experience)
-- **Lead AI Architect** (10+ years experience)
-- **Quantum Computing Lead** (PhD preferred)
-- **Regulatory Affairs Director** (HIPAA/FDA experience)
-- **10x AI/ML Engineers**
-- **6x Backend Developers**
-- **4x Frontend Developers**
-- **3x DevOps Engineers**
-- **2x Security Engineers**
-- **4x Clinical Advisors** (MD/RN)
-
----
-
-## 🤝 Katkıda Bulunma
-
-Bu proje şu anda **private** ve **proprietary** durumdadır.
-
-İşbirliği yapmak için:
-- 📧 Email: [proje-lead@healthcare-ai-quantum.com]
-- 🌐 Website: [yakında]
-
----
-
-## 📄 Lisans
-
-**Proprietary** - Tüm hakları saklıdır.
-
-Bu yazılım telif hakkıyla korunmaktadır. İzinsiz kullanım, kopyalama, değiştirme veya dağıtım yasaktır.
-
----
-
-## ⚠️ Önemli Notlar
-
-### Beyaz Şapka (White Hat) Prensipleri
-
-Bu proje **etik AI** prensiplerine bağlıdır:
-- ✅ Şeffaflık: Her karar açıklanabilir
-- ✅ Adalet: Bias detection ve azaltma
-- ✅ Sorumluluk: Human-in-the-loop
-- ✅ Mahremiyet: HIPAA/KVKK tam uyum
-- ✅ Güvenlik: Beyaz şapka standartları
-
-### Yasal Uyarı
-
-Bu sistem **tıbbi cihaz** kategorisinde olup, ABD'de kullanımı için FDA onayı gerekir. Türkiye'de Sağlık Bakanlığı onayı gereklidir.
-
-Sistemin çıktıları **karar desteği** amaçlıdır, kesin tanı/tedavi kararları **mutlaka lisanslı sağlık personeli** tarafından verilmelidir.
-
----
-
-## 📞 İletişim
-
-**Proje Sahibi**: [Your Name/Organization]
-**Email**: [contact@healthcare-ai-quantum.com]
-**Website**: [yakında]
-
-**Acil Güvenlik Sorunları için**: security@healthcare-ai-quantum.com
-
----
-
-## 🙏 Teşekkürler
-
-Bu proje şu kuruluşların araştırmalarından faydalanmıştır:
-- IBM Quantum
-- OpenAI / Anthropic
-- Cleveland Clinic
-- Mayo Clinic
-- Acıbadem Healthcare Group
-- Memorial Healthcare Group
-
----
-
-**Son Güncelleme**: Aralık 2023
-**Versiyon**: 1.0.0
-**Durum**: Development Ready ✅
-
----
-
-**🚀 Başlamak için: [`docs/turkish/PROJE_BRIEF.md`](docs/turkish/PROJE_BRIEF.md) dosyasını okuyun!**
+Built by [AiLydian](https://www.ailydian.com)
