@@ -1,7 +1,7 @@
 """
 Clinical Decision Agent
 
-AI-powered clinical decision support using LLMs (GPT-4, Claude).
+AI-powered clinical decision support using language models.
 
 Capabilities:
 - Differential diagnosis generation
@@ -35,7 +35,7 @@ class ClinicalDecisionAgent(BaseHealthcareAgent):
     """
     Clinical decision support agent
 
-    Uses GPT-4/Claude to analyze patient data and provide:
+    Uses AI language models to analyze patient data and provide:
     1. Differential diagnoses with probabilities
     2. Recommended diagnostic tests
     3. Treatment suggestions
@@ -152,7 +152,7 @@ class ClinicalDecisionAgent(BaseHealthcareAgent):
         # Build clinical prompt
         prompt = self._build_clinical_prompt(data)
 
-        # Get diagnosis from LLM (try GPT-4 first, fallback to Claude)
+        # Get diagnosis from LLM (primary, with fallback)
         llm_response = await self._query_llm(prompt)
 
         # Parse LLM response
@@ -300,11 +300,11 @@ Think step-by-step and provide evidence-based recommendations."""
 
     async def _query_llm(self, prompt: str) -> str:
         """
-        Query LLM (GPT-4 or Claude)
+        Query LLM (primary or fallback provider)
 
-        Tries GPT-4 first, falls back to Claude if available.
+        Tries primary provider first, falls back to secondary if available.
         """
-        # Try GPT-4 first
+        # Try primary provider first
         if self.openai_client:
             try:
                 response = await self.openai_client.chat.completions.create(
